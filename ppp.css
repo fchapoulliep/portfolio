@@ -166,7 +166,7 @@ ul:hover {
     flex-direction: column;
     cursor: pointer;
     position: fixed;
-    padding-top: 24vh;
+    padding-top: 28vh;
     animation: fade 0.4s;
 }
 
@@ -211,7 +211,7 @@ ul li {
     margin-bottom: -1px;
     position: relative;
     transition: background-color 0.3s ease;
-    width: 47vh;
+    width: 60vh;
     display: flex;
     justify-content: center;
 }
