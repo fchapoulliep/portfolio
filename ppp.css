@@ -397,6 +397,13 @@ a.divRempli {
     }
 }
 
+@media screen and (max-width: 620px) {
+    #HautPage .partieDroite h2 {
+        margin-left: 10vh;
+    }
+}
+
+
 
 @media screen and (max-width: 780px) {
     #HautPage .partieGauche {
