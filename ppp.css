@@ -211,7 +211,7 @@ ul li {
     margin-bottom: -1px;
     position: relative;
     transition: background-color 0.3s ease;
-    width: 47vh;
+    width: 35vh;
     display: flex;
     justify-content: center;
 }
@@ -391,12 +391,18 @@ a.divRempli {
     }
 }
 
+@media screen and (max-width: 912px) {
+    #HautPage .partieGauche {
+        display: none;
+    }
+}
+
 
 @media screen and (max-width: 780px) {
     #HautPage .partieGauche {
         display: none;
     }
-  
+
     #MilieuPageProjet img{
         display : none
     }
