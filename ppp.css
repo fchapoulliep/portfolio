@@ -324,6 +324,7 @@ ul li:hover:before {
     width: 40%;
     border-radius: 20px;
     font-family: open sans;
+    font-size: large;
 }
 
 a.divRempli {
@@ -399,7 +400,7 @@ a.divRempli {
 
 @media screen and (max-width: 620px) {
     #HautPage .partieDroite h2 {
-        margin-left: 10vh;
+        margin-left: 9vh;
     }
 }
 
@@ -415,7 +416,7 @@ a.divRempli {
     }
 
     #MilieuPageProjet a,p{
-        font-size: medium;
+        font-size: large;
     }
 
     #HautPage .partieDroite {
