@@ -390,6 +390,9 @@ a.divRempli {
     #HautPage {
         font-size: smaller;
     }
+    
+    ul li {
+        width: 35vh;
 }
 
 @media screen and (max-width: 912px) {
