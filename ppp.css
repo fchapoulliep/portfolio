@@ -153,7 +153,7 @@ ul {
     margin: 0;
     padding: 0;
     display: none;
-    margin-top: 3em;
+    margin-top: 20em;
 }
 
 #HautPage .partieDroite img {
@@ -166,7 +166,6 @@ ul:hover {
     flex-direction: column;
     cursor: pointer;
     position: fixed;
-    padding-top: 28vh;
     animation: fade 0.4s;
 }
 
