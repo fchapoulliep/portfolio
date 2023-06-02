@@ -211,7 +211,7 @@ ul li {
     margin-bottom: -1px;
     position: relative;
     transition: background-color 0.3s ease;
-    width: 50vh;
+    width: 47vh;
     display: flex;
     justify-content: center;
 }
@@ -389,6 +389,10 @@ a.divRempli {
     #HautPage {
         font-size: smaller;
     }
+    
+    ul li {
+        width: 30vh;
+    }
 }
 
 
@@ -396,11 +400,7 @@ a.divRempli {
     #HautPage .partieGauche {
         display: none;
     }
-    
-    ul li {
-        width: 30vh;
-    }
-
+  
     #MilieuPageProjet img{
         display : none
     }
