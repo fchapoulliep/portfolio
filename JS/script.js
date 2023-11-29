@@ -14,4 +14,10 @@ bouton.addEventListener("click", function() {
     suite.style.display = "none";
     bouton.textContent = "En savoir plus";
   }
+
+  window.scrollBy({
+    top: 300,
+    behavior: "smooth"
+  });
+
 });
