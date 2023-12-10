@@ -1,8 +1,9 @@
 #HautPage {
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: black;
+    border-bottom: solid white 3px;
     height: auto;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     right: 0;
     left: 0;
@@ -10,22 +11,26 @@
     flex-direction: row;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     align-items: center;
+    justify-content: space-around;
 }
 
-#HautPage .photo {
-    width: 120px;
-    height: 120px;
+#HautPage .partieDroite h2 {
+    padding: 15px;
 }
 
 #HautPage .photo img {
     width: 100px;
     height: 120px;
     border-radius: 50%;
-    margin-left: 4em;
 }
 
+::selection {
+    color: black;
+    background-color: white;
+}
 
 .contenue {
+    height:500px;
     padding-top: 11em;
     display: flex;
     align-items: center;
@@ -36,15 +41,17 @@
 
 .contenue h2 {
     text-align: center;
-    font-size: larger;
 }
 
 .rectangle {
     position: relative;
     width: 70%;
-    background-color: rgba(0, 0, 0, 0.6);
+    border: solid white 3px;
     border-radius: 25px;
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -99,17 +106,25 @@
     }
 }
 
-#HautPage .petit {
+.contacter {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
+    position: fixed;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#HautPage .petit a:hover {
+.contacter a:hover {
     color: #554a33;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 #HautPage .partieGauche {
@@ -117,12 +132,6 @@
     align-items: center;
     flex-direction: column;
     width: 50%;
-}
-
-#HautPage .partieGauche h2 {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: rgb(255, 255, 255);
-    font-size: xx-large;
 }
 
 #HautPage .partieGauche p {
@@ -153,7 +162,7 @@ body {
 }
 
 html {
-    background-image: url(fondInfo.jpg);
+    background-color: black;
 }
 
 
@@ -161,6 +170,7 @@ ul {
     list-style: none;
     margin: 0;
     display: none;
+    padding: 0;
 }
 
 #HautPage .partieDroite img {
@@ -175,19 +185,15 @@ ul:hover {
     position: fixed;
     animation: fade 0.4s;
     transition: all;
-    top: 6em;
+    top:9vh;
 }
 
 #HautPage .partieDroite h2:hover {
     color: #554a33;
 }
 
-#HautPage .partieDroite h2 {
-    padding-bottom: 10px
-}
-
 .suite * {
-    color: black;
+    color: white;
 }
 
 .contact {
@@ -220,9 +226,8 @@ ul:hover {
 }
 
 ul li {
-    background-color: rgba(22, 22, 23, .8);
+    background-color: #161617cc;
     color: #c0c0c0;
-    display: block;
     padding: 10px;
     margin-bottom: -1px;
     position: relative;
@@ -233,12 +238,7 @@ ul li {
 }
 
 ul li a {
-    text-decoration: none;
     color: #ccc;
-}
-
-ul li:last-child {
-    margin-bottom: 0;
 }
 
 ul li:hover {
@@ -251,7 +251,6 @@ ul li:hover a {
 }
 
 ul li:before {
-    content: "";
     display: block;
     width: 0;
     height: 0;
@@ -259,7 +258,6 @@ ul li:before {
     border-bottom: 5px solid transparent;
     border-left: 5px solid #ccc;
     position: absolute;
-    top: 50%;
     right: 5px;
     transform: translateY(-50%);
     transition: border-color 0.3s ease;
@@ -289,20 +287,9 @@ ul li:hover:before {
     font-family: sans-serif;
 }
 
-.MilieuPage a {
-    color: black;
-}
-
 .MilieuPage #MilieuPageProjet {
     display: block;
     animation: fade 0.5s;
-}
-
-.MilieuPage ::before,
-::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 @keyframes fade {
@@ -335,22 +322,21 @@ ul li:hover:before {
     font-size: medium;
 }
 
-.MilieuPage #MilieuPageProjet p {
+.MilieuPage #MilieuPageProjet .lien {
     padding: 1vh;
     width: 40%;
     border-radius: 20px;
     font-family: open sans;
     font-size: large;
-    background-color: rgb(255, 255, 255, 0.8);
+    border: solid white 3px;
+    color: white;
+    transition: 0.5s ease;
 }
 
-a.divRempli {
-    text-decoration: none;
-}
-
-.MilieuPage #MilieuPageProjet p:hover {
-    box-shadow: 5px 5px 5px black;
+.MilieuPage #MilieuPageProjet a:hover {
     cursor: pointer;
+    transform: scale(1.05);
+    transition: 0.5s ease;
 }
 
 .MilieuPage img {
@@ -358,16 +344,6 @@ a.divRempli {
     padding-top: 3vh;
     cursor: pointer;
     padding: 6vh;
-}
-
-#HautPage .partieGauche p:nth-child(2) a:hover {
-    cursor: pointer;
-    color: #554a33;
-}
-
-#HautPage .partieGauche a {
-    color: white;
-    text-decoration: none;
 }
 
 .MilieuPage #MilieuPageProjet img:hover {
@@ -392,6 +368,33 @@ a.divRempli {
     right: 20px;
     bottom: 20px;
     cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+    margin-bottom: 5px;
+    transition: 0.5s ease;
+}
+
+/* Bouton Descendre */
+.btnDescendre {
+    transition: 0.5s ease;
+    width: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    top:650px;
+}
+
+.btnDescendre:hover {
+    scale: 1.2;
+    margin-top: 5px;
+    transition: 0.5s ease;
 }
 
 .icone {
@@ -417,7 +420,6 @@ a.divRempli {
     }
 
     #HautPage .partieDroite {
-        margin-left: 25%;
         padding: 25px;
     }
 
