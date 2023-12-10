@@ -68,6 +68,23 @@
     transform: translateY(0);
 }
 
+.MilieuPage #MilieuPageProjet .surLeCote {
+    color: white;
+    writing-mode: vertical-rl;
+    border-left: solid white;
+    border-left-width: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.MilieuPage #MilieuPageProjet .surLeCote:nth-child(1) {
+    color: white;
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
+    border-left: solid white;
+    border-left-width: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 
 #bouton {
     background-color: #fff;
@@ -279,7 +296,6 @@ ul li:hover:before {
 .MilieuPage {
     position: relative;
     height: 100%;
-    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
