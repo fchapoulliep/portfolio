@@ -30,8 +30,7 @@
 }
 
 .contenue {
-    height:500px;
-    padding-top: 11em;
+    height:800px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -380,7 +379,11 @@ ul li:hover:before {
 /* Bouton Descendre */
 .btnDescendre {
     transition: 0.5s ease;
-    width: 100%;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -392,7 +395,7 @@ ul li:hover:before {
 }
 
 .btnDescendre:hover {
-    scale: 1.2;
+    transform: translate(-50%, -50%) scale(1.2);
     margin-top: 5px;
     transition: 0.5s ease;
 }
