@@ -3,7 +3,7 @@
     background-color: black;
     border-bottom: solid white 3px;
     height: 150px;
-    z-index: 2;
+    z-index: 4;
     top: 0;
     right: 0;
     left: 0;
@@ -17,6 +17,16 @@
 ::selection {
     color: black;
     background-color: white;
+}
+
+.portfolio{
+    position: absolute;
+    background-image: url(PHOTO/data.jpg);
+    width: 600px;
+    height: 350px;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
 }
 
 .Présentation {
@@ -33,6 +43,8 @@
     border: solid white 3px;
     padding: 20px;
     border-radius: 20px 20px 20px 20px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.8);
 }
 
 .aPropos p {
@@ -53,6 +65,8 @@
     border: solid white 3px;
     padding: 20px;
     border-radius: 20px 20px 20px 20px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.8);
 }
 
 .mesCompétences h2, .aPropos h2 {
@@ -150,7 +164,7 @@ a {
 img.Florian {
     display: flex;
     height: 90%;
-    width: 135px;
+    width: 140px;
     align-items: center;
     justify-content: center;
     position: absolute;
@@ -225,6 +239,7 @@ ul:hover {
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
+    z-index: 2;
 }
 
 .boutonRedirection {
@@ -308,6 +323,7 @@ ul li:hover:before {
     flex-direction: column;
     align-items: center;
     font-family: sans-serif;
+    text-overflow: hidden;
 }
 
 .MilieuPage #MilieuPageProjet {
@@ -333,7 +349,6 @@ ul li:hover:before {
 
 .MilieuPage .suite:hover {
     color: #554a33;
-    cursor: pointer;
 }
 
 .MilieuPage #MilieuPageProjet {
@@ -400,6 +415,16 @@ ul li:hover:before {
     transition: 0.5s ease;
 }
 
+.CV {
+    position: absolute;
+    top: 25%;
+    right: 50px;
+}
+
+.CV a:hover {
+    color: #554a33;
+}
+
 /* Bouton Descendre */
 .btnDescendre {
     transition: 0.5s ease;
@@ -441,14 +466,12 @@ ul li:hover:before {
     padding: 10px;
     white-space: nowrap;
     overflow: hidden;
-    background-color: white;
     border-radius: 10px 10px 10px 10px;
     transition: 0.5s ease;
 }
 
 .Projet h1 {
     border-bottom: solid white 3px;
-    color: black;
 }
 
 .Projet:hover h1 {
@@ -471,6 +494,35 @@ ul li:hover:before {
     }
 }
 
+@media screen and (max-width: 600px) {
+    .Présentation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aPropos,
+    .mesCompétences {
+        width: 100%;
+        height: auto;
+    }
+
+    .MilieuPage #MilieuPageProjet {
+        flex-direction: column;
+    }
+
+    .MilieuPage img {
+        width: 80%;
+        padding: 3vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contacter,img.Florian,.surLeCote,.CV {
+        display: none; /* Cacher les boutons de contact sur les écrans plus petits */
+    }
+    
+}
+
 @media screen and (max-width: 1090px) {
     #HautPage {
         font-size: smaller;
@@ -479,12 +531,4 @@ ul li:hover:before {
     ul li {
         width: 35vh;
     }
-}
-
-@media screen and (max-width: 912px) {
-
-    #HautPage .partieDroite {
-        padding: 25px;
-    }
-
 }
