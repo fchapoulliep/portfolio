@@ -2,26 +2,16 @@
     position: fixed;
     background-color: black;
     border-bottom: solid white 3px;
-    height: auto;
+    height: 150px;
     z-index: 2;
     top: 0;
     right: 0;
     left: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     align-items: center;
-    justify-content: space-around;
-}
-
-#HautPage .partieDroite h2 {
-    padding: 15px;
-}
-
-#HautPage .photo img {
-    width: 100px;
-    height: 120px;
-    border-radius: 50%;
+    justify-content: center;
 }
 
 ::selection {
@@ -29,44 +19,58 @@
     background-color: white;
 }
 
-.contenue {
-    height:800px;
+.Présentation {
+    width: 100%;
     display: flex;
+    height: 830px;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.contenue h2 {
-    text-align: center;
-}
-
-.rectangle {
-    position: relative;
-    width: 70%;
+.aPropos {
+    width: 35%;
+    height: 50%;
     border: solid white 3px;
-    border-radius: 25px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-sizing: border-box;
-    overflow: hidden;
+    padding: 20px;
+    border-radius: 20px 20px 20px 20px;
 }
 
-.rectangle p {
-    margin: 0;
-    color: #fff;
+.aPropos p {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: 0.5s ease;
 }
 
-.rectangle:hover p {
-    opacity: 1;
+.aPropos p:hover {
     transform: translateY(0);
+    opacity: 1;
+    transition: 0.5s ease;
 }
+
+
+.mesCompétences {
+    width: 35%;
+    height: 50%;
+    border: solid white 3px;
+    padding: 20px;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.mesCompétences h2, .aPropos h2 {
+    text-align: center;
+    margin: 2px;
+}
+
+.mesCompétences p {
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+.mesCompétences p:hover {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.5s ease;
+}
+
 
 .MilieuPage #MilieuPageProjet .surLeCote {
     color: white;
@@ -143,27 +147,24 @@ a {
     color: white;
 }
 
-#HautPage .partieGauche {
+img.Florian {
     display: flex;
+    height: 90%;
+    width: 135px;
     align-items: center;
-    flex-direction: column;
-    width: 50%;
-}
-
-#HautPage .partieGauche p {
-    font-weight: bold;
-    font-size: larger;
+    justify-content: center;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    border-radius: 50%;
 }
 
 #HautPage .partieDroite {
     display: flex;
     align-items: center;
     flex-direction: row;
-}
-
-.partieDroite img {
-    width: 3em;
-    padding-left: 1em;
+    justify-content: center;
+    width: 100%;
 }
 
 body {
@@ -191,6 +192,9 @@ ul {
 
 #HautPage .partieDroite img {
     transition: 0.5s;
+    width: 30px;
+    position: absolute;
+    margin-left: 10px;
 }
 
 #HautPage .partieDroite h2:hover+ul,
@@ -201,11 +205,15 @@ ul:hover {
     position: fixed;
     animation: fade 0.4s;
     transition: all;
-    top:9vh;
+    top:17vh;
 }
 
 #HautPage .partieDroite h2:hover {
     color: #554a33;
+}
+
+#HautPage .partieDroite h2 {
+    padding: 10px;
 }
 
 .suite * {
@@ -248,7 +256,7 @@ ul li {
     margin-bottom: -1px;
     position: relative;
     transition: background-color 0.3s ease;
-    width: 45vh;
+    width: 55vh;
     display: flex;
     justify-content: center;
 }
@@ -421,6 +429,48 @@ ul li:hover:before {
     height: 50px;
 }
 
+.Mouvement {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Projet {
+    width: 12%;
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+    transition: 0.5s ease;
+}
+
+.Projet h1 {
+    border-bottom: solid white 3px;
+    color: black;
+}
+
+.Projet:hover h1 {
+    animation: marquee 4s linear infinite;
+    display: inline-block;
+    transition: 0.5s ease;
+}
+
+#HautPage h1 {
+    padding-top: 10px;
+    margin: 5px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(-108%);
+    }
+    100% {
+        transform: translateX(108%);
+    }
+}
+
 @media screen and (max-width: 1090px) {
     #HautPage {
         font-size: smaller;
@@ -433,16 +483,8 @@ ul li:hover:before {
 
 @media screen and (max-width: 912px) {
 
-    #HautPage .partieGauche,
-    #HautPage .photo {
-        display: none;
-    }
-
     #HautPage .partieDroite {
         padding: 25px;
     }
 
-    .contenue {
-        font-size: smaller
-    }
 }
