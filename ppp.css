@@ -85,6 +85,10 @@
     transition: 0.5s ease;
 }
 
+.MilieuPage #MilieuPageProjet {
+    margin-top: 25px;
+}
+
 
 .MilieuPage #MilieuPageProjet .surLeCote {
     color: white;
@@ -196,7 +200,6 @@ html {
     background-color: black;
 }
 
-
 ul {
     list-style: none;
     margin: 0;
@@ -209,6 +212,7 @@ ul {
     width: 30px;
     position: absolute;
     margin-left: 10px;
+    padding-top: 0.5vh;
 }
 
 #HautPage .partieDroite h2:hover+ul,
@@ -378,17 +382,16 @@ ul li:hover:before {
 }
 
 .MilieuPage img {
-    width: 350px;
-    padding-top: 3vh;
+    width: 400px;
+    height: 300px;
     cursor: pointer;
     padding: 6vh;
 }
 
 .MilieuPage #MilieuPageProjet img:hover {
-    width: 70vh;
-    border-radius: 20px;
-    animation: fade 0.8s;
-    transition: 1.5s;
+    transform: scale(1.2);
+    transition: 1.5s ease;
+    animation: fade 0.5s;
 }
 
 .MilieuPage #MilieuPageProjet img {
@@ -430,7 +433,6 @@ ul li:hover:before {
     transition: 0.5s ease;
     width: 100px;
     height: 100px;
-    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
@@ -440,7 +442,7 @@ ul li:hover:before {
     position: absolute;
     z-index: 1;
     cursor: pointer;
-    top:650px;
+    top:800px;
 }
 
 .btnDescendre:hover {
@@ -462,7 +464,6 @@ ul li:hover:before {
 }
 
 .Projet {
-    width: 12%;
     padding: 10px;
     white-space: nowrap;
     overflow: hidden;
