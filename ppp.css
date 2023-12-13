@@ -40,6 +40,7 @@
 
 .aDroite h2 a.actuelle {
     color: #554a33;
+    cursor: default;
 }
 
 
@@ -50,7 +51,7 @@
     flex-direction: row;
     height: 800px;
     width: 100%;
-    background: linear-gradient(to right,black,80%,gray);
+    background: linear-gradient(to right,black,75%,gray);
 
 }
 
