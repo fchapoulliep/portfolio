@@ -2,16 +2,16 @@
     position: fixed;
     background-color: black;
     border-bottom: solid white 3px;
-    height: 150px;
+    height: 100px;
     z-index: 4;
     top: 0;
     right: 0;
     left: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 ::selection {
@@ -19,70 +19,62 @@
     background-color: white;
 }
 
-.portfolio{
-    position: absolute;
-    background-image: url(PHOTO/data.jpg);
-    width: 600px;
-    height: 350px;
-    z-index: 0;
-    background-size: cover;
-    background-position: center;
-}
-
 .Présentation {
     width: 100%;
     display: flex;
     height: 830px;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
-.aPropos {
-    width: 35%;
-    height: 50%;
-    border: solid white 3px;
-    padding: 20px;
-    border-radius: 20px 20px 20px 20px;
-    z-index: 1;
-    background-color: rgba(0,0,0,0.8);
+.aDroite {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }
 
-.aPropos p {
-    opacity: 0;
-    transition: 0.5s ease;
+.aDroite h2 a:hover {
+    color: #554a33;
 }
 
-.aPropos p:hover {
-    transform: translateY(0);
-    opacity: 1;
-    transition: 0.5s ease;
+.aDroite h2 a.actuelle {
+    color: #554a33;
 }
 
 
-.mesCompétences {
-    width: 35%;
-    height: 50%;
-    border: solid white 3px;
-    padding: 20px;
-    border-radius: 20px 20px 20px 20px;
-    z-index: 1;
-    background-color: rgba(0,0,0,0.8);
+.Accueil {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 800px;
+    width: 100%;
+
 }
 
-.mesCompétences h2, .aPropos h2 {
-    text-align: center;
-    margin: 2px;
+.Accueil .gauche img {
+    position: absolute;
+    height: 600px;
+    border-radius: 50%;
+    top: 120px;
+    left: 2em;
 }
 
-.mesCompétences p {
-    opacity: 0;
-    transition: 0.5s ease;
+.Accueil .gauche {
+    height: 100%;
 }
 
-.mesCompétences p:hover {
-    transform: translateY(0);
-    opacity: 1;
-    transition: 0.5s ease;
+.Accueil .Moi {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    z-index: 2;
+    font-size: x-large;
 }
 
 .MilieuPage #MilieuPageProjet {
@@ -165,18 +157,6 @@ a {
     color: white;
 }
 
-img.Florian {
-    display: flex;
-    height: 90%;
-    width: 140px;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 7px;
-    left: 7px;
-    border-radius: 50%;
-}
-
 #HautPage .partieDroite {
     display: flex;
     align-items: center;
@@ -223,7 +203,9 @@ ul:hover {
     position: fixed;
     animation: fade 0.4s;
     transition: all;
-    top:17vh;
+    padding: 0;
+    margin: 0;
+    top: 4em;
 }
 
 #HautPage .partieDroite h2:hover {
@@ -388,12 +370,6 @@ ul li:hover:before {
     padding: 6vh;
 }
 
-.MilieuPage #MilieuPageProjet img:hover {
-    transform: scale(1.2);
-    transition: 1.5s ease;
-    animation: fade 0.5s;
-}
-
 .MilieuPage #MilieuPageProjet img {
     transition: 1.5s;
 }
@@ -418,16 +394,6 @@ ul li:hover:before {
     transition: 0.5s ease;
 }
 
-.CV {
-    position: absolute;
-    top: 25%;
-    right: 50px;
-}
-
-.CV a:hover {
-    color: #554a33;
-}
-
 /* Bouton Descendre */
 .btnDescendre {
     transition: 0.5s ease;
@@ -440,9 +406,9 @@ ul li:hover:before {
     justify-content: center;
     align-items: center;
     position: absolute;
-    z-index: 1;
+    z-index: 3;
     cursor: pointer;
-    top:800px;
+    top: 650px;
 }
 
 .btnDescendre:hover {
@@ -481,15 +447,33 @@ ul li:hover:before {
     transition: 0.5s ease;
 }
 
-#HautPage h1 {
-    padding-top: 10px;
-    margin: 5px;
+.overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 35%;
+    border-radius: 20px 20px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay img {
+    max-width: 50px;
+    max-height: 50px; 
+}
+
+.divRempli:hover .overlay {
+    opacity: 1;
+    animation: fade 0.5s;
 }
 
 @keyframes marquee {
     0% {
         transform: translateX(-108%);
     }
+
     100% {
         transform: translateX(108%);
     }
@@ -501,11 +485,6 @@ ul li:hover:before {
         align-items: center;
     }
 
-    .aPropos,
-    .mesCompétences {
-        width: 100%;
-        height: auto;
-    }
 
     .MilieuPage #MilieuPageProjet {
         flex-direction: column;
@@ -518,10 +497,13 @@ ul li:hover:before {
 }
 
 @media screen and (max-width: 768px) {
-    .contacter,img.Florian,.surLeCote,.CV {
-        display: none; /* Cacher les boutons de contact sur les écrans plus petits */
+
+    .contacter,
+    .surLeCote {
+        display: none;
+        /* Cacher les boutons de contact sur les écrans plus petits */
     }
-    
+
 }
 
 @media screen and (max-width: 1090px) {

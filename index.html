@@ -14,13 +14,9 @@
 </head>
 
 <body>
-    <div id="HautPage">
-        <h1>Florian Chapoullie-Pino</h1>
-
-        <img src="PHOTO/florianC.JPG" class="Florian">
-
+    <div id="HautPage"> 
         <div class="partieDroite">
-            <h2>Parcourir mes retours d'expériences <img src="PHOTO/fleche.png" alt="flèche"></h2>
+            <h2>Mes retours d'expériences <img src="PHOTO/fleche.png" alt="flèche"></h2>
             <ul>
                 <li><a href="RETOUR/retourOdomo.pdf">RETOUR D'EXPERIENCE 1</a></li>
                 <li><a href="RETOUR/retourBiosphere.pdf">RETOUR D'EXPERIENCE
@@ -31,9 +27,22 @@
                 <li><a href="RETOUR/retourSWOT.pdf">RETOUR D'EXPERIENCE 6</a></li>
             </ul>
         </div>
+        <div class="aDroite">
+        <h2><a class="actuelle" href="index.html">Accueil :</a></h2>
+        <h2><a href="index.html">A propos :</a></h2>
+        <h2><a href="index.html">Contact :</a></h2>
+        </div>
+    </div>
 
-        <h2 class="CV"><a href="CV.pdf">Mon CV</a></h2>
-
+    <div class ="Accueil">
+        <div class="gauche">
+        <img src="PHOTO/florianC.JPG" alt="FlorianC">
+        </div>
+        <div class="Moi">
+            <h1>Bonjour ! Je m'appelle Florian Chapoullié-Pino.</h1>
+            <h2>Bienvenue sur mon portfolio !</h2>
+            <h2 style="margin: 0; font-size: smaller;" >Bonne visite.</h2>
+        </div>
     </div>
 
     <div class="contact">
@@ -49,50 +58,6 @@
         <a href="mailto:florian.chapoullie-pino@etu.u-bordeaux.fr">Desirez
             vous me contacter ?</a>
     </div>
-
-    <div class="Présentation">
-        <div class="aPropos">
-            <h2> Que faut-il savoir sur moi :</h2>
-            <p>Bonjour ! <br> <br>
-
-                Actuellement en 2ème de année de BUT Informatique, je suis un élève motivé à avoir une expérience
-                professionnelle solide. J'ai toujours souhaité vivre dans un monde dans lequel les tâches fastidieuses
-                seraient facilitées par la technologie, c'est pourquoi ma carrière future était toute tracée ! Toujours
-                à la recherche de nouvelles connaissances et opportunités, je suis ouvert à toute offre de stage ou
-                d'emploi !
-                <br> <br>
-
-                Mes activités extra scolaires : <br>
-                - Musculation en salle de sport <br>
-                - Création d'un site web pour une marque de mode
-            </p>
-        </div>
-        <div class="portfolio"></div>
-        <div class="mesCompétences">
-            <h2> Mes compétences :</h2>
-            <p>
-                Informatique :<br>
-                Programmation Python, Java, C# <br> <br>
-                Développement Web : <br>
-                 HTML, CSS, PHP <br> <br>
-                Conception de bases de données : <br>
-                Microsoft SQL Server, Oracle <br> <br>
-                Administration système : <br>
-                 Linux Ubuntu <br> <br>
-                Réalisation de projets
-                Méthodes Agiles : <br>
-                Scrum <br> <br>
-                Versionnage : <br> 
-                GitHub, Gitlab <br> <br>
-                Langues :<br>
-                Anglais - Courant (Niveau B2)
-                Espagnol - Courant
-            </p>
-
-        </div>
-
-    </div>
-
     <div class="btnDescendre">
         <img src="PHOTO/FlècheBas.png" alt="FlècheBas" class="icone">
     </div>
@@ -107,6 +72,9 @@
         <div id="MilieuPageProjet">
             <a href="RETOUR/retourOdomo.pdf" class="divRempli">
                 <img src="PHOTO/odomo.png" alt="projet 1">
+                <div class="overlay">
+                    <img src="PHOTO/redirection.png" alt="Redirection">
+                </div>
             </a>
             <a class="lien" href="RETOUR/retourOdomo.pdf">
                 <p>La réalisation de ce projet a été pour moi une réelle
@@ -159,12 +127,18 @@
             </a>
             <a href="RETOUR/retourBiosphere.pdf" class="divRempli">
                 <img src="PHOTO/biosphere7.png" alt="projet 2">
+                <div class="overlay">
+                    <img src="PHOTO/redirection.png" alt="Redirection">
+                </div>
             </a>
         </div>
         <div class="suite">
             <div id="MilieuPageProjet">
                 <a href="RETOUR/retourMachine.pdf" class="divRempli">
                     <img src="PHOTO/machine.PNG" alt="projet 3">
+                    <div class="overlay">
+                        <img src="PHOTO/redirection.png" alt="Redirection">
+                    </div>
                 </a>
                 <a class="lien" href="RETOUR/retourMachine.pdf">
                     <p>Le « challenge » de cette SAE était d’installer une
@@ -225,12 +199,18 @@
                 </a>
                 <a href="RETOUR/retourSQL.pdf" class="divRempli">
                     <img src="PHOTO/baseDonnees.PNG" alt="projet 4">
+                    <div class="overlay">
+                        <img src="PHOTO/redirection.png" alt="Redirection">
+                    </div>
                 </a>
             </div>
 
             <div id="MilieuPageProjet">
                 <a href="RETOUR/retourWeb.pdf" class="divRempli">
                     <img src="PHOTO/web.PNG" alt="projet 5">
+                    <div class="overlay">
+                        <img src="PHOTO/redirection.png" alt="Redirection">
+                    </div>
                 </a>
                 <a class="lien" href="RETOUR/retourWeb.pdf">
                     <p> Voici une nouvelle fois une SAE qui m'a permis de
@@ -288,6 +268,9 @@
                 </a>
                 <a href="RETOUR/retourSWOT.pdf" class="divRempli">
                     <img src="PHOTO/swot.png" alt="projet 6">
+                    <div class="overlay">
+                        <img src="PHOTO/redirection.png" alt="Redirection">
+                    </div>
                 </a>
             </div>
         </div>
