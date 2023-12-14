@@ -283,7 +283,6 @@ ul li {
     background-color: #161617cc;
     color: #c0c0c0;
     padding: 10px;
-    width: 30vh;
     margin-bottom: -1px;
     position: relative;
     transition: background-color 0.3s ease;
@@ -361,10 +360,6 @@ ul li:hover:before {
 }
 
 
-.MilieuPage .suite:hover {
-    color: #554a33;
-}
-
 .MilieuPage #MilieuPageProjet {
     display: flex;
     flex-direction: row;
@@ -392,9 +387,9 @@ ul li:hover:before {
 
 .MilieuPage img.SAE {
     width: 400px;
-    height: 300px;
+    height: 400px;
     cursor: pointer;
-    padding: 6vh;
+    padding: 10vh;
 }
 
 .MilieuPage #MilieuPageProjet img {
@@ -486,11 +481,49 @@ ul li:hover:before {
     transition: 0.5s ease;
 }
 
+.contactPage {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(to right,black,75%,gray);
+}
+
+.contactPage .desirerContacter {
+    width: 40%;
+    z-index: 2;
+    font-size: larger;
+    margin-bottom: 2em;
+}
+
+.contactPage .imageContact {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactPage .imageContact img {
+    position: absolute;
+    height: 450px;
+    left: 20%;
+    transition: 0.5s ease;
+}
+
+
+.contactPage .imageContact img:hover {
+    transform: scale(1.02);
+    transition: 0.5s ease;
+    box-shadow: white 5px 5px 5px;
+}
+
+.contactPage .desirerContacter h2 {
+    text-align: center;
+}
+
 .overlay {
     position: absolute;
-    bottom: 60px;
-    left: 45%;
-    height: 10%;
+    bottom: 80px;
     border-radius: 20px 20px 20px 20px;
     display: flex;
     justify-content: center;
@@ -500,8 +533,13 @@ ul li:hover:before {
 }
 
 .overlay img {
-    max-width: 50px;
-    max-height: 50px; 
+    width: 50px;
+    height: 50px; 
+}
+
+.divRempli{
+    display: flex;
+    justify-content: center;
 }
 
 .divRempli:hover .overlay {
@@ -525,11 +563,6 @@ ul li:hover:before {
         align-items: center;
     }
 
-
-    .MilieuPage #MilieuPageProjet {
-        flex-direction: column;
-    }
-
     .MilieuPage img {
         width: 80%;
         padding: 3vh;
@@ -546,6 +579,40 @@ ul li:hover:before {
     .surLeCote {
         display: none;
         /* Cacher les boutons de contact sur les écrans plus petits */
+    }
+
+    .gauche img {
+        display: none;
+    }
+
+    .Accueil .Moi {
+        width: 100%;
+    }
+
+    .MilieuPage #MilieuPageProjet {
+        flex-direction: column;
+    }
+
+
+}
+
+@media screen and (max-width: 540px) {
+    .divRempli img {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 951px) {
+    .partieDroite, .aDroite{
+        font-size: smaller;
+    }
+
+}
+
+@media screen and (max-width: 690px) {
+    .partieDroite, .aDroite{
+        font-size: smaller;
     }
 
 }
