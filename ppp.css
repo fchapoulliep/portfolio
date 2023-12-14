@@ -7,10 +7,10 @@
     left: 0;
     display: flex;
     flex-direction: row;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     align-items: center;
     justify-content: space-between;
     font-size: smaller;
+    font-family: open sans;
 }
 
 ::selection {
@@ -49,7 +49,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    height: 800px;
+    height: 100vh;
     width: 100%;
     background: linear-gradient(to right,black,75%,gray);
 
@@ -145,7 +145,6 @@
     left: 20px;
     z-index: 1;
     position: fixed;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .contacter a:hover {
