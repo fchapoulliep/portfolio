@@ -10,12 +10,11 @@
     align-items: center;
     justify-content: space-between;
     font-size: smaller;
-    background: linear-gradient(to right,black,75%,gray);
 }
 
 .HautPage.active {
     background: black;
-    transition: 0.5s ease;
+    transition: 100ms ease;
 }
 
 ::selection {
@@ -63,12 +62,14 @@
     position: absolute;
     height: 600px;
     border-radius: 50%;
-    top: 150px;
     left: 2em;
 }
 
 .Accueil .gauche {
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .Accueil .Moi {
@@ -183,6 +184,27 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.aPropos{
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background: linear-gradient(to right,black,75%,gray);
+}
+
+.contenu,.compétences {
+    width: 40%;
+    height: 60%;
+    font-size: larger;
+}
+
+.contenu h2 , .compétences h2 {
+    text-align: center;
+}
+
+
+
 html {
     background-color: black;
 }
@@ -211,7 +233,7 @@ ul:hover {
     transition: all;
     padding: 0;
     margin: 0;
-    top: 4.5em;
+    top: 4.6em;
 }
 
 .HautPage .partieDroite h2:hover {
@@ -389,8 +411,20 @@ ul li:hover:before {
     position: fixed;
     right: 20px;
     bottom: 20px;
-    cursor: pointer;
+    cursor: default;
     transition: 0.5s ease;
+    z-index: 3;
+}
+
+.btn.active img {
+    cursor: pointer;
+    opacity: 1;
+    transition: 100ms ease;
+}
+
+.btn img {
+    opacity: 0;
+    z-index: 1;
 }
 
 .btn:hover {
