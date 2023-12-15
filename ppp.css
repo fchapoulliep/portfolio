@@ -187,19 +187,20 @@ body {
 .aPropos{
     height: 100vh;
     display: flex;
-    justify-content: space-around;
     align-items: center;
     flex-direction: row;
     background: linear-gradient(to right,black,75%,gray);
 }
 
-.contenu,.compétences {
-    width: 40%;
-    height: 60%;
+.contenu {
+    width: 72%;
+    height: 20%;
     font-size: larger;
+    padding-left: 70px;
+    font-size: 25px;
 }
 
-.contenu h2 , .compétences h2 {
+.contenu h2 {
     text-align: center;
 }
 
@@ -409,6 +410,7 @@ ul li:hover:before {
     cursor: default;
     transition: 0.5s ease;
     z-index: 3;
+    transition: 100ms ease;
 }
 
 .btn.active img {
