@@ -237,6 +237,29 @@ ul:hover {
     top: 4.6em;
 }
 
+.HautPage a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.HautPage.active a::before {
+    background-color: white;
+}
+
+.HautPage a:hover::before {
+    width: 100%;
+}
+
+.HautPage a {
+    position: relative;
+}
+
 .HautPage .partieDroite h2:hover {
     color: rgba(139, 139, 139, 0.979);
 }
@@ -466,21 +489,8 @@ ul li:hover:before {
 }
 
 .Projet {
-    padding: 10px;
-    white-space: nowrap;
-    overflow: hidden;
+    padding-top: 20px;
     border-radius: 10px 10px 10px 10px;
-    transition: 0.5s ease;
-}
-
-.Projet h1 {
-    border-bottom: solid white 3px;
-}
-
-.Projet:hover h1 {
-    animation: marquee 4s linear infinite;
-    display: inline-block;
-    transition: 0.5s ease;
 }
 
 .contactPage {
@@ -489,13 +499,6 @@ ul li:hover:before {
     align-items: center;
     justify-content: space-around;
     background: linear-gradient(to right,black,75%,gray);
-}
-
-.contactPage .desirerContacter {
-    width: 40%;
-    z-index: 2;
-    font-size: larger;
-    margin-bottom: 2em;
 }
 
 .contactPage .imageContact {
@@ -507,8 +510,8 @@ ul li:hover:before {
 
 .contactPage .imageContact img {
     position: absolute;
-    height: 450px;
-    left: 20%;
+    height: 500px;
+    left: 25%;
     transition: 0.5s ease;
 }
 
@@ -519,8 +522,32 @@ ul li:hover:before {
     box-shadow: white 5px 5px 5px;
 }
 
-.contactPage .desirerContacter h2 {
-    text-align: center;
+.contactPage .desirerContacter, .contactPage .lien, .contactPage .imagePageContact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+    font-size: 25px;
+}
+
+.contactPage .desirerContacter {
+    width: 25%;
+}
+
+.contactPage .lien {
+    width: 80%;
+}
+
+.versContact {
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.contactPage .imagePageContact img{
+    max-width: 50px;
+    max-height: 50px;
 }
 
 .overlay {
