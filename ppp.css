@@ -559,7 +559,7 @@ ul li:hover:before {
 
 .overlay {
     position: absolute;
-    bottom: 80px;
+    bottom: 15%;
     border-radius: 20px 20px 20px 20px;
     display: flex;
     justify-content: center;
