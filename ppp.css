@@ -595,11 +595,6 @@ ul li:hover:before {
         align-items: center;
     }
 
-    .MilieuPage img {
-        width: 80%;
-        padding: 3vh;
-    }
-
     .HautPage {
         font-size: smaller;
     }
@@ -692,11 +687,21 @@ ul li:hover:before {
     .lien {
         padding-top: 16px;
     }
+
+    .MilieuPage img.SAE {
+        width: 40%;
+        height: 40%;
+    }
     
 }
 
 @media screen and (max-width: 1220px) {
     .versContact { 
         font-size: smaller;
+    }
+
+    .MilieuPage img.SAE {
+        width: 60%;
+        height: 60%;
     }
 }
