@@ -1,668 +1,585 @@
-
-.HautPage
-{
-	display: flex;
-	z-index: 4;
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	height: 100px;
-	font-size: smaller;
+.HautPage {
+    display: flex;
+    z-index: 4;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    font-size: smaller;
 }
 
-.HautPage.active
-{
-	background: black;
-	transition: 100ms ease;
+.HautPage.active {
+    background: black;
+    transition: 100ms ease;
 }
 
-::selection
-{
-	color: black;
-	background-color: white;
+::selection {
+    color: black;
+    background-color: white;
 }
 
-.Présentation
-{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	height: 830px;
+.Présentation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 830px;
 }
 
-.aDroite
-{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
-	width: 30%;
+.aDroite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 30%;
 }
 
-.aDroite h2 a:hover
-{
-	color: rgba(139, 139, 139, 0.979);
+.aDroite h2 a:hover {
+    color: rgba(139, 139, 139, 0.979);
 }
 
-.aDroite h2 a.actuelle
-{
-	color: rgba(139, 139, 139, 0.979);
-	cursor: default;
+.aDroite h2 a.actuelle {
+    color: rgba(139, 139, 139, 0.979);
+    cursor: default;
 }
 
-.Accueil
-{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	height: 100vh;
-	background: linear-gradient(to right,black,75%,gray);
+.Accueil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, black, 75%, gray);
 }
 
-.Accueil .gauche img
-{
-	position: absolute;
-	left: 2em;
-	height: 70%;
-	border-radius: 50%;
+.Accueil .gauche img {
+    position: absolute;
+    left: 2em;
+    height: 70%;
+    border-radius: 50%;
 }
 
-.Accueil .gauche
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
+.Accueil .gauche {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-.Accueil .Moi
-{
-	display: flex;
-	z-index: 2;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 80%;
-	height: 100%;
-	text-align: center;
-	font-size: x-large;
+.Accueil .Moi {
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    font-size: x-large;
 }
 
-.MilieuPage #MilieuPageProjet
-{
-	margin-top: 25px;
+.MilieuPage #MilieuPageProjet {
+    margin-top: 25px;
 }
 
-.MilieuPage #MilieuPageProjet .surLeCote
-{
-	border-left: solid white;
-	border-left-width: 3px;
-	color: white;
-	writing-mode: vertical-rl;
+.MilieuPage #MilieuPageProjet .surLeCote {
+    border-left: solid white;
+    border-left-width: 3px;
+    color: white;
+    writing-mode: vertical-rl;
 }
 
-.MilieuPage #MilieuPageProjet .surLeCote:nth-child(1)
-{
-	border-left: solid white;
-	border-left-width: 3px;
-	color: white;
-	transform: rotate(180deg);
-	writing-mode: vertical-lr;
+.MilieuPage #MilieuPageProjet .surLeCote:nth-child(1) {
+    border-left: solid white;
+    border-left-width: 3px;
+    color: white;
+    transform: rotate(180deg);
+    writing-mode: vertical-lr;
 }
 
-#bouton
-{
-	display: inline-block;
-	box-sizing: border-box;
-	margin-bottom: 2em;
-	padding: 1rem 1.6rem;
-	border: 0 solid #e2e8f0;
-	border-radius: 1.5rem;
-	text-align: center;
-	text-decoration: none #0d172a solid;
-	font-size: 1.1rem;
-	font-weight: 600;
-	line-height: 1;
-	color: #0d172a;
-	background-color: #fff;
-	box-shadow: 0 1px 2px rgba(166, 175, 195, 0.25);
-	transition: all .1s cubic-bezier(.4,0,.2,1);
-	cursor: pointer;
-	-webkit-user-select: none;
-	user-select: none;
-	text-decoration-thickness: auto;
-	touch-action: manipulation;
+#bouton {
+    display: inline-block;
+    box-sizing: border-box;
+    margin-bottom: 2em;
+    padding: 1rem 1.6rem;
+    border: 0 solid #e2e8f0;
+    border-radius: 1.5rem;
+    text-align: center;
+    text-decoration: none #0d172a solid;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #0d172a;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(166, 175, 195, 0.25);
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    text-decoration-thickness: auto;
+    touch-action: manipulation;
 }
 
-#bouton:hover
-{
-	color: #fff;
-	background-color: rgba(139, 139, 139, 0.979);
+#bouton:hover {
+    color: #fff;
+    background-color: rgba(139, 139, 139, 0.979);
 }
 
-@media (min-width:768px)
-{
-	#bouton
-	{
-		padding: 1rem 2rem;
-		font-size: 1.125rem;
-	}
+@media (min-width:768px) {
+    #bouton {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+    }
 }
 
-.contacter
-{
-	display: flex;
-	z-index: 1;
-	position: fixed;
-	bottom: 20px;
-	left: 20px;
-	align-items: center;
-	justify-content: center;
+.contacter {
+    display: flex;
+    z-index: 1;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
-.contacter a:hover
-{
-	color: rgba(139, 139, 139, 0.979);
-	cursor: pointer;
+.contacter a:hover {
+    color: rgba(139, 139, 139, 0.979);
+    cursor: pointer;
 }
 
-a
-{
-	text-decoration: none;
-	color: white;
+a {
+    text-decoration: none;
+    color: white;
 }
 
-.HautPage .partieDroite
-{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	width: 30%;
+.HautPage .partieDroite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
 }
 
-.signature img
-{
-	width: 100px;
-	height: 100px;
+.signature img {
+    width: 100px;
+    height: 100px;
 }
 
-body
-{
-	display: inline;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	min-height: 100%;
-	font-family: 'Montserrat',sans-serif;
-	color: #f5f5f7;
+body {
+    display: inline;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    color: #f5f5f7;
 }
 
 * {
     transition: 200ms ease;
 }
 
-.aPropos
-{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	height: 60vh;
-	background: linear-gradient(to right,black,75%,gray);
+.aPropos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60vh;
+    background: linear-gradient(to right, black, 75%, gray);
 }
 
-.contenu
-{
-	width: 72%;
-	height: 20%;
-	padding-left: 70px;
-	font-size: larger;
-	font-size: 25px;
+.contenu {
+    width: 72%;
+    height: 20%;
+    padding-left: 70px;
+    font-size: larger;
+    font-size: 25px;
 }
 
-.contenu h2
-{
-	text-align: center;
+.contenu h2 {
+    text-align: center;
 }
 
-html
-{
-	background-color: black;
+html {
+    background-color: black;
 }
 
-ul
-{
-	display: none;
-	margin: 0;
-	padding: 0;
-	list-style: none;
+ul {
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-.HautPage .partieDroite img
-{
-	position: absolute;
-	width: 30px;
-	margin-left: 10px;
-	transition: 0.5s;
+.HautPage .partieDroite img {
+    position: absolute;
+    width: 30px;
+    margin-left: 10px;
+    transition: 0.5s;
 }
 
-.HautPage .partieDroite h2:hover + ul,ul:hover
-{
-	display: block;
-	position: fixed;
-	top: 4.6em;
-	flex-direction: column;
-	margin: 0;
-	padding: 0;
-	animation: fade 0.4s;
-	transition: all;
-	cursor: pointer;
+.HautPage .partieDroite h2:hover+ul,
+ul:hover {
+    display: block;
+    position: fixed;
+    top: 4.6em;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    animation: fade 0.4s;
+    transition: all;
+    cursor: pointer;
 }
 
-.HautPage .aDroite a::before
-{
-	content: "";
-	position: absolute;
-	bottom: -2px;
-	left: 0;
-	width: 0;
-	height: 2px;
-	background-color: black;
-	transition: width 0.3s ease;
+.HautPage .aDroite a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease;
 }
 
-.HautPage.active .aDroite a::before
-{
-	background-color: white;
+.HautPage.active .aDroite a::before {
+    background-color: white;
 }
 
-.HautPage a:hover::before
-{
-	width: 100%;
+.HautPage a:hover::before {
+    width: 100%;
 }
 
-.HautPage a
-{
-	position: relative;
+.HautPage a {
+    position: relative;
 }
 
-.HautPage .partieDroite h2:hover
-{
-	color: rgba(139, 139, 139, 0.979);
+.HautPage .partieDroite h2:hover {
+    color: rgba(139, 139, 139, 0.979);
 }
 
-.suite *
-{
-	color: white;
+.suite * {
+    color: white;
 }
 
-.contact
-{
-	z-index: 2;
-	position: fixed;
-	top: 50%;
-	right: 10px;
-	transform: translateY(-50%);
+.contact {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
 }
 
-.boutonRedirection
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 50px;
-	height: 50px;
-	margin-bottom: 10px;
-	border-radius: 50%;
-	overflow: hidden;
-	background-color: #fff;
+.boutonRedirection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
 }
 
-.boutonRedirection img
-{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+.boutonRedirection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.boutonRedirection:hover
-{
-	opacity: 0.8;
-	transform: scale(1.1);
+.boutonRedirection:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
 }
 
-ul.menuRetour li
-{
-	display: flex;
-	position: relative;
-	justify-content: center;
-	margin-bottom: -1px;
-	padding: 10px;
-	color: #c0c0c0;
-	background-color: #161617cc;
-	transition: background-color 0.3s ease;
+ul.menuRetour li {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-bottom: -1px;
+    padding: 10px;
+    color: #c0c0c0;
+    background-color: #161617cc;
+    transition: background-color 0.3s ease;
 }
 
-ul.menuRetour li a
-{
-	color: #ccc;
+ul.menuRetour li a {
+    color: #ccc;
 }
 
-ul.menuRetour li:hover
-{
-	background-color: #ccc;
-	cursor: pointer;
+ul.menuRetour li:hover {
+    background-color: #ccc;
+    cursor: pointer;
 }
 
-ul.menuRetour li:hover a
-{
-	color: rgba(22, 22, 23);
+ul.menuRetour li:hover a {
+    color: rgba(22, 22, 23);
 }
 
-ul.menuRetour li:before
-{
-	display: block;
-	position: absolute;
-	right: 5px;
-	width: 0;
-	height: 0;
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent;
-	border-left: 5px solid #ccc;
-	transition: border-color 0.3s ease;
-	transform: translateY(-50%);
+ul.menuRetour li:before {
+    display: block;
+    position: absolute;
+    right: 5px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #ccc;
+    transition: border-color 0.3s ease;
+    transform: translateY(-50%);
 }
 
-ul.menuRetour li:hover:before
-{
-	border-left-color: #333;
+ul.menuRetour li:hover:before {
+    border-left-color: #333;
 }
 
-@keyframes slide-in
-{
-	0%
-	{
-		transform: translateX(-100%);
-	}
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+    }
 
-	100%
-	{
-		transform: translateX(0);
-	}
+    100% {
+        transform: translateX(0);
+    }
 }
 
-.MilieuPage
-{
-	display: flex;
-	position: relative;
-	flex-direction: column;
-	align-items: center;
-	height: 100%;
-	text-overflow: hidden;
+.MilieuPage {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    text-overflow: hidden;
 }
 
-.MilieuPage #MilieuPageProjet
-{
-	display: block;
-	animation: fade 0.5s;
+.MilieuPage #MilieuPageProjet {
+    display: block;
+    animation: fade 0.5s;
 }
 
-@keyframes fade
-{
-	from
-	{
-		opacity: 0;
-	}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
 
-	to
-	{
-		opacity: 1;
-	}
+    to {
+        opacity: 1;
+    }
 }
 
-.MilieuPage .suite
-{
-	font-size: x-large;
-	color: white;
+.MilieuPage .suite {
+    font-size: x-large;
+    color: white;
 }
 
-.MilieuPage #MilieuPageProjet
-{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	font-size: medium;
+.MilieuPage #MilieuPageProjet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: medium;
 }
 
-.MilieuPage #MilieuPageProjet .lienRetour
-{
-	width: 40%;
-	padding: 1vh;
-	border: solid white 3px;
-	border-radius: 20px;
-	font-size: large;
-	color: white;
-	transition: 0.5s ease;
+.MilieuPage #MilieuPageProjet .lienRetour {
+    width: 40%;
+    padding: 1vh;
+    border: solid white 3px;
+    border-radius: 20px;
+    font-size: large;
+    color: white;
+    transition: 0.5s ease;
 }
 
-.MilieuPage #MilieuPageProjet a:hover
-{
-	transition: 0.5s ease;
-	transform: scale(1.05);
-	cursor: pointer;
+.MilieuPage #MilieuPageProjet a:hover {
+    transition: 0.5s ease;
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
-.MilieuPage img.SAE
-{
-	width: 80%;
-	height: 400px;
-	padding: 10vh;
-	cursor: pointer;
+.MilieuPage img.SAE {
+    width: 80%;
+    height: 400px;
+    padding: 10vh;
+    cursor: pointer;
 }
 
-.MilieuPage #MilieuPageProjet img
-{
-	transition: 1.5s;
+.MilieuPage #MilieuPageProjet img {
+    transition: 1.5s;
 }
 
-.btn
-{
-	display: flex;
-	z-index: 3;
-	position: fixed;
-	right: 20px;
-	bottom: 20px;
-	align-items: center;
-	justify-content: center;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	transition: 0.5s ease;
-	transition: 100ms ease;
-	cursor: default;
+.btn {
+    display: flex;
+    z-index: 3;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: 0.5s ease;
+    transition: 100ms ease;
+    cursor: default;
 }
 
-.btn.active img
-{
-	opacity: 1;
-	transition: 100ms ease;
-	cursor: pointer;
+.btn.active img {
+    opacity: 1;
+    transition: 100ms ease;
+    cursor: pointer;
 }
 
-.btn img
-{
-	z-index: 1;
-	opacity: 0;
+.btn img {
+    z-index: 1;
+    opacity: 0;
 }
 
-.btn:hover
-{
-	margin-bottom: 5px;
-	transition: 0.5s ease;
-	transform: scale(1.2);
+.btn:hover {
+    margin-bottom: 5px;
+    transition: 0.5s ease;
+    transform: scale(1.2);
 }
 
 /* Bouton Descendre */
-.btnDescendre
-{
-	display: flex;
-	z-index: 3;
-	position: absolute;
-	top: 90vh;
-	left: 50%;
-	align-items: center;
-	justify-content: center;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	transition: 0.5s ease;
-	transform: translate(-50%, -50%);
-	cursor: pointer;
+.btnDescendre {
+    display: flex;
+    z-index: 3;
+    position: absolute;
+    top: 90vh;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: 0.5s ease;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
-.btnDescendre:hover
-{
-	margin-top: 5px;
-	transition: 0.5s ease;
-	transform: translate(-50%, -50%) scale(1.2);
+.btnDescendre:hover {
+    margin-top: 5px;
+    transition: 0.5s ease;
+    transform: translate(-50%, -50%) scale(1.2);
 }
 
-.icone
-{
-	width: 50px;
-	height: 50px;
+.icone {
+    width: 50px;
+    height: 50px;
 }
 
-.Mouvement
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
+.Mouvement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-.Projet
-{
-	padding-top: 20px;
-	border-radius: 10px 10px 10px 10px;
+.Projet {
+    padding-top: 20px;
+    border-radius: 10px 10px 10px 10px;
 }
 
-.contactPage
-{
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	height: 100vh;
-	background: linear-gradient(to right,black,75%,gray);
+.contactPage {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    background: linear-gradient(to right, black, 75%, gray);
 }
 
-.contactPage .imageContact
-{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 100%;
+.contactPage .imageContact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-.contactPage .imageContact img
-{
-	position: absolute;
-	left: 22%;
-	height: 50%;
-	transition: 0.5s ease;
+.contactPage .imageContact img {
+    position: absolute;
+    left: 22%;
+    height: 50%;
+    transition: 0.5s ease;
 }
 
-.contactPage .imageContact img:hover
-{
-	box-shadow: white 5px 5px 5px;
-	transition: 0.5s ease;
-	transform: scale(1.02);
+.contactPage .imageContact img:hover {
+    box-shadow: white 5px 5px 5px;
+    transition: 0.5s ease;
+    transform: scale(1.02);
 }
 
-.versContact
-{
-	display: flex;
-	z-index: 2;
-	position: absolute;
-	left: 40%;
-	flex-direction: row;
-	justify-content: center;
-	width: 60%;
-	font-size: 25px;
-	transition: 0.5s ease;
+.versContact {
+    display: flex;
+    z-index: 2;
+    position: absolute;
+    left: 40%;
+    flex-direction: row;
+    justify-content: center;
+    width: 60%;
+    font-size: 25px;
+    transition: 0.5s ease;
 }
 
-.versContact a:hover
-{
-	font-size: larger;
-	transition: 0.5s ease;
+.versContact a:hover {
+    font-size: larger;
+    transition: 0.5s ease;
 }
 
-.versContact a
-{
-	transition: 0.5s ease;
+.versContact a {
+    transition: 0.5s ease;
 }
 
-.desirerContacter,.lien
-{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.desirerContacter,
+.lien {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.desirerContacter
-{
-	width: 40%;
+.desirerContacter {
+    width: 40%;
 }
 
-.lien
-{
-	width: 100%;
+.lien {
+    width: 100%;
 }
 
-.overlay
-{
-	display: flex;
-	position: absolute;
-	bottom: 15%;
-	align-items: center;
-	justify-content: center;
-	border-radius: 20px 20px 20px 20px;
-	opacity: 0;
-	transition: opacity 0.3s ease;
+.overlay {
+    display: flex;
+    position: absolute;
+    bottom: 15%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 20px 20px 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.overlay img
-{
-	width: 50px;
-	height: 50px;
+.overlay img {
+    width: 50px;
+    height: 50px;
 }
 
-.divRempli
-{
-	display: flex;
-	justify-content: center;
+.divRempli {
+    display: flex;
+    justify-content: center;
 }
 
-.divRempli:hover .overlay
-{
-	opacity: 1;
-	animation: fade 0.5s;
+.divRempli:hover .overlay {
+    opacity: 1;
+    animation: fade 0.5s;
 }
 
 .container {
     width: 100%;
     height: 500px;
-    background: linear-gradient(to right,black,75%,gray); ;
+    background: linear-gradient(to right, black, 75%, gray);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -722,194 +639,160 @@ button .arrow {
 }
 
 
-@keyframes marquee
-{
-	0%
-	{
-		transform: translateX(-108%);
-	}
+@keyframes marquee {
+    0% {
+        transform: translateX(-108%);
+    }
 
-	100%
-	{
-		transform: translateX(108%);
-	}
+    100% {
+        transform: translateX(108%);
+    }
 }
 
-@media screen and (max-width:600px)
-{
-	.Présentation
-	{
-		flex-direction: column;
-		align-items: center;
-	}
+@media screen and (max-width:600px) {
+    .Présentation {
+        flex-direction: column;
+        align-items: center;
+    }
 
-	.HautPage
-	{
-		font-size: smaller;
-	}
+    .HautPage {
+        font-size: smaller;
+    }
 }
 
-@media screen and (max-width:768px)
-{
-	.contacter,.surLeCote
-	{
-		display: none;
-	}
+@media screen and (max-width:768px) {
 
-	.gauche img
-	{
-		display: none;
-	}
+    .contacter,
+    .surLeCote {
+        display: none;
+    }
 
-	.Accueil .Moi
-	{
-		width: 100%;
-		font-size: smaller;
-	}
+    .gauche img {
+        display: none;
+    }
 
-	.MilieuPage #MilieuPageProjet
-	{
-		flex-direction: column;
-	}
+    .Accueil .Moi {
+        width: 100%;
+        font-size: smaller;
+    }
 
-	.MilieuPage #MilieuPageProjet a.lienRetour
-	{
-		width: 80%;
-	}
+    .MilieuPage #MilieuPageProjet {
+        flex-direction: column;
+    }
+
+    .MilieuPage #MilieuPageProjet a.lienRetour {
+        width: 80%;
+    }
 }
 
-@media screen and (max-width:540px)
-{
-	.divRempli img
-	{
-		display: none;
-	}
+@media screen and (max-width:540px) {
+    .divRempli img {
+        display: none;
+    }
 }
 
-@media screen and (max-width:951px)
-{
-	.partieDroite,.aDroite
-	{
-		font-size: smaller;
-	}
+@media screen and (max-width:951px) {
+
+    .partieDroite,
+    .aDroite {
+        font-size: smaller;
+    }
 }
 
-@media screen and (max-width:690px)
-{
-	.partieDroite,.aDroite
-	{
-		font-size: smaller;
-	}
+@media screen and (max-width:690px) {
 
-	.imageContact img
-	{
-		display: none;
-	}
+    .partieDroite,
+    .aDroite {
+        font-size: smaller;
+    }
 
-	.versContact
-	{
-		left: 30%;
-	}
+    .imageContact img {
+        display: none;
+    }
+
+    .versContact {
+        left: 30%;
+    }
 }
 
-@media screen and (max-width:1090px)
-{
-	.HautPage
-	{
-		font-size: smaller;
-	}
+@media screen and (max-width:1090px) {
+    .HautPage {
+        font-size: smaller;
+    }
 
-	ul.menuRetour li
-	{
-		width: 35vh;
-	}
+    ul.menuRetour li {
+        width: 35vh;
+    }
 }
 
-@media screen and (max-width:952px)
-{
+@media screen and (max-width:952px) {
 
     .aPropos {
         height: 100vh;
     }
 
-	.contenu
-	{
-		width: 100%;
-		padding: 20%;
-		font-size: smaller;
-	}
+    .contenu {
+        width: 100%;
+        padding: 20%;
+        font-size: smaller;
+    }
 
     .container {
         display: none;
     }
 }
 
-@media screen and (max-width:687px)
-{
-	.aDroite
-	{
-		width: 50%;
-	}
+@media screen and (max-width:687px) {
+    .aDroite {
+        width: 50%;
+    }
 
-	.signature
-	{
-		display: none;
-	}
+    .signature {
+        display: none;
+    }
 
-	.partieDroite
-	{
-		margin-left: 1em;
-	}
+    .partieDroite {
+        margin-left: 1em;
+    }
 
-	ul.menuRetour li
-	{
-		width: 10vh;
-	}
+    ul.menuRetour li {
+        width: 10vh;
+    }
 }
 
-@media screen and (max-width:649px)
-{
-	.lien
-	{
-		padding-top: 16px;
-	}
+@media screen and (max-width:649px) {
+    .lien {
+        padding-top: 16px;
+    }
 
-	.MilieuPage img.SAE
-	{
-		width: 40%;
-		height: 40%;
-	}
+    .MilieuPage img.SAE {
+        width: 40%;
+        height: 40%;
+    }
 }
 
-@media screen and (max-width:1220px)
-{
-	.versContact
-	{
-		font-size: smaller;
-	}
+@media screen and (max-width:1220px) {
+    .versContact {
+        font-size: smaller;
+    }
 
-	.MilieuPage img.SAE
-	{
-		width: 60%;
-		height: 60%;
-	}
+    .MilieuPage img.SAE {
+        width: 60%;
+        height: 60%;
+    }
 }
 
-@media screen and (max-width:500px)
-{
-	.versContact .desirerContacter
-	{
-		width: 100%;
-		padding: 0;
-	}
+@media screen and (max-width:500px) {
+    .versContact .desirerContacter {
+        width: 100%;
+        padding: 0;
+    }
 
-	.lien
-	{
-		padding-top: 32px;
-	}
+    .lien {
+        padding-top: 32px;
+    }
 
-	.contact
-	{
-		display: none;
-	}
+    .contact {
+        display: none;
+    }
 }
