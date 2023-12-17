@@ -60,7 +60,7 @@
 
 .Accueil .gauche img {
     position: absolute;
-    height: 600px;
+    height: 70%;
     border-radius: 50%;
     left: 2em;
 }
