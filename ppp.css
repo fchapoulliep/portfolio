@@ -237,7 +237,7 @@ ul:hover {
     top: 4.6em;
 }
 
-.HautPage a::before {
+.HautPage .aDroite a::before {
     content: "";
     position: absolute;
     width: 0;
@@ -248,7 +248,7 @@ ul:hover {
     transition: width 0.3s ease;
 }
 
-.HautPage.active a::before {
+.HautPage.active .aDroite a::before {
     background-color: white;
 }
 
@@ -262,10 +262,6 @@ ul:hover {
 
 .HautPage .partieDroite h2:hover {
     color: rgba(139, 139, 139, 0.979);
-}
-
-.HautPage .partieDroite h2 {
-    padding: 10px;
 }
 
 .suite * {
@@ -410,7 +406,7 @@ ul li:hover:before {
 }
 
 .MilieuPage img.SAE {
-    width: 400px;
+    width: 80%;
     height: 400px;
     cursor: pointer;
     padding: 10vh;
@@ -510,8 +506,8 @@ ul li:hover:before {
 
 .contactPage .imageContact img {
     position: absolute;
-    height: 500px;
-    left: 16%;
+    height: 50%;
+    left: 22%;
     transition: 0.5s ease;
 }
 
@@ -639,6 +635,13 @@ ul li:hover:before {
 
 }
 
+@media screen and (max-width: 708px) {
+    .aPropos .contenu {
+        font-size: smaller;
+    }
+
+}
+
 @media screen and (max-width: 951px) {
     .partieDroite, .aDroite{
         font-size: smaller;
@@ -651,7 +654,7 @@ ul li:hover:before {
         font-size: smaller;
     }
 
-    .desirerContacter, .imageContact img{
+     .imageContact img{
         display: none;
     }
 
@@ -665,6 +668,31 @@ ul li:hover:before {
     ul li {
         width: 35vh;
     }
+}
+
+@media screen and (max-width: 687px) {
+    .aDroite {
+        width: 50%;
+    }
+
+    .signature {
+        display: none;
+    }
+
+    .partieDroite {
+        margin-left: 1em;
+    }
+
+    ul li {
+        width: 10vh;
+    }
+}
+
+@media screen and (max-width: 649px) {
+    .lien {
+        padding-top: 16px;
+    }
+    
 }
 
 @media screen and (max-width: 1220px) {
