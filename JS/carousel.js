@@ -2,7 +2,7 @@ const img = document.getElementById('carousel');
 const rightBtn = document.getElementById('right-btn');
 const leftBtn = document.getElementById('left-btn');
 
-let pictures = ['../PHOTO/fah.PNG','PHOTO/Fin.png']
+let pictures = ['/PHOTO/fah.PNG','/PHOTO/Fin.png']
 
 img.src = pictures[0];
 let position = 0;
