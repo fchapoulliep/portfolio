@@ -84,6 +84,10 @@
   transition: width 0.3s ease-in-out;
 }
 
+.nav-bar.background .nav-item::after {
+  background-color: #ffffff;
+}
+
 .active {
   color: #282c34 !important;
 }
