@@ -1,0 +1,79 @@
+.portfolio-welcome {
+  height: calc(100vh - 100px);
+  background: linear-gradient(to right, black, 75%, gray);
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 100px;
+}
+
+.portfolio-welcome h1 {
+  font-size: calc(0.5em + 2vw);
+}
+
+.portfolio-welcome h2 {
+  font-size: calc(0.3em + 1vw);
+}
+.portfolio-welcome-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.portfolio-welcome-photo img {
+  position: absolute;
+  left: 3em;
+  width: 35%;
+  border-radius: 50%;
+}
+
+.portfolio-welcome-text {
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.arrow-experiences img {
+  width: 50px;
+  height: 50px;
+  margin-top: 50px;
+  transition: 0.5s;
+}
+
+.arrow-experiences img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.arrow-scroll-top img {
+  width: 50px;
+  height: 50px;
+  transition: 0.5s;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  transition: all 0.5s;
+  z-index: 3;
+  opacity: 0;
+}
+
+.arrow-scroll-top.visible img {
+  opacity: 1;
+}
+
+.arrow-scroll-top img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.portfolio-experiences {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  padding-bottom: 4em;
+}

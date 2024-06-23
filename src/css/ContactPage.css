@@ -1,0 +1,9 @@
+.contact-page {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 100px);
+  padding-top: 100px;
+  background: linear-gradient(to right, black, 75%, gray);
+  justify-content: center;
+  align-items: center;
+}

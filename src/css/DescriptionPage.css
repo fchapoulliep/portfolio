@@ -1,0 +1,41 @@
+.description {
+  height: calc(100vh - 100px);
+  background: linear-gradient(to right, black, 75%, gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding-top: 100px;
+}
+
+.description-content {
+  width: 70%;
+  margin-right: 15%;
+}
+
+.description-content h2 {
+  font-size: calc(0.5em + 1vw);
+  color: #ffffff;
+}
+
+.description-content p {
+  font-size: calc(10px + 0.5vw);
+  color: #ffffff;
+}
+
+.description-carousel {
+  width: 40%;
+  min-width: 400px;
+  margin-top: 1em;
+}
+
+.description-carousel:hover {
+  cursor: pointer;
+}
+
+.description-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,31 @@
+.social-media-redirection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 40%;
+  right: 10px;
+  z-index: 1000;
+}
+
+.social-media-redirection a {
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 50%;
+  transition: all 0.2s;
+  overflow: hidden;
+}
+
+.social-media-redirection a:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.1);
+}
+
+.social-media-redirection a img {
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+}

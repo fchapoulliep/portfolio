@@ -1,0 +1,124 @@
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: #ffffff;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  font-size: calc(0.3em + 1vw);
+  position: fixed;
+  z-index: 100;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-bar.background {
+  background-color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-bar-experiences {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-bar-logo {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50vh;
+}
+
+.nav-bar-logo img {
+  width: 100px;
+  height: 100px;
+  transition: all 0.5s;
+}
+
+.nav-bar-logo img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.nav-bar-redirection {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-bar-redirection p,
+.nav-bar-redirection a {
+  color: #ffffff;
+  text-decoration: none;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: calc(0.3em + 1vw);
+}
+
+.nav-bar-redirection .nav-item {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.nav-bar-redirection .nav-item:hover {
+  color: #282c34 !important;
+}
+
+.nav-bar-redirection .nav-item::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 10%;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+}
+
+.active {
+  color: #282c34 !important;
+}
+
+.nav-bar-redirection .nav-item:hover::after {
+  width: 80%;
+  left: 10%;
+}
+
+.ant-btn {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  font-size: calc(0.3em + 1vw);
+  line-height: 0;
+}
+
+.ant-btn:hover {
+  background-color: transparent;
+  color: #282c34 !important;
+  border: none;
+}
+
+.ant-btn:hover .ant-dropdown {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+}
+
+.ant-dropdown-trigger {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.ant-dropdown-open {
+  background-color: transparent !important;
+  border: none !important;
+}

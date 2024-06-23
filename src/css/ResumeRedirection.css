@@ -1,0 +1,18 @@
+.resume-redirection {
+  position: fixed;
+  left: 20px;
+  color: white;
+  bottom: 20px;
+  z-index: 5;
+}
+
+.resume-redirection a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: calc(0.1em + 0.9vw);
+}
+
+.resume-redirection a:hover {
+  color: #282c34;
+}
