@@ -35,10 +35,10 @@ const App: React.FC = () => {
       <ResumeRedirection />
       <SocialMediaRedirection />
       <Routes>
-        <Route path="/" element={<PortfolioPage />} />
-        <Route path="/description" element={<DescriptionPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/portfolio/description" element={<DescriptionPage />} />
+        <Route path="/portfolio/contact" element={<ContactPage />} />
+        <Route path="*" element={<Navigate to="/portfolio" />} />
       </Routes>
     </Router>
   );
