@@ -27,7 +27,7 @@ const NavigationBar: React.FC = () => {
       key: "1",
       label: (
         <a
-          href="portfolio/experiences/retourOdomo.pdf"
+          href="experiences/retourOdomo.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -39,7 +39,7 @@ const NavigationBar: React.FC = () => {
       key: "2",
       label: (
         <a
-          href="portfolio/experiences/retourBiosphere.pdf"
+          href="experiences/retourBiosphere.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -51,7 +51,7 @@ const NavigationBar: React.FC = () => {
       key: "3",
       label: (
         <a
-          href="portfolio/experiences/retourMachine.pdf"
+          href="experiences/retourMachine.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -63,7 +63,7 @@ const NavigationBar: React.FC = () => {
       key: "4",
       label: (
         <a
-          href="portfolio/experiences/retourSQL.pdf"
+          href="experiences/retourSQL.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -75,7 +75,7 @@ const NavigationBar: React.FC = () => {
       key: "5",
       label: (
         <a
-          href="portfolio/experiences/retourWeb.pdf"
+          href="experiences/retourWeb.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -87,7 +87,7 @@ const NavigationBar: React.FC = () => {
       key: "6",
       label: (
         <a
-          href="portfolio/experiences/retourSWOT.pdf"
+          href="experiences/retourSWOT.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -99,7 +99,7 @@ const NavigationBar: React.FC = () => {
       key: "7",
       label: (
         <a
-          href="portfolio/experiences/retourSymfony.pdf"
+          href="experiences/retourSymfony.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >

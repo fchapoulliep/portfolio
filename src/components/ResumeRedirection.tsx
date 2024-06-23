@@ -19,7 +19,7 @@ const ResumeRedirection: React.FC = () => {
   return (
     <div className="resume-redirection">
       <a
-        href="portfolio/experiences/CVChapoulliePinoFlorian.pdf"
+        href="experiences/CVChapoulliePinoFlorian.pdf"
         target="_blank"
         rel="noopener noreferrer"
       >
