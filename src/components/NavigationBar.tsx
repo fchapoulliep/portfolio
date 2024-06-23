@@ -19,7 +19,7 @@ const NavigationBar: React.FC = () => {
   const location = useLocation();
 
   const handleLogoRedirection = () => {
-    window.location.href = "/home";
+    window.location.href = "/";
   };
 
   const items = [
@@ -121,12 +121,8 @@ const NavigationBar: React.FC = () => {
       </div>
       <div className="nav-bar-redirection">
         <Link
-          className={`nav-item ${
-            location.pathname === "/home" || location.pathname === "/home/"
-              ? "active"
-              : ""
-          }`}
-          to="/home"
+          className={`nav-item ${location.pathname === "/" ? "active" : ""}`}
+          to="/"
         >
           Accueil
         </Link>
