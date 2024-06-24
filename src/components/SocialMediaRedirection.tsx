@@ -14,9 +14,7 @@ import "../css/SocialMediaRedirection.css";
 /**
  *  Link to the social media images
  */
-import linkedin from "../images/linkedin.png";
-import github from "../images/github.png";
-import email from "../images/email.png";
+import { LinkedinOutlined, GithubOutlined, MailOutlined } from "@ant-design/icons";
 
 /**
  * Redirects to the social media pages
@@ -30,17 +28,17 @@ const SocialMediaRedirection: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src={linkedin} alt="linkedin" />
+        <LinkedinOutlined style={{color:"black", verticalAlign: "middle", fontSize :"150%"}} />
       </a>
       <a
         href="https://github.com/fchapoulliep"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src={github} alt="github" />
+        <GithubOutlined style={{color:"black", verticalAlign: "middle", fontSize :"150%"}} />
       </a>
       <a href="mailto:florian.chapoullie-pino@etu.u-bordeaux.fr">
-        <img src={email} alt="email" />
+        <MailOutlined style={{color:"black", verticalAlign: "middle", fontSize :"150%"}} />
       </a>
     </div>
   );

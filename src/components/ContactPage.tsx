@@ -1,26 +1,26 @@
 /**
  * ContactPage.tsx
  * @file ContactPage.tsx
- * @description ContactPage.tsx est un composant React pour la page de contact du site portfolio.
- * Il s'agit d'un composant fonctionnel qui retourne une div avec le nom de classe "contact-page".
+ * @description ContactPage.tsx is a React component for the contact page of the portfolio website.
+ * It is a functional component that returns a div with the class name "contact-page".
  */
 
 /**
- * Importation des modules nécessaires pour faire fonctionner le composant
+ * Importing necessary modules to make the component work
  */
 import React from "react";
 import "../css/ContactPage.css";
 import emailjs from "emailjs-com";
 
-import mail from "../images/email.png";
 import { Form, Input, Button, message } from "antd";
-import { SunFilled } from "@ant-design/icons";
+import { MailOutlined, MessageOutlined } from "@ant-design/icons";
 
 const ContactPage: React.FC = () => {
   const [form] = Form.useForm();
 
   /**
-   * Gérer l'envoi du mail
+   * handleMailSending function
+   * @param values values of the form
    */
   const handleMailSending = (values: any) => {
     emailjs
@@ -50,12 +50,10 @@ const ContactPage: React.FC = () => {
   return (
     <div className="contact-page">
       <div className="contact-text">
-        <h1>Mon profil vous intéresse ? Contactez-moi :</h1>
-        <p>
-          Ensemble, faisons progresser le monde <SunFilled />
-        </p>
+        <h1>Mon profil vous intéresse ? Contactez-moi</h1>
+        <p>Ensemble, faisons progresser le monde...</p>
         <div className="contact-mail">
-          <img src={mail} alt="mail" />
+          <MailOutlined style={{ fontSize: "150%" }} />
           <p>
             Envoyez-moi un e-mail à <br />
             <a href="mailto:florian.chapoullie-pino@etu.u-bordeaux.fr">
@@ -65,7 +63,9 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
       <div className="contact-info">
-        <h2>Ou contactez-moi directement ici !</h2>
+        <h2>
+          Envoyez un message ici <MessageOutlined />
+        </h2>
         <Form
           form={form}
           onFinish={handleMailSending}
@@ -99,7 +99,12 @@ const ContactPage: React.FC = () => {
               { required: true, message: "Veuillez entrer votre message" },
             ]}
           >
-            <Input.TextArea />
+            <Input.TextArea
+              autoSize={{
+                minRows: 2,
+                maxRows: 6,
+              }}
+            />
           </Form.Item>
 
           <Form.Item>
