@@ -16,3 +16,14 @@
 .resume-redirection a:hover {
   color: #282c34;
 }
+
+@media (max-width: 768px) {
+  .resume-redirection {
+    left: 10px;
+    bottom: 10px;
+  }
+
+  .resume-redirection a {
+    font-size: calc(0.1em + 1.5vw);
+  }
+}

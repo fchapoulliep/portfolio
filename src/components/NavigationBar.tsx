@@ -18,8 +18,19 @@ import signature from "../images/signature.png";
 const NavigationBar: React.FC = () => {
   const location = useLocation();
 
+  /**
+   * Handle the redirection to the home page when the logo is clicked
+   */
   const handleLogoRedirection = () => {
     window.location.href = "/portfolio";
+  };
+
+  /**
+   * Reset the background of the navigation bar
+   */
+  const resetNavBarBackground = () => {
+    const navBar = document.querySelector(".nav-bar") as HTMLElement;
+    navBar.classList.remove("background");
   };
 
   const items = [
@@ -112,7 +123,12 @@ const NavigationBar: React.FC = () => {
   return (
     <div className="nav-bar">
       <div className="nav-bar-experiences">
-        <Dropdown menu={{ items }} placement="bottom" arrow autoAdjustOverflow>
+        <Dropdown
+          menu={{ items }}
+          placement="bottomRight"
+          arrow
+          autoAdjustOverflow
+        >
           <Button>Mes retours d'expériences</Button>
         </Dropdown>
       </div>
@@ -128,6 +144,7 @@ const NavigationBar: React.FC = () => {
               : ""
           }`}
           to="/portfolio"
+          onClick={resetNavBarBackground}
         >
           Accueil
         </Link>
@@ -139,6 +156,7 @@ const NavigationBar: React.FC = () => {
               : ""
           }`}
           to="/portfolio/description"
+          onClick={resetNavBarBackground}
         >
           À propos
         </Link>
@@ -150,6 +168,7 @@ const NavigationBar: React.FC = () => {
               : ""
           }`}
           to="/portfolio/contact"
+          onClick={resetNavBarBackground}
         >
           Contact
         </Link>
