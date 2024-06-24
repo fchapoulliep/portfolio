@@ -111,18 +111,23 @@
   border: none;
 }
 
-.ant-btn:hover .ant-dropdown {
-  background-color: transparent;
-  color: #ffffff;
-  border: none;
-}
-
 .ant-dropdown-trigger {
   background-color: transparent !important;
   border: none !important;
 }
 
-.ant-dropdown-open {
-  background-color: transparent !important;
-  border: none !important;
+.dropdown-experiences ul {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+.dropdown-experiences ul li {
+  color: #ffffff !important;
+}
+
+.dropdown-experiences ul li:hover {
+  background: #282c34 !important;
+}
+
+.ant-dropdown-arrow:before {
+  background: rgba(0, 0, 0, 0.8) !important;
 }

@@ -128,6 +128,7 @@ const NavigationBar: React.FC = () => {
           placement="bottomRight"
           arrow
           autoAdjustOverflow
+          overlayClassName="dropdown-experiences"
         >
           <Button>Mes retours d'expériences</Button>
         </Dropdown>
