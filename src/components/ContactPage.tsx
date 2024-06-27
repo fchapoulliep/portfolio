@@ -53,7 +53,7 @@ const ContactPage: React.FC = () => {
         <h1>Mon profil vous intéresse ? Contactez-moi</h1>
         <p>Ensemble, faisons progresser le monde...</p>
         <div className="contact-mail">
-          <MailOutlined style={{ fontSize: "150%" }} />
+          <MailOutlined style={{ fontSize: "150%" , margin: "10px"}} />
           <p>
             Envoyez-moi un e-mail à <br />
             <a href="mailto:florian.chapoullie-pino@etu.u-bordeaux.fr">
