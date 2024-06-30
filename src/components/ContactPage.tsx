@@ -53,7 +53,7 @@ const ContactPage: React.FC = () => {
         <h1>Mon profil vous intéresse ? Contactez-moi</h1>
         <p>Ensemble, faisons progresser le monde...</p>
         <div className="contact-mail">
-          <MailOutlined style={{ fontSize: "150%" , margin: "10px"}} />
+          <MailOutlined style={{ fontSize: "150%", margin: "10px" }} />
           <p>
             Envoyez-moi un e-mail à <br />
             <a href="mailto:florian.chapoullie-pino@etu.u-bordeaux.fr">
@@ -76,7 +76,7 @@ const ContactPage: React.FC = () => {
             name="name"
             rules={[{ required: true, message: "Veuillez entrer votre nom" }]}
           >
-            <Input placeholder="Nom*" />
+            <Input placeholder="Nom*" autoComplete="off" />
           </Form.Item>
 
           <Form.Item
@@ -89,7 +89,7 @@ const ContactPage: React.FC = () => {
               },
             ]}
           >
-            <Input placeholder="Mail*" />
+            <Input placeholder="Mail*" autoComplete="off" />
           </Form.Item>
 
           <Form.Item
@@ -104,6 +104,7 @@ const ContactPage: React.FC = () => {
                 minRows: 2,
                 maxRows: 6,
               }}
+              autoComplete="off"
             />
           </Form.Item>
 

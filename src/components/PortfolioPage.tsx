@@ -59,7 +59,7 @@ const PortfolioPage: React.FC = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
     const experience = experiencesRef.current;
     if (experience) {
