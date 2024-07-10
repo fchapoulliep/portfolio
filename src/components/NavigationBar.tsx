@@ -18,6 +18,10 @@ import signature from "../images/signature.png";
 const NavigationBar: React.FC = () => {
   const location = useLocation();
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   /**
    * Handle the redirection to the home page when the logo is clicked
    */
@@ -145,7 +149,12 @@ const NavigationBar: React.FC = () => {
               : ""
           }`}
           to="/portfolio"
-          onClick={resetNavBarBackground}
+          onClick={
+            location.pathname === "/portfolio" ||
+            location.pathname === "/portfolio/"
+              ? scrollToTop
+              : resetNavBarBackground
+          }
         >
           Accueil
         </Link>
@@ -157,7 +166,12 @@ const NavigationBar: React.FC = () => {
               : ""
           }`}
           to="/portfolio/description"
-          onClick={resetNavBarBackground}
+          onClick={
+            location.pathname === "/portfolio/description" ||
+            location.pathname === "/portfolio/description/"
+              ? scrollToTop
+              : resetNavBarBackground
+          }
         >
           À propos
         </Link>
@@ -169,7 +183,12 @@ const NavigationBar: React.FC = () => {
               : ""
           }`}
           to="/portfolio/contact"
-          onClick={resetNavBarBackground}
+          onClick={
+            location.pathname === "/portfolio/contact" ||
+            location.pathname === "/portfolio/contact/"
+              ? scrollToTop
+              : resetNavBarBackground
+          }
         >
           Contact
         </Link>

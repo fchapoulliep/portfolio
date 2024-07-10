@@ -6,7 +6,6 @@
   justify-content: space-around;
   align-items: center;
   height: 100px;
-  font-size: calc(0.3em + 1vw);
   position: fixed;
   z-index: 100;
   transition: all 0.2s ease-in-out;
@@ -17,21 +16,21 @@
   transition: all 0.2s ease-in-out;
 }
 
-.nav-bar-experiences {
+.nav-bar-experiences,
+.nav-bar-logo,
+.nav-bar-redirection {
   height: 100%;
-  width: 33%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.nav-bar-logo {
-  height: 100%;
+.nav-bar-experiences {
   width: 33%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 50vh;
+}
+
+.nav-bar-logo {
+  width: 33%;
 }
 
 .nav-bar-logo img {
@@ -46,7 +45,6 @@
 }
 
 .nav-bar-redirection {
-  height: 100%;
   width: 33%;
   display: flex;
   align-items: center;
@@ -89,7 +87,7 @@
 }
 
 .active {
-  color: #282c34 !important;
+  color: gray !important;
 }
 
 .nav-bar-redirection .nav-item:hover::after {
@@ -102,7 +100,9 @@
   color: #ffffff;
   border: none;
   font-size: calc(0.3em + 1vw);
-  line-height: 0;
+  line-height: 0 !important;
+  display: flex;
+  align-items: center;
 }
 
 .ant-btn:hover {
@@ -130,4 +130,28 @@
 
 .ant-dropdown-arrow:before {
   background: rgba(0, 0, 0, 0.8) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    font-size: 20px;
+  }
+
+  .nav-bar-experiences {
+    width: 50%;
+  }
+
+  .nav-bar-redirection {
+    width: 50%;
+  }
+
+  .nav-bar-redirection p,
+  .nav-bar-redirection a {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .nav-bar-logo {
+    display: none;
+  }
 }
