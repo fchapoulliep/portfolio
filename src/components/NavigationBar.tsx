@@ -150,33 +150,23 @@ const NavigationBar: React.FC = () => {
       </div>
       <div className="nav-bar-redirection">
         <Link
-          className={`nav-item ${
-            location.pathname === "/portfolio" ||
-            location.pathname === "/portfolio/"
-              ? "active"
-              : ""
-          }`}
-          to="/portfolio"
+          className={`nav-item ${location.pathname === "/" ? "active" : ""}`}
+          to="/"
           onClick={
-            location.pathname === "/portfolio" ||
-            location.pathname === "/portfolio/"
-              ? scrollToTop
-              : resetNavBarBackground
+            location.pathname === "/" ? scrollToTop : resetNavBarBackground
           }
         >
           Accueil
         </Link>
         <Link
           className={`nav-item ${
-            location.pathname === "/portfolio/description" ||
-            location.pathname === "/portfolio/description/"
+            location.pathname === "/about" || location.pathname === "/about/"
               ? "active"
               : ""
           }`}
-          to="/portfolio/description"
+          to="/about"
           onClick={
-            location.pathname === "/portfolio/description" ||
-            location.pathname === "/portfolio/description/"
+            location.pathname === "/about" || location.pathname === "/about/"
               ? scrollToTop
               : resetNavBarBackground
           }
@@ -185,15 +175,15 @@ const NavigationBar: React.FC = () => {
         </Link>
         <Link
           className={`nav-item ${
-            location.pathname === "/portfolio/contact" ||
-            location.pathname === "/portfolio/contact/"
+            location.pathname === "/contact" ||
+            location.pathname === "/contact/"
               ? "active"
               : ""
           }`}
-          to="/portfolio/contact"
+          to="/contact"
           onClick={
-            location.pathname === "/portfolio/contact" ||
-            location.pathname === "/portfolio/contact/"
+            location.pathname === "/contact" ||
+            location.pathname === "/contact/"
               ? scrollToTop
               : resetNavBarBackground
           }
