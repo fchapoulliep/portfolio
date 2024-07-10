@@ -15,6 +15,10 @@ import emailjs from "emailjs-com";
 import { Form, Input, Button, message } from "antd";
 import { MailOutlined, MessageOutlined } from "@ant-design/icons";
 
+/**
+ * ContactPage component.
+ * Renders a contact form and contact information.
+ */
 const ContactPage: React.FC = () => {
   const [form] = Form.useForm();
 

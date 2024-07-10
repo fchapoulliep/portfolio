@@ -1,3 +1,17 @@
+/**
+ * FILEPATH: /c:/Users/ksori/OneDrive/Bureau/portfolio/src/css/SocialMediaRedirection.css
+ * 
+ * CSS styles for social media redirection component.
+ * 
+ * The `.social-media-redirection` class is used to style a container that holds social media redirection links.
+ * It is positioned fixed at the center right of the screen, with a z-index of 1000.
+ * 
+ * The `.social-media-redirection a` selector styles the individual social media redirection links within the container.
+ * The links have a #f7f7f7 background color, circular shape with border-radius, and a transition effect on hover.
+ * 
+ * On hover, the links have a background color of #f1f1f1 and a scale transform of 1.1.
+ */
+
 .social-media-redirection {
   display: flex;
   flex-direction: column;
@@ -13,7 +27,7 @@
   margin: 5px;
   padding: 7px;
   text-decoration: none;
-  background-color: white;
+  background-color: #f7f7f7;
   border-radius: 50%;
   transition: all 0.2s;
   overflow: hidden;

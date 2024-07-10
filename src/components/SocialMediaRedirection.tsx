@@ -14,7 +14,11 @@ import "../css/SocialMediaRedirection.css";
 /**
  *  Link to the social media images
  */
-import { LinkedinOutlined, GithubOutlined, MailOutlined } from "@ant-design/icons";
+import {
+  LinkedinOutlined,
+  GithubOutlined,
+  MailOutlined,
+} from "@ant-design/icons";
 
 /**
  * Redirects to the social media pages
@@ -28,17 +32,23 @@ const SocialMediaRedirection: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <LinkedinOutlined style={{color:"black", verticalAlign: "middle", fontSize :"150%"}} />
+        <LinkedinOutlined
+          style={{ color: "black", verticalAlign: "middle", fontSize: "150%" }}
+        />
       </a>
       <a
         href="https://github.com/fchapoulliep"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <GithubOutlined style={{color:"black", verticalAlign: "middle", fontSize :"150%"}} />
+        <GithubOutlined
+          style={{ color: "black", verticalAlign: "middle", fontSize: "150%" }}
+        />
       </a>
       <a href="mailto:florian.chapoullie-pino@etu.u-bordeaux.fr">
-        <MailOutlined style={{color:"black", verticalAlign: "middle", fontSize :"150%"}} />
+        <MailOutlined
+          style={{ color: "black", verticalAlign: "middle", fontSize: "150%" }}
+        />
       </a>
     </div>
   );

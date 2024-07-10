@@ -1,3 +1,12 @@
+/**
+ * FILEPATH: /c:/Users/ksori/OneDrive/Bureau/portfolio/src/css/PortfolioPage.css
+ * 
+ * Styles for the portfolio page.
+ */
+
+/**
+ * Styles for the welcome section of the portfolio page.
+ */
 .portfolio-welcome {
   height: calc(100vh - 100px);
   background: linear-gradient(to right, black, 75%, gray);
@@ -9,13 +18,23 @@
   padding-top: 100px;
 }
 
+/**
+ * Styles for the heading in the welcome section.
+ */
 .portfolio-welcome h1 {
   font-size: calc(0.5em + 2vw);
 }
 
+/**
+ * Styles for the subheading in the welcome section.
+ */
 .portfolio-welcome h2 {
   font-size: calc(0.3em + 1vw);
 }
+
+/**
+ * Styles for the photo container in the welcome section.
+ */
 .portfolio-welcome-photo {
   display: flex;
   align-items: center;
@@ -24,6 +43,9 @@
   margin-bottom: 50px;
 }
 
+/**
+ * Styles for the photo in the welcome section.
+ */
 .portfolio-welcome-photo img {
   position: absolute;
   left: 3em;
@@ -31,12 +53,18 @@
   border-radius: 50%;
 }
 
+/**
+ * Styles for the text container in the welcome section.
+ */
 .portfolio-welcome-text {
   z-index: 2;
   text-align: center;
   margin-bottom: 50px;
 }
 
+/**
+ * Styles for the arrow icon in the experiences section.
+ */
 .arrow-experiences img {
   width: 50px;
   height: 50px;
@@ -44,11 +72,17 @@
   transition: 0.5s;
 }
 
+/**
+ * Styles for the arrow icon on hover in the experiences section.
+ */
 .arrow-experiences img:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
+/**
+ * Styles for the scroll-to-top arrow icon.
+ */
 .arrow-scroll-top img {
   width: 50px;
   height: 50px;
@@ -61,23 +95,45 @@
   opacity: 0;
 }
 
+/**
+ * Styles for the visible scroll-to-top arrow icon.
+ */
 .arrow-scroll-top.visible img {
   opacity: 1;
 }
 
+/**
+ * Styles for the scroll-to-top arrow icon on hover.
+ */
 .arrow-scroll-top img:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
 
+/**
+ * Styles for the experiences section of the portfolio page.
+ */
 .portfolio-experiences {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: black;
-  padding-bottom: 4em;
 }
 
+/**
+ * Styles for the footer section of the portfolio page.
+ */
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  font-size: 14px;
+}
+
+/**
+ * Media query styles for screens with a maximum width of 768px.
+ */
 @media (max-width: 768px) {
   .portfolio-welcome {
     flex-direction: column;

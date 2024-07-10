@@ -1,3 +1,36 @@
+/**
+ * FILEPATH: /c:/Users/ksori/OneDrive/Bureau/portfolio/src/css/NavigationBar.css
+ * 
+ * This CSS file contains styles for a navigation bar component.
+ * The navigation bar is fixed at the top of the page and has a responsive design.
+ * It consists of three main sections: experiences, logo, and redirection.
+ * The styles include flexbox layout, transitions, hover effects, and media queries.
+ * 
+ * CSS classes:
+ * - .nav-bar: The main container for the navigation bar.
+ * - .nav-bar.background: Adds a background color to the navigation bar.
+ * - .nav-bar-experiences: Styles the experiences section of the navigation bar.
+ * - .nav-bar-logo: Styles the logo section of the navigation bar.
+ * - .nav-bar-logo img: Styles the logo image within the logo section.
+ * - .nav-bar-redirection: Styles the redirection section of the navigation bar.
+ * - .nav-bar-redirection p, .nav-bar-redirection a: Styles the text links within the redirection section.
+ * - .nav-bar-redirection .nav-item: Styles the individual navigation items within the redirection section.
+ * - .active: Styles the active navigation item.
+ * - .ant-btn: Styles the button elements within the navigation bar.
+ * - .ant-dropdown-trigger: Styles the dropdown trigger element within the navigation bar.
+ * - .dropdown-experiences ul: Styles the dropdown menu for experiences.
+ * - .dropdown-experiences ul li: Styles the individual items within the dropdown menu for experiences.
+ * - .ant-dropdown-arrow:before: Styles the arrow icon for dropdown menus.
+ * 
+ * Media queries:
+ * - @media screen and (max-width: 768px): Applies styles for screens with a maximum width of 768px.
+ *   - .nav-bar: Adjusts the font size of the navigation bar.
+ *   - .nav-bar-experiences: Adjusts the width of the experiences section.
+ *   - .nav-bar-redirection: Adjusts the width of the redirection section.
+ *   - .nav-bar-redirection p, .nav-bar-redirection a: Adjusts the padding of the text links.
+ *   - .nav-bar-logo: Hides the logo section.
+ */
+
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -26,11 +59,11 @@
 }
 
 .nav-bar-experiences {
-  width: 33%;
+  width: 33.3%;
 }
 
 .nav-bar-logo {
-  width: 33%;
+  width: 33.3%;
 }
 
 .nav-bar-logo img {
@@ -45,7 +78,7 @@
 }
 
 .nav-bar-redirection {
-  width: 33%;
+  width: 33.3%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +134,6 @@
   color: #ffffff;
   border: none;
   font-size: calc(0.3em + 1vw);
-  line-height: 0 !important;
   display: flex;
   align-items: center;
 }

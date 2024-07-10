@@ -1,3 +1,51 @@
+/**
+ * FILEPATH: /c:/Users/ksori/OneDrive/Bureau/portfolio/src/css/DescriptionPage.css
+ * 
+ * Styles for the description section of a webpage.
+ * 
+ * @class description
+ * @description Represents the container for the description section.
+ * @property {string} height - The height of the description section, calculated as 100% of the viewport height minus 100px.
+ * @property {string} background - The background gradient of the description section, transitioning from black to gray.
+ * @property {string} display - Specifies the display behavior of the description section, making it a flex container.
+ * @property {string} justify-content - Specifies the alignment of the flex items along the main axis (horizontally centered).
+ * @property {string} align-items - Specifies the alignment of the flex items along the cross axis (vertically centered).
+ * @property {string} flex-direction - Specifies the direction of the flex items (column).
+ * @property {string} overflow-x - Specifies how to handle the overflow content in the horizontal direction (hidden).
+ * @property {string} padding-top - Specifies the top padding of the description section (100px).
+ * 
+ * @class description-content
+ * @description Represents the container for the content within the description section.
+ * @property {string} width - The width of the description content (70% of the parent container).
+ * @property {string} margin-right - The right margin of the description content (15% of the parent container).
+ * 
+ * @class description-content h2
+ * @description Represents the heading within the description content.
+ * @property {string} font-size - The font size of the heading (calculated as 0.5em + 1vw).
+ * @property {string} color - The color of the heading (#f7f7f7).
+ * 
+ * @class description-content p
+ * @description Represents the paragraph within the description content.
+ * @property {string} font-size - The font size of the paragraph (calculated as 10px + 0.5vw).
+ * @property {string} color - The color of the paragraph (#f7f7f7).
+ * 
+ * @class description-carousel
+ * @description Represents the container for the carousel within the description section.
+ * @property {string} width - The width of the carousel (40% of the parent container).
+ * @property {string} min-width - The minimum width of the carousel (400px).
+ * @property {string} margin-top - The top margin of the carousel (1em).
+ * 
+ * @class description-carousel:hover
+ * @description Represents the hover state of the carousel.
+ * @property {string} cursor - Specifies the cursor type when hovering over the carousel (pointer).
+ * 
+ * @class description-carousel img
+ * @description Represents the images within the carousel.
+ * @property {string} width - The width of the images (100% of the parent container).
+ * @property {string} height - The height of the images (100% of the parent container).
+ * @property {string} object-fit - Specifies how the images should be resized to fit within the container (cover).
+ */
+ 
 .description {
   height: calc(100vh - 100px);
   background: linear-gradient(to right, black, 75%, gray);
@@ -16,12 +64,12 @@
 
 .description-content h2 {
   font-size: calc(0.5em + 1vw);
-  color: #ffffff;
+  color: #f7f7f7;
 }
 
 .description-content p {
   font-size: calc(10px + 0.5vw);
-  color: #ffffff;
+  color: #f7f7f7;
 }
 
 .description-carousel {

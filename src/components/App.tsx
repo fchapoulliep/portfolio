@@ -7,22 +7,23 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/App.css";
+
 import { HashRouter as Router, Route } from "react-router-dom";
+import { Navigate, Routes } from "react-router-dom";
+
 import NavigationBar from "./NavigationBar";
 import PortfolioPage from "./PortfolioPage";
 import DescriptionPage from "./DescriptionPage";
 import ContactPage from "./ContactPage";
 import ResumeRedirection from "./ResumeRedirection";
-import { Navigate } from "react-router-dom";
-import { Routes } from "react-router-dom";
-import { useEffect } from "react";
 import SocialMediaRedirection from "./SocialMediaRedirection";
 
 /**
- * App component
- * @returns App component
+ * The main component of the portfolio application.
+ * Renders the navigation bar, resume redirection, social media redirection,
+ * and the routes for different pages.
  */
 const App: React.FC = () => {
   useEffect(() => {

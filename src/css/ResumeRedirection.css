@@ -1,13 +1,19 @@
+/**
+ * FILEPATH: /c:/Users/ksori/OneDrive/Bureau/portfolio/src/css/ResumeRedirection.css
+ * 
+ * Styles for the resume redirection component.
+ */
+ 
 .resume-redirection {
   position: fixed;
   left: 20px;
-  color: white;
+  color: #f7f7f7;
   bottom: 20px;
   z-index: 5;
 }
 
 .resume-redirection a {
-  color: white;
+  color: #f7f7f7;
   text-decoration: none;
   transition: all 0.2s ease;
   font-size: calc(0.1em + 0.9vw);

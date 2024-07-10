@@ -1,3 +1,19 @@
+/**
+ * FILEPATH: /c:/Users/ksori/OneDrive/Bureau/portfolio/src/css/ContactPage.css
+ * 
+ * This CSS file contains styles for the contact page of a portfolio website.
+ * 
+ * Styles:
+ * - .contact-page: Styles for the main container of the contact page.
+ * - .contact-text: Styles for the text content within the contact page.
+ * - .contact-mail: Styles for the email section within the contact page.
+ * - .contact-info: Styles for the contact information section within the contact page.
+ * - .form-validation-button: Styles for the validation button within the contact form.
+ * 
+ * Media Queries:
+ * - @media screen and (max-width: 768px): Styles for responsive design on smaller screens.
+ */
+
 .contact-page {
   display: flex;
   flex-direction: row;
@@ -6,7 +22,7 @@
   background: linear-gradient(to right, black, 75%, gray);
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: #f7f7f7;
   overflow: hidden;
 }
 
@@ -41,7 +57,7 @@
 
 .contact-mail {
   margin-top: 50px;
-  background-color: #ffffff;
+  background-color: #f7f7f7;
   border-radius: 10px;
   color: black;
   display: flex;
@@ -67,7 +83,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: #f7f7f7;
   border-radius: 10px;
   color: black;
   padding: 20px;
@@ -82,7 +98,7 @@
   background-color: black;
   border: none;
   border-radius: 10px;
-  color: #ffffff;
+  color: #f7f7f7;
   font-size: calc(0.5em + 0.5vw);
   padding: 20px;
   margin-top: 10px;

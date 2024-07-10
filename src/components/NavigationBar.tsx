@@ -10,14 +10,22 @@
  * Importing necessary modules to make the component work
  */
 import React from "react";
+import "../css/NavigationBar.css";
+
 import { Link, useLocation } from "react-router-dom";
 import { Dropdown, Button } from "antd";
-import "../css/NavigationBar.css";
 import signature from "../images/signature.png";
 
+/**
+ * NavigationBar component
+ * @returns NavigationBar component
+ */
 const NavigationBar: React.FC = () => {
   const location = useLocation();
 
+  /**
+   * Scroll to the top of the page
+   */
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };

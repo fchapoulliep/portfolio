@@ -279,6 +279,9 @@ const PortfolioPage: React.FC = () => {
           onSideText="SYMFONY"
         />
       </div>
+      <footer>
+        <p>© 2024 Florian Chapoullié-Pino</p>
+      </footer>
     </div>
   );
 };
