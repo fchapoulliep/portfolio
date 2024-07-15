@@ -12,3 +12,8 @@ body,
 * {
   font-family: "Comfortaa", Arial, Helvetica, sans-serif;
 }
+
+::selection {
+  background-color: #f7f7f7;
+  color: #282c34;
+}

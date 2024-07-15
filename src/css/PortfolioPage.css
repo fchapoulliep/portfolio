@@ -120,6 +120,11 @@
   background: black;
 }
 
+.portfolio-experiences-divider {
+  color: #f7f7f7 !important;
+  border: #f7f7f7 !important;
+}
+
 /**
  * Styles for the footer section of the portfolio page.
  */
@@ -169,5 +174,9 @@ footer {
   .arrow-scroll-top img {
     bottom: 20px;
     right: 20px;
+  }
+
+  footer {
+    font-size: 12px;
   }
 }

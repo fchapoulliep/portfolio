@@ -25,6 +25,7 @@ import sql from "../images/SQL.png";
 import web from "../images/web.png";
 import swot from "../images/swot.png";
 import symfony from "../images/symfony.png";
+import { Divider } from "antd";
 
 /**
  * PortfolioPage component that returns the portfolio page of the portfolio website
@@ -117,166 +118,244 @@ const PortfolioPage: React.FC = () => {
         />
       </div>
       <div className="portfolio-experiences" ref={experiencesRef}>
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="left"
+        >
+          Odomo
+        </Divider>
+
         <ExperiencesDiv
           text={
             <p>
-              La réalisation de ce projet a été pour moi une réelle mise en
-              avant du parcours à venir dans ma carrière professionelle, et des
-              moyens à mettre en place afin d'implémenter un besoin client à
-              l'aide d'un langage de programmation, tout en ayant à fournir un
-              rapport sur ce projet et expliquer clairement le code et son
-              fontionnement.
-              <br /> Il en découle alors pour moi de nombreux points positifs,
-              comme la mise en place d'un planning optimisé pour travailler en
-              équipe et dans de bonne conditions, un sens des responsabilités
-              car il était important de fournir un code fonctionnel qui répond
-              aux besoins clients.{" "}
+              La réalisation de ce projet a été pour moi une véritable
+              opportunité de démontrer les compétences que je vais développer
+              tout au long de ma carrière professionnelle. J'ai pu identifier
+              les moyens nécessaires pour répondre aux besoins d'un client à
+              l'aide d'un langage de programmation, tout en fournissant un
+              rapport détaillé et en expliquant clairement le code et son
+              fonctionnement.
+              <br />
+              <br /> Ce projet m'a apporté de nombreux bénéfices, tels que la
+              mise en place d'un planning optimisé pour un travail d'équipe
+              efficace dans des conditions optimales, ainsi que le développement
+              d'un sens des responsabilités, étant donné l'importance de livrer
+              un code fonctionnel qui répond aux attentes du client.{" "}
             </p>
           }
           image={odomo}
           position="left"
           onSideText="ODOMO"
+          className="even"
         />
+
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="center"
+        >
+          Biosphere 7
+        </Divider>
 
         <ExperiencesDiv
           text={
             <p>
-              Ce projet a été pour moi très riche en matière d’apprentissage.
-              Durant les deux phases qui constituaient ce projet, j’ai pu
-              entre-autre contribuer à la mise en place de deux stratégies qui
-              allaient être attribués à une intelligence artificielle.
+              Ce projet a été extrêmement enrichissant pour moi en termes
+              d'apprentissage. Au cours des deux phases du projet, j'ai
+              notamment contribué à la mise en place de deux stratégies
+              destinées à une intelligence artificielle.
               <br />
-              Cela m'a permis d'apprendre comment apprivoiser une tache donnée,
-              que ce soit le cahier des charges et les règles dictées par
-              celle-ci ou bien meme les méthodes de travail à utiliser. <br />
-              Le principal gain qui découle de ce projet a été pour ma part
-              l'éveil de mon esprit logique, qui m'a permis de comprendre selon
-              tel ou tel cas quelle était la ou les actions possibles, et
-              préférables.
+              <br />
+              Cela m'a permis de comprendre comment aborder une tâche donnée,
+              qu'il s'agisse du cahier des charges et des règles associées ou
+              des méthodes de travail à adopter. <br />
+              <br />
+              Le principal bénéfice de ce projet a été, pour moi, l'éveil de mon
+              esprit logique, qui m'a permis de déterminer quelles actions
+              étaient possibles et préférables selon chaque situation.
             </p>
           }
           image={biosphere7}
           position="right"
           onSideText="BIOSPHERE 7"
+          className="odd"
         />
+
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="right"
+        >
+          Machine Virtuelle
+        </Divider>
 
         <ExperiencesDiv
           text={
             <p>
-              Le « challenge » de cette SAE était d’installer une machine
-              virtuelle pour permettre à une équipe de dev de développer un
-              nouveau jeu avec le langage go, qu’il a donc fallu installer,
-              ainsi qu’un IDE pour s’en servir. <br />
-              L’enjeu était donc ici de mettre en place une machine avec un
-              hardware adapté, un compte administrateur et un compte développeur
-              qui ont chacun des droits définis selon leur statut. Il a
-              également fallu mettre en place l'outil git pour réaliser un git
-              clone ainsi que modifier le prompt bash pour afficher de n’importe
-              où l’état de ce git. <br />
-              Ainsi, ce projet nous a permis à moi et à mes camarades de
-              maitriser l'installation d'une machine selon des caractéristiques
-              bien définis, ainsi que de comprendre comment fonctionne un
-              terminal de commande et comment le modifier pour y indiquer des
-              élements utiles.
+              Ce projet consistait à installer une machine virtuelle pour
+              permettre à une équipe de développeurs de créer un nouveau jeu en
+              utilisant le langage Go, qu'il a donc fallu installer, ainsi qu'un
+              IDE pour l'utiliser.
+              <br />
+              <br />
+              L'objectif était d'installer une machine avec un matériel adapté,
+              ainsi que de configurer un compte administrateur et un compte
+              développeur, chacun ayant des droits spécifiques selon leur
+              statut. Il a également été nécessaire de mettre en place l'outil
+              Git pour effectuer un git clone et de modifier le prompt Bash pour
+              afficher l'état de ce Git depuis n'importe où.
+              <br />
+              <br />
+              Ce projet nous a permis, à mes camarades et moi, de maîtriser
+              l'installation d'une machine selon des caractéristiques bien
+              définies, ainsi que de comprendre le fonctionnement d'un terminal
+              de commande et comment le modifier pour y afficher des
+              informations utiles.
             </p>
           }
           image={machine}
           position="left"
           onSideText="MACHINE VIRTUELLE"
+          className="even"
         />
+
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="left"
+        >
+          SQL
+        </Divider>
 
         <ExperiencesDiv
           text={
             <p>
-              {" "}
-              Ce travail de groupe dans le cadre d'une SAE m'a permis de
-              développer mes connaissances et de pouvoir maitriser le langage
-              SQL de manière adéquate. <br />
-              Le défi derrière ce projet était de mettre en place une cohésion
-              d'équipe avec son binôme, de plus il a été important d'assurer le
-              fait de se léguer les tâches pour optimiser le temps de travail.
-              Au delà de cet esprit de groupe, l'élément le plus important qui
-              découle de cette activé a été d'assurer la bonne qualité des
-              données, de sorte à ce qu'elle soit cohérente, complete et
-              précise. <br />
-              Ainsi ma connaissance des bases de données a été accrue, avec
-              notamment le remplissage et la création d'une base de donnée, en
-              passant par un schéma entité-association.
+              Ce travail de groupe dans le cadre d'un projet universitaire m'a
+              permis de développer mes connaissances et de maîtriser
+              adéquatement le langage SQL.
+              <br />
+              <br />
+              Le défi principal de ce projet était d'établir une cohésion
+              d'équipe avec mon binôme, en veillant à se répartir les tâches de
+              manière efficace pour optimiser le temps de travail. Au-delà de
+              cet esprit d'équipe, l'aspect le plus crucial de cette activité a
+              été de garantir la qualité des données, en s'assurant qu'elles
+              soient cohérentes, complètes et précises.
+              <br />
+              <br />
+              Ainsi, mes compétences en bases de données se sont
+              considérablement améliorées, notamment en ce qui concerne la
+              création et le remplissage d'une base de données, ainsi que
+              l'élaboration d'un schéma entité-association.
             </p>
           }
           image={sql}
           position="right"
           onSideText="SQL"
+          className="odd"
         />
+
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="center"
+        >
+          Site Web
+        </Divider>
 
         <ExperiencesDiv
           text={
             <p>
-              {" "}
-              Voici une nouvelle fois une SAE qui m'a permis de développer mon
-              esprit créatif et de maitriser de manière pointue le langage html
-              et css pour permettre la réalisation d'un site web en rapport avec
-              une société. <br />
-              Le site qu'il était nécessaire de produire devait donc respecter
-              des critères précis, la loi en vigueur, car dans mon cas il
-              s'agissait d'une société qui produit des boissons alcoolisées.
-              Dans ce cas-ci, j'ai pu apprendre les normes légales a mettre sur
-              un site internet, en plus d'avoir à créer un site ergonomique et
-              pratique au client. <br />
-              Cette production a été pour moi une grande lecon, qui a pu m'en
-              apprendre plus sur le langage HTML et CSS, mais aussi l'ergonomie
-              d'un site et les normes a respecter vis-à-vis de celui-ci.
+              Ce projet m'a permis de développer mon esprit créatif et de
+              maîtriser de manière approfondie les langages HTML et CSS pour
+              réaliser un site web pour une entreprise.
+              <br />
+              <br />
+              Le site devait respecter des critères précis et la législation en
+              vigueur, car il s'agissait d'une société produisant des boissons
+              alcoolisées. J'ai ainsi appris à intégrer les normes légales
+              requises pour un site internet, tout en veillant à créer une
+              interface ergonomique et pratique pour le client.
+              <br />
+              <br />
+              Cette expérience a été pour moi une grande leçon, m'enseignant non
+              seulement le HTML et le CSS, mais aussi l'ergonomie web et les
+              réglementations à respecter dans ce domaine.
             </p>
           }
           image={web}
           position="left"
           onSideText="SITE WEB"
+          className="even"
         />
+
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="right"
+        >
+          SWOT
+        </Divider>
 
         <ExperiencesDiv
           text={
             <p>
-              Ce projet m'a permis de mieux aborder ma vision d'une entreprise.{" "}
+              Ce projet m'a permis de mieux appréhender ma vision d'une
+              entreprise.
               <br />
-              En effet, j'ai pu ici réaliser avec mes camardes une analyse
-              fonctionnelle d'une entreprise. Mais ce n'est pas tout, il a aussi
-              fallu observer les différentes opportunités et menaces auxquelles
-              elle était confrontée. <br />
-              Il en découle alors pour moi de nombreux points positifs, comme la
-              mise en place d'un planning optimisé pour travailler en équipe et
-              dans de bonne conditions, une maitrise des outils de recherche car
-              il était important de fournir des informations vérifiés et
-              pertinentes qui permet de mieux comprendre l'environnement de
+              <br />
+              En collaboration avec mes camarades, nous avons réalisé une
+              analyse fonctionnelle d'une entreprise. De plus, nous avons
+              identifié les différentes opportunités et menaces auxquelles elle
+              était confrontée.
+              <br />
+              <br />
+              J'en retire de nombreux aspects positifs, tels que la mise en
+              place d'un planning optimisé pour travailler en équipe dans de
+              bonnes conditions, ainsi que la maîtrise des outils de recherche.
+              Il était crucial de fournir des informations vérifiées et
+              pertinentes afin de mieux comprendre l'environnement de
               l'entreprise.
             </p>
           }
           image={swot}
           position="right"
           onSideText="SWOT"
+          className="odd"
         />
+
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="left"
+        >
+          Symfony
+        </Divider>
 
         <ExperiencesDiv
           text={
             <p>
-              {" "}
-              Voici une nouvelle fois une SAE qui m'a permis de développer mon
-              esprit créatif et de maitriser de manière pointue le langage html
-              et css mais aussi php avec le framework Symfony pour permettre la
-              réalisation d'une application full-stack. <br />
-              L'application qu'il était nécessaire de produire devait donc
-              respecter des critères précis, critères étant explicité autour
-              d'une réunion avec le Product Owner. Dans ce cas-ci, j'ai pu
-              apprendre à créer un site ergonomique et pratique au client.{" "}
+              Ce projet m'a permis de développer mon esprit créatif et de
+              maîtriser de manière approfondie les langages HTML et CSS, ainsi
+              que PHP avec le framework Symfony, pour réaliser une application
+              full-stack.
               <br />
-              Cette production a été pour moi une grande lecon, qui a pu m'en
-              apprendre plus sur le langage PHP et l'outil Symfony, mais aussi
-              l'ergonomie d'un site et les normes a respecter vis-à-vis de
-              celui-ci.
+              <br />
+              L'application devait respecter des critères précis définis lors
+              d'une réunion avec le Product Owner. J'ai ainsi appris à créer un
+              site ergonomique et pratique pour le client.
+              <br />
+              <br />
+              Cette expérience a été pour moi une grande leçon, m'enseignant non
+              seulement le PHP et l'utilisation de Symfony, mais aussi
+              l'ergonomie web et les normes à respecter dans ce domaine.
             </p>
           }
           image={symfony}
           position="left"
           onSideText="SYMFONY"
+          className="even"
         />
       </div>
       <footer>

@@ -22,6 +22,7 @@ interface ExperiencesDivProps {
   image: string;
   position: "left" | "right";
   onSideText: string;
+  className?: string;
 }
 
 /**
@@ -34,9 +35,10 @@ const ExperiencesDiv: React.FC<ExperiencesDivProps> = ({
   image,
   position,
   onSideText,
+  className,
 }) => {
   return (
-    <div className="portfolio-experience">
+    <div id="portfolio-experience" className={className}>
       {position === "left" && (
         <Image
           className="portfolio-experience-image"
