@@ -33,13 +33,49 @@ import { Divider } from "antd";
  */
 const PortfolioPage: React.FC = () => {
   /**
-   * Reference to the bottom of the page
+   * Reference to the experiences section of the page
    */
   const experiencesRef = useRef(null);
+
+  /**
+   * Reference to the Odomo section
+   */
+  const odomoRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Reference to the Biosphere 7 section
+   */
+  const biosphere7Ref = useRef<HTMLDivElement>(null);
+
+  /**
+   * Reference to the Machine Virtuelle section
+   */
+  const machineRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Reference to the SQL section
+   */
+  const sqlRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Reference to the Site Web section
+   */
+  const webRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Reference to the SWOT section
+   */
+  const swotRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Reference to the Symfony section
+   */
+  const symfonyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const arrow = document.querySelector(".arrow-scroll-top");
     const nav = document.querySelector(".nav-bar");
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -62,14 +98,105 @@ const PortfolioPage: React.FC = () => {
       },
       { threshold: 0.05 }
     );
+
+    const observerExperience = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === odomoRef.current && odomoRef.current) {
+              odomoRef.current.classList.add("visible");
+            }
+            if (
+              entry.target === biosphere7Ref.current &&
+              biosphere7Ref.current
+            ) {
+              biosphere7Ref.current.classList.add("visible");
+            }
+            if (entry.target === machineRef.current && machineRef.current) {
+              machineRef.current.classList.add("visible");
+            }
+            if (entry.target === sqlRef.current && sqlRef.current) {
+              sqlRef.current.classList.add("visible");
+            }
+            if (entry.target === webRef.current && webRef.current) {
+              webRef.current.classList.add("visible");
+            }
+            if (entry.target === swotRef.current && swotRef.current) {
+              swotRef.current.classList.add("visible");
+            }
+            if (entry.target === symfonyRef.current && symfonyRef.current) {
+              symfonyRef.current.classList.add("visible");
+            }
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
     const experience = experiencesRef.current;
     if (experience) {
       observer.observe(experience);
     }
 
+    const odomo = odomoRef.current;
+    if (odomo) {
+      observerExperience.observe(odomo);
+    }
+
+    const biosphere7 = biosphere7Ref.current;
+    if (biosphere7) {
+      observerExperience.observe(biosphere7);
+    }
+
+    const machine = machineRef.current;
+    if (machine) {
+      observerExperience.observe(machine);
+    }
+
+    const sql = sqlRef.current;
+    if (sql) {
+      observerExperience.observe(sql);
+    }
+
+    const web = webRef.current;
+    if (web) {
+      observerExperience.observe(web);
+    }
+
+    const swot = swotRef.current;
+    if (swot) {
+      observerExperience.observe(swot);
+    }
+
+    const symfony = symfonyRef.current;
+    if (symfony) {
+      observerExperience.observe(symfony);
+    }
+
     return () => {
       if (experience) {
         observer.unobserve(experience);
+      }
+      if (odomo) {
+        observerExperience.unobserve(odomo);
+      }
+      if (biosphere7) {
+        observerExperience.unobserve(biosphere7);
+      }
+      if (machine) {
+        observerExperience.unobserve(machine);
+      }
+      if (sql) {
+        observerExperience.unobserve(sql);
+      }
+      if (web) {
+        observerExperience.unobserve(web);
+      }
+      if (swot) {
+        observerExperience.unobserve(swot);
+      }
+      if (symfony) {
+        observerExperience.unobserve(symfony);
       }
     };
   }, []);
@@ -148,6 +275,7 @@ const PortfolioPage: React.FC = () => {
           position="left"
           onSideText="ODOMO"
           className="even"
+          ref={odomoRef}
         />
 
         <Divider
@@ -180,6 +308,7 @@ const PortfolioPage: React.FC = () => {
           position="right"
           onSideText="BIOSPHERE 7"
           className="odd"
+          ref={biosphere7Ref}
         />
 
         <Divider
@@ -218,6 +347,7 @@ const PortfolioPage: React.FC = () => {
           position="left"
           onSideText="MACHINE VIRTUELLE"
           className="even"
+          ref={machineRef}
         />
 
         <Divider
@@ -254,6 +384,7 @@ const PortfolioPage: React.FC = () => {
           position="right"
           onSideText="SQL"
           className="odd"
+          ref={sqlRef}
         />
 
         <Divider
@@ -288,6 +419,7 @@ const PortfolioPage: React.FC = () => {
           position="left"
           onSideText="SITE WEB"
           className="even"
+          ref={webRef}
         />
 
         <Divider
@@ -323,6 +455,7 @@ const PortfolioPage: React.FC = () => {
           position="right"
           onSideText="SWOT"
           className="odd"
+          ref={swotRef}
         />
 
         <Divider
@@ -356,6 +489,7 @@ const PortfolioPage: React.FC = () => {
           position="left"
           onSideText="SYMFONY"
           className="even"
+          ref={symfonyRef}
         />
       </div>
       <footer>

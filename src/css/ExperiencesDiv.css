@@ -12,6 +12,8 @@
   width: 80%;
   margin-top: 60px;
   margin-bottom: 60px;
+  transition: all 0.5s;
+  opacity: 0;
 }
 
 #portfolio-experience .text {
@@ -53,6 +55,16 @@
 
 .odd .text {
   margin-right: -60px;
+}
+
+#portfolio-experience.even.visible {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+#portfolio-experience.odd.visible {
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 
 @media screen and (max-width: 768px) {

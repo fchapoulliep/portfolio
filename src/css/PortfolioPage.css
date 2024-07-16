@@ -91,7 +91,7 @@
   bottom: 50px;
   right: 50px;
   transition: all 0.5s;
-  z-index: 3;
+  z-index: 100;
   opacity: 0;
 }
 
