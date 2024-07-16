@@ -49,6 +49,14 @@
   border-radius: 10px;
 }
 
+.even {
+  transform: translateX(-60px);
+}
+
+.odd {
+  transform: translateX(60px);
+}
+
 .even .text {
   margin-left: -60px;
 }
@@ -59,12 +67,14 @@
 
 #portfolio-experience.even.visible {
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s transform 0.5s;
+  transform: translateX(0);
 }
 
 #portfolio-experience.odd.visible {
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s transform 0.5s;
+  transform: translateX(0);
 }
 
 @media screen and (max-width: 768px) {

@@ -207,7 +207,8 @@ const PortfolioPage: React.FC = () => {
   const handleScrollExperiences = () => {
     const experiences = document.querySelector(".portfolio-experiences");
     if (experiences) {
-      experiences.scrollIntoView({ behavior: "smooth" });
+      const top = experiences.getBoundingClientRect().top - 120;
+      window.scrollBy({ top, behavior: "smooth" });
     }
   };
 
