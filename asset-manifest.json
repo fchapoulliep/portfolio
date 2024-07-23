@@ -1,14 +1,16 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.01495bd9.css",
-    "main.js": "/portfolio/static/js/main.f80335c2.js",
+    "main.js": "/portfolio/static/js/main.bb9e90b7.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
     "static/media/fah.png": "/portfolio/static/media/fah.66ee0cb23e0b40f76d4f.png",
+    "static/media/kifli.png": "/portfolio/static/media/kifli.4736147e158d765e1103.png",
     "static/media/florianC.jpg": "/portfolio/static/media/florianC.5e83d64141dd7f98396e.jpg",
     "static/media/symfony.png": "/portfolio/static/media/symfony.91d911bca4e4d84a0ff5.png",
-    "static/media/web.png": "/portfolio/static/media/web.eedddadc2152a2bf9fc8.png",
+    "static/media/web.png": "/portfolio/static/media/web.a1109d54a245ebb43486.png",
     "static/media/biosphere7.png": "/portfolio/static/media/biosphere7.e396889b1b4a937b87a3.png",
     "static/media/machine.png": "/portfolio/static/media/machine.72e57d99db1b113af348.png",
+    "static/media/associativeArray.png": "/portfolio/static/media/associativeArray.a742c816b1402b76f328.png",
     "static/media/swot.png": "/portfolio/static/media/swot.8a53b7d471cf97721849.png",
     "static/media/odomo.png": "/portfolio/static/media/odomo.721332210d793306fd77.png",
     "static/media/SQL.png": "/portfolio/static/media/SQL.3dbb990168bd2f2f0439.png",
@@ -17,11 +19,11 @@
     "static/media/signature.png": "/portfolio/static/media/signature.924b09af0e3123dcd097.png",
     "index.html": "/portfolio/index.html",
     "main.01495bd9.css.map": "/portfolio/static/css/main.01495bd9.css.map",
-    "main.f80335c2.js.map": "/portfolio/static/js/main.f80335c2.js.map",
+    "main.bb9e90b7.js.map": "/portfolio/static/js/main.bb9e90b7.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.01495bd9.css",
-    "static/js/main.f80335c2.js"
+    "static/js/main.bb9e90b7.js"
   ]
 }
