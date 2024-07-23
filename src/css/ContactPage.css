@@ -121,6 +121,10 @@
     align-items: center;
   }
 
+  .contact-text h1 {
+    text-align: center;
+  }
+
   .contact-mail {
     margin-top: 0;
   }

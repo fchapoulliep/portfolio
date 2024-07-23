@@ -45,7 +45,7 @@
  * @property {string} height - The height of the images (100% of the parent container).
  * @property {string} object-fit - Specifies how the images should be resized to fit within the container (cover).
  */
- 
+
 .description {
   height: calc(100vh - 100px);
   background: linear-gradient(to right, black, 75%, gray);
@@ -76,10 +76,13 @@
   width: 40%;
   min-width: 400px;
   margin-top: 1em;
+  text-align: center;
+  color: #f7f7f7;
 }
 
-.description-carousel:hover {
-  cursor: pointer;
+.description-carousel h2 {
+  font-size: calc(0.5em + 1vw);
+  color: #f7f7f7;
 }
 
 .description-carousel img {

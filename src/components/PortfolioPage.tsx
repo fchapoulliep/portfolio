@@ -25,6 +25,8 @@ import sql from "../images/SQL.png";
 import web from "../images/web.png";
 import swot from "../images/swot.png";
 import symfony from "../images/symfony.png";
+import kifli from "../images/kifli.png";
+import associativeArray from "../images/associativeArray.png";
 import { Divider } from "antd";
 
 /**
@@ -71,6 +73,16 @@ const PortfolioPage: React.FC = () => {
    * Reference to the Symfony section
    */
   const symfonyRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Reference to the Chiffrement de Kifli section
+   */
+  const kifliRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Reference to the Tableau associatif section
+   */
+  const associativeArrayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const arrow = document.querySelector(".arrow-scroll-top");
@@ -127,6 +139,15 @@ const PortfolioPage: React.FC = () => {
             if (entry.target === symfonyRef.current && symfonyRef.current) {
               symfonyRef.current.classList.add("visible");
             }
+            if (entry.target === kifliRef.current && kifliRef.current) {
+              kifliRef.current.classList.add("visible");
+            }
+            if (
+              entry.target === associativeArrayRef.current &&
+              associativeArrayRef.current
+            ) {
+              associativeArrayRef.current.classList.add("visible");
+            }
           }
         });
       },
@@ -173,6 +194,16 @@ const PortfolioPage: React.FC = () => {
       observerExperience.observe(symfony);
     }
 
+    const kifli = kifliRef.current;
+    if (kifli) {
+      observerExperience.observe(kifli);
+    }
+
+    const associativeArray = associativeArrayRef.current;
+    if (associativeArray) {
+      observerExperience.observe(associativeArray);
+    }
+
     return () => {
       if (experience) {
         observer.unobserve(experience);
@@ -197,6 +228,12 @@ const PortfolioPage: React.FC = () => {
       }
       if (symfony) {
         observerExperience.unobserve(symfony);
+      }
+      if (kifli) {
+        observerExperience.unobserve(kifli);
+      }
+      if (associativeArray) {
+        observerExperience.unobserve(associativeArray);
       }
     };
   }, []);
@@ -491,6 +528,74 @@ const PortfolioPage: React.FC = () => {
           onSideText="SYMFONY"
           className="even"
           ref={symfonyRef}
+        />
+
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="center"
+        >
+          Chiffrement de Kifli
+        </Divider>
+
+        <ExperiencesDiv
+          text={
+            <p>
+              Ce projet m'a permis de développer mes compétences en Python et de
+              comprendre le fonctionnement du chiffrement de Kifli.
+              <br />
+              <br />
+              Le défi principal de ce projet était de comprendre le
+              fonctionnement de l'algorithme de chiffrement de Kifli et de
+              l'implémenter en Python.
+              <br />
+              <br />
+              Ainsi, mes compétences en Python se sont considérablement
+              améliorées, notamment en ce qui concerne la manipulation des
+              chaînes de caractères et la gestion des fichiers.
+            </p>
+          }
+          image={kifli}
+          position="right"
+          onSideText="CHIFFREMENT DE KIFLI"
+          className="odd"
+          ref={kifliRef}
+        />
+
+        <Divider
+          className="portfolio-experiences-divider"
+          type="horizontal"
+          orientation="right"
+        >
+          Tableau associatif
+        </Divider>
+
+        <ExperiencesDiv
+          text={
+            <p>
+              Ce projet consistait à créer notre propre tableau associatif en
+              Java, en réalisant deux implémentations : une statique et une
+              dynamique. L'objectif était ensuite de comparer les performances
+              des deux implémentations à l'aide de benchmarks.
+              <br />
+              <br />
+              La première implémentation statique utilisait un tableau de taille
+              fixe pour stocker les clés et les valeurs associées. La deuxième
+              implémentation dynamique utilisait une structure de données telle
+              qu'une liste chaînée ou un arbre pour permettre une taille
+              variable du tableau associatif.
+              <br />
+              <br />
+              Ce projet nous a permis de mieux comprendre les concepts de base
+              des tableaux associatifs et d'apprécier les avantages et les
+              inconvénients des différentes approches d'implémentation.
+            </p>
+          }
+          image={associativeArray}
+          position="left"
+          onSideText="TABLEAU ASSOCIATIF"
+          className="even"
+          ref={associativeArrayRef}
         />
       </div>
       <footer>

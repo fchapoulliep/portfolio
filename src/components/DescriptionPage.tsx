@@ -36,7 +36,8 @@ const DescriptionPage: React.FC = () => {
       </div>
 
       <div className="description-carousel">
-        <Carousel autoplay dotPosition="bottom">
+        <h2>Mes projets personnels :</h2>
+        <Carousel arrows autoplay dotPosition="bottom" className="carousel">
           <div>
             <Image
               src={fah}
@@ -45,7 +46,7 @@ const DescriptionPage: React.FC = () => {
                 mask: (
                   <span>
                     Voir plus
-                    <SearchOutlined style={{marginLeft: "5px"}}/>
+                    <SearchOutlined style={{ marginLeft: "5px" }} />
                   </span>
                 ),
               }}
@@ -59,7 +60,7 @@ const DescriptionPage: React.FC = () => {
                 mask: (
                   <span>
                     Voir plus
-                    <SearchOutlined style={{marginLeft: "5px"}}/>
+                    <SearchOutlined style={{ marginLeft: "5px" }} />
                   </span>
                 ),
               }}
@@ -73,7 +74,7 @@ const DescriptionPage: React.FC = () => {
                 mask: (
                   <span>
                     Voir plus
-                    <SearchOutlined style={{marginLeft: "5px"}}/>
+                    <SearchOutlined style={{ marginLeft: "5px" }} />
                   </span>
                 ),
               }}

@@ -130,6 +130,30 @@ const NavigationBar: React.FC = () => {
         </a>
       ),
     },
+    {
+      key: "8",
+      label: (
+        <a
+          href="experiences/retourKifli.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Retour d'expérience Kifli
+        </a>
+      ),
+    },
+    {
+      key: "9",
+      label: (
+        <a
+          href="experiences/retourTableauAssociatif.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Retour d'expérience Tableau Associatif
+        </a>
+      ),
+    },
   ];
 
   return (
