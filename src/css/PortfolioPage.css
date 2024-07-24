@@ -110,6 +110,28 @@
   cursor: pointer;
 }
 
+.portfolio-experiences-steps {
+  display: none;
+  position: fixed;
+  top: 100px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  z-index: 15;
+  transition: all 0.2s ease-in-out;
+}
+
+.portfolio-experiences-steps.visible {
+  display: flex;
+  transition: all 0.2s ease-in-out;
+}
+
+.portfolio-steps {
+  width: 95%;
+}
+
 /**
  * Styles for the experiences section of the portfolio page.
  */
@@ -174,6 +196,10 @@ footer {
   .arrow-scroll-top img {
     bottom: 20px;
     right: 20px;
+  }
+
+  .portfolio-experiences-steps {
+    display: none !important;
   }
 
   .portfolio-experiences {

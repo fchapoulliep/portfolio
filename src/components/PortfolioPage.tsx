@@ -27,7 +27,7 @@ import swot from "../images/swot.png";
 import symfony from "../images/symfony.png";
 import kifli from "../images/kifli.png";
 import associativeArray from "../images/associativeArray.png";
-import { Divider } from "antd";
+import { Divider, Steps } from "antd";
 
 /**
  * PortfolioPage component that returns the portfolio page of the portfolio website
@@ -84,9 +84,15 @@ const PortfolioPage: React.FC = () => {
    */
   const associativeArrayRef = useRef<HTMLDivElement>(null);
 
+  /**
+   * State to keep track of the number of steps in the portfolio
+   */
+  const [currentSteps, setCurrentSteps] = React.useState(0);
+
   useEffect(() => {
     const arrow = document.querySelector(".arrow-scroll-top");
     const nav = document.querySelector(".nav-bar");
+    const steps = document.querySelector(".portfolio-experiences-steps");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -98,12 +104,18 @@ const PortfolioPage: React.FC = () => {
             if (nav) {
               nav.classList.add("background");
             }
+            if (steps) {
+              steps.classList.add("visible");
+            }
           } else {
             if (arrow) {
               arrow.classList.remove("visible");
             }
             if (nav) {
               nav.classList.remove("background");
+            }
+            if (steps) {
+              steps.classList.remove("visible");
             }
           }
         });
@@ -117,36 +129,45 @@ const PortfolioPage: React.FC = () => {
           if (entry.isIntersecting) {
             if (entry.target === odomoRef.current && odomoRef.current) {
               odomoRef.current.classList.add("visible");
+              setCurrentSteps(0);
             }
             if (
               entry.target === biosphere7Ref.current &&
               biosphere7Ref.current
             ) {
               biosphere7Ref.current.classList.add("visible");
+              setCurrentSteps(1);
             }
             if (entry.target === machineRef.current && machineRef.current) {
               machineRef.current.classList.add("visible");
+              setCurrentSteps(2);
             }
             if (entry.target === sqlRef.current && sqlRef.current) {
               sqlRef.current.classList.add("visible");
+              setCurrentSteps(3);
             }
             if (entry.target === webRef.current && webRef.current) {
               webRef.current.classList.add("visible");
+              setCurrentSteps(4);
             }
             if (entry.target === swotRef.current && swotRef.current) {
               swotRef.current.classList.add("visible");
+              setCurrentSteps(5);
             }
             if (entry.target === symfonyRef.current && symfonyRef.current) {
               symfonyRef.current.classList.add("visible");
+              setCurrentSteps(6);
             }
             if (entry.target === kifliRef.current && kifliRef.current) {
               kifliRef.current.classList.add("visible");
+              setCurrentSteps(7);
             }
             if (
               entry.target === associativeArrayRef.current &&
               associativeArrayRef.current
             ) {
               associativeArrayRef.current.classList.add("visible");
+              setCurrentSteps(8);
             }
           }
         });
@@ -250,6 +271,17 @@ const PortfolioPage: React.FC = () => {
   };
 
   /**
+   * Function to scroll to a specific section
+   */
+  const handleScroll = (section: HTMLDivElement | null, current: number) => {
+    if (section) {
+      const top = section.getBoundingClientRect().top - 120;
+      window.scrollBy({ top, behavior: "smooth" });
+    }
+    setCurrentSteps(current);
+  };
+
+  /**
    * Function to scroll to the top of the page
    */
   const handleScrollTop = () => {
@@ -280,6 +312,66 @@ const PortfolioPage: React.FC = () => {
           src={FlècheHaut}
           onClick={handleScrollTop}
           alt="scroll-top-arrow"
+        />
+      </div>
+      <div className="portfolio-experiences-steps">
+        <Steps
+          className="portfolio-steps"
+          direction="horizontal"
+          size="small"
+          current={currentSteps}
+          onChange={(current) =>
+            handleScroll(
+              current === 0
+                ? odomoRef.current
+                : current === 1
+                ? biosphere7Ref.current
+                : current === 2
+                ? machineRef.current
+                : current === 3
+                ? sqlRef.current
+                : current === 4
+                ? webRef.current
+                : current === 5
+                ? swotRef.current
+                : current === 6
+                ? symfonyRef.current
+                : current === 7
+                ? kifliRef.current
+                : associativeArrayRef.current,
+              current
+            )
+          }
+          responsive={false}
+          items={[
+            {
+              title: "Odomo",
+            },
+            {
+              title: "Biosphere 7",
+            },
+            {
+              title: "Machine Virtuelle",
+            },
+            {
+              title: "SQL",
+            },
+            {
+              title: "Site Web",
+            },
+            {
+              title: "SWOT",
+            },
+            {
+              title: "Symfony",
+            },
+            {
+              title: "Chiffrement de Kifli",
+            },
+            {
+              title: "Tableau associatif",
+            },
+          ]}
         />
       </div>
       <div className="portfolio-experiences" ref={experiencesRef}>
@@ -314,6 +406,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="ODOMO"
           className="even"
           ref={odomoRef}
+          experienceLink="experiences/retourOdomo.pdf"
         />
 
         <Divider
@@ -347,6 +440,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="BIOSPHERE 7"
           className="odd"
           ref={biosphere7Ref}
+          experienceLink="experiences/retourBiosphere.pdf"
         />
 
         <Divider
@@ -386,6 +480,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="MACHINE VIRTUELLE"
           className="even"
           ref={machineRef}
+          experienceLink="experiences/retourMachine.pdf"
         />
 
         <Divider
@@ -423,6 +518,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="SQL"
           className="odd"
           ref={sqlRef}
+          experienceLink="experiences/retourSQL.pdf"
         />
 
         <Divider
@@ -458,6 +554,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="SITE WEB"
           className="even"
           ref={webRef}
+          experienceLink="experiences/retourWeb.pdf"
         />
 
         <Divider
@@ -494,6 +591,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="SWOT"
           className="odd"
           ref={swotRef}
+          experienceLink="experiences/retourSWOT.pdf"
         />
 
         <Divider
@@ -528,6 +626,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="SYMFONY"
           className="even"
           ref={symfonyRef}
+          experienceLink="experiences/retourSymfony.pdf"
         />
 
         <Divider
@@ -560,6 +659,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="CHIFFREMENT DE KIFLI"
           className="odd"
           ref={kifliRef}
+          experienceLink="experiences/retourKifli.pdf"
         />
 
         <Divider
@@ -596,6 +696,7 @@ const PortfolioPage: React.FC = () => {
           onSideText="TABLEAU ASSOCIATIF"
           className="even"
           ref={associativeArrayRef}
+          experienceLink="experiences/retourTableauAssociatif.pdf"
         />
       </div>
       <footer>

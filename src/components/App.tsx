@@ -19,6 +19,7 @@ import DescriptionPage from "./DescriptionPage";
 import ContactPage from "./ContactPage";
 import ResumeRedirection from "./ResumeRedirection";
 import SocialMediaRedirection from "./SocialMediaRedirection";
+import { ConfigProvider } from "antd";
 
 /**
  * The main component of the portfolio application.
@@ -32,15 +33,30 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <NavigationBar />
-      <ResumeRedirection />
-      <SocialMediaRedirection />
-      <Routes>
-        <Route path="/" element={<PortfolioPage />} />
-        <Route path="/about" element={<DescriptionPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      <ConfigProvider
+        theme={{
+          components: {
+            Steps: {
+              colorPrimary: "#000",
+              colorText: "#f7f7f7",
+              colorTextDescription: "gray",
+              fontFamily: "Arial",
+              colorSplit: "#f7f7f7",
+              fontSize: 12,
+            },
+          },
+        }}
+      >
+        <NavigationBar />
+        <ResumeRedirection />
+        <SocialMediaRedirection />
+        <Routes>
+          <Route path="/" element={<PortfolioPage />} />
+          <Route path="/about" element={<DescriptionPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </ConfigProvider>
     </Router>
   );
 };
