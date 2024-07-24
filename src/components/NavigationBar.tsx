@@ -138,7 +138,7 @@ const NavigationBar: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Retour d'expérience Kifli
+          Retour d'expérience Chiffrement de Kifli
         </a>
       ),
     },
