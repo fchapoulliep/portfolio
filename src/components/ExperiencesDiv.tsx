@@ -13,7 +13,6 @@ import "../css/ExperiencesDiv.css";
 import { ReactNode } from "react";
 import { Image } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
 
 /**
  * ExperiencesDivProps interface
@@ -22,7 +21,6 @@ interface ExperiencesDivProps {
   text: ReactNode;
   image: string;
   position: "left" | "right";
-  onSideText: string;
   className?: string;
   experienceLink: string;
 }
@@ -35,7 +33,7 @@ interface ExperiencesDivProps {
  */
 const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
   (props, ref) => {
-    const { text, image, position, onSideText, className, experienceLink } =
+    const { text, image, position, className, experienceLink } =
       props;
 
     return (
@@ -56,15 +54,25 @@ const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
           />
         )}
         {position === "right" && (
-          <Link to={experienceLink} className="onSide">
-            {onSideText}
-          </Link>
+          <a
+            href={experienceLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onSide"
+          >
+            EN SAVOIR PLUS
+          </a>
         )}
         <div className="text">{text}</div>
         {position === "left" && (
-          <Link to={experienceLink} className="onSide">
-            {onSideText}
-          </Link>
+          <a
+            href={experienceLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onSide"
+          >
+            EN SAVOIR PLUS
+          </a>
         )}
         {position === "right" && (
           <Image

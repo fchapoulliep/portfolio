@@ -110,6 +110,10 @@
   cursor: pointer;
 }
 
+.ant-steps-item-finish .ant-steps-item-icon {
+  background-color: transparent !important;
+}
+
 .portfolio-experiences-steps {
   display: none;
   position: fixed;

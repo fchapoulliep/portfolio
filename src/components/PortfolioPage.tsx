@@ -90,10 +90,16 @@ const PortfolioPage: React.FC = () => {
   const [currentSteps, setCurrentSteps] = React.useState(0);
 
   useEffect(() => {
+    /**
+     * Getting the arrow, nav and steps elements
+     */
     const arrow = document.querySelector(".arrow-scroll-top");
     const nav = document.querySelector(".nav-bar");
     const steps = document.querySelector(".portfolio-experiences-steps");
 
+    /**
+     * Intersection Observer to change the style of the page when scrolling
+     */
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -123,6 +129,9 @@ const PortfolioPage: React.FC = () => {
       { threshold: 0.05 }
     );
 
+    /**
+     * Observing the experiences section
+     */
     const observerExperience = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -271,7 +280,7 @@ const PortfolioPage: React.FC = () => {
   };
 
   /**
-   * Function to scroll to a specific section
+   * Function to scroll to a specific experience section
    */
   const handleScroll = (section: HTMLDivElement | null, current: number) => {
     if (section) {
@@ -403,7 +412,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={odomo}
           position="left"
-          onSideText="ODOMO"
           className="even"
           ref={odomoRef}
           experienceLink="experiences/retourOdomo.pdf"
@@ -437,7 +445,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={biosphere7}
           position="right"
-          onSideText="BIOSPHERE 7"
           className="odd"
           ref={biosphere7Ref}
           experienceLink="experiences/retourBiosphere.pdf"
@@ -477,7 +484,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={machine}
           position="left"
-          onSideText="MACHINE VIRTUELLE"
           className="even"
           ref={machineRef}
           experienceLink="experiences/retourMachine.pdf"
@@ -515,7 +521,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={sql}
           position="right"
-          onSideText="SQL"
           className="odd"
           ref={sqlRef}
           experienceLink="experiences/retourSQL.pdf"
@@ -551,7 +556,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={web}
           position="left"
-          onSideText="SITE WEB"
           className="even"
           ref={webRef}
           experienceLink="experiences/retourWeb.pdf"
@@ -588,7 +592,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={swot}
           position="right"
-          onSideText="SWOT"
           className="odd"
           ref={swotRef}
           experienceLink="experiences/retourSWOT.pdf"
@@ -623,7 +626,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={symfony}
           position="left"
-          onSideText="SYMFONY"
           className="even"
           ref={symfonyRef}
           experienceLink="experiences/retourSymfony.pdf"
@@ -656,7 +658,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={kifli}
           position="right"
-          onSideText="CHIFFREMENT DE KIFLI"
           className="odd"
           ref={kifliRef}
           experienceLink="experiences/retourKifli.pdf"
@@ -693,7 +694,6 @@ const PortfolioPage: React.FC = () => {
           }
           image={associativeArray}
           position="left"
-          onSideText="TABLEAU ASSOCIATIF"
           className="even"
           ref={associativeArrayRef}
           experienceLink="experiences/retourTableauAssociatif.pdf"

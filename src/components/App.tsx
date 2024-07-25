@@ -36,13 +36,18 @@ const App: React.FC = () => {
       <ConfigProvider
         theme={{
           components: {
+            /**
+             * Customizing the Steps component
+             */
             Steps: {
-              colorPrimary: "#000",
+              colorPrimary: "#f7f7f7",
               colorText: "#f7f7f7",
               colorTextDescription: "gray",
               fontFamily: "Arial",
               colorSplit: "#f7f7f7",
               fontSize: 12,
+              colorTextLightSolid: "#000",
+              colorTextLabel: "#f7f7f7",
             },
           },
         }}
