@@ -70,6 +70,7 @@
   height: 50px;
   margin-top: 50px;
   transition: 0.5s;
+  animation: upAndDown 2s infinite ease-in-out;
 }
 
 /**
@@ -163,6 +164,21 @@ footer {
 }
 
 /**
+  * Keyframes for the up and down animation.
+  */
+@keyframes upAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/**
  * Media query styles for screens with a maximum width of 768px.
  */
 @media (max-width: 768px) {
@@ -200,6 +216,8 @@ footer {
   .arrow-scroll-top img {
     bottom: 20px;
     right: 20px;
+    height: 30px;
+    width: 30px;
   }
 
   .portfolio-experiences-steps {
