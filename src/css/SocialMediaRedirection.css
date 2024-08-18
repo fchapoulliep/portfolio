@@ -33,7 +33,22 @@
   overflow: hidden;
 }
 
+.social-media-redirection a svg {
+  font-size: 150%;
+}
+
 .social-media-redirection a:hover {
   background-color: #f1f1f1;
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .social-media-redirection a {
+    padding: 5px;
+  }
+
+  .social-media-redirection a svg {
+    font-size: 130%;
+  }
+  
 }

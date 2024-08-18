@@ -113,7 +113,6 @@
 @media screen and (max-width: 768px) {
   .contact-page {
     flex-direction: column;
-    justify-content: space-evenly;
   }
 
   .contact-text {
@@ -131,5 +130,24 @@
 
   .contact-info {
     width: 80%;
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-text h1 {
+    font-size: calc(0.8em + 1.5vw);
+  }
+
+  .contact-text p {
+    font-size: calc(0.5em + 1vw);
+  }
+
+  .contact-mail {
+    width: 100%;
+  }
+
+  .form-validation-button {
+    font-size: calc(0.5em + 1vw);
   }
 }

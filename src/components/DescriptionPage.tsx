@@ -12,8 +12,13 @@ import React from "react";
 import "../css/DescriptionPage.css";
 import { Carousel } from "antd";
 import { Image } from "antd";
-import fah from "../images/fah.png";
 import { SearchOutlined } from "@ant-design/icons";
+
+/**
+ * Importing images
+ */
+import fah from "../images/fah.png";
+import chp from "../images/chp-services.png";
 
 /**
  * DescriptionPage component
@@ -54,22 +59,8 @@ const DescriptionPage: React.FC = () => {
           </div>
           <div>
             <Image
-              src={fah}
-              alt="fah"
-              preview={{
-                mask: (
-                  <span>
-                    Voir plus
-                    <SearchOutlined style={{ marginLeft: "5px" }} />
-                  </span>
-                ),
-              }}
-            />
-          </div>
-          <div>
-            <Image
-              src={fah}
-              alt="fah"
+              src={chp}
+              alt="chp-services"
               preview={{
                 mask: (
                   <span>

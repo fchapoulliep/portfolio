@@ -69,7 +69,7 @@
   width: 50px;
   height: 50px;
   margin-top: 50px;
-  transition: 0.5s;
+  transition: all 1s ease-in-out;
   animation: upAndDown 2s infinite ease-in-out;
 }
 
@@ -77,6 +77,7 @@
  * Styles for the arrow icon on hover in the experiences section.
  */
 .arrow-experiences img:hover {
+  animation: none;
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -163,6 +164,10 @@ footer {
   font-size: 14px;
 }
 
+.ant-dropdown-menu-title-content {
+  font-size: calc(0.3em + 0.5vw);
+}
+
 /**
   * Keyframes for the up and down animation.
   */
@@ -185,6 +190,7 @@ footer {
   .portfolio-welcome {
     flex-direction: column;
     justify-content: center;
+    height: 80vh;
   }
 
   .portfolio-welcome h1 {
@@ -211,6 +217,8 @@ footer {
 
   .arrow-experiences img {
     margin-top: 20px;
+    height: 30px;
+    width: 30px;
   }
 
   .arrow-scroll-top img {
@@ -218,6 +226,10 @@ footer {
     right: 20px;
     height: 30px;
     width: 30px;
+  }
+
+  .ant-dropdown-menu-title-content {
+    font-size: 12px;
   }
 
   .portfolio-experiences-steps {
@@ -230,5 +242,9 @@ footer {
 
   footer {
     font-size: 12px;
+  }
+
+  .portfolio-experiences-divider {
+    font-size: 12px !important;
   }
 }
