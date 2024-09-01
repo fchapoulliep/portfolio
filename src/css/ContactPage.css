@@ -17,8 +17,7 @@
 .contact-page {
   display: flex;
   flex-direction: row;
-  height: calc(100vh - 100px);
-  min-height: 450px;
+  min-height: calc(100vh - 100px);
   padding-top: 100px;
   background: linear-gradient(to right, black, 75%, gray);
   align-items: center;

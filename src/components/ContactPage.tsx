@@ -8,12 +8,17 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React from "react";
+import React, {useEffect} from "react";
 import "../css/ContactPage.css";
 import emailjs from "emailjs-com";
 
 import { Form, Input, Button, message } from "antd";
 import { MailOutlined, MessageOutlined } from "@ant-design/icons";
+
+/**
+ * Importing services
+ */
+import handleNavigationBarBackgroudChange from "../services/navigationBarBackgroundService";
 
 /**
  * ContactPage component.
@@ -50,6 +55,10 @@ const ContactPage: React.FC = () => {
         }
       );
   };
+
+  useEffect(() => {
+    handleNavigationBarBackgroudChange();
+  });
 
   return (
     <div className="contact-page">

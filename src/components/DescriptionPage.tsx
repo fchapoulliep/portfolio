@@ -8,7 +8,7 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/DescriptionPage.css";
 import { Carousel } from "antd";
 import { Image } from "antd";
@@ -21,10 +21,20 @@ import fah from "../images/fah.png";
 import chp from "../images/chp-services.png";
 
 /**
+ * Importing services
+ */
+import handleNavigationBarBackgroudChange from "../services/navigationBarBackgroundService";
+
+/**
  * DescriptionPage component
  * @returns DescriptionPage component
  */
 const DescriptionPage: React.FC = () => {
+
+  useEffect(() => {
+    handleNavigationBarBackgroudChange();
+  });
+
   return (
     <div className="description">
       <div className="description-content">
