@@ -91,6 +91,17 @@
   transform: translateX(0);
 }
 
+@media screen and (max-height: 768px) {
+  #portfolio-experience {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  #portfolio-experience .text {
+    font-size: 12px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #portfolio-experience {
     flex-direction: column;

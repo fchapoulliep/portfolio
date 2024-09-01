@@ -9,6 +9,7 @@
  */
 .portfolio-welcome {
   height: calc(100vh - 100px);
+  min-height: 300px;
   background: linear-gradient(to right, black, 75%, gray);
   display: flex;
   color: #ffffff;
@@ -183,6 +184,31 @@ footer {
   }
 }
 
+@media screen and (max-height: 768px) {
+  .arrow-scroll-top img {
+    bottom: 20px;
+    right: 20px;
+    height: 30px;
+    width: 30px;
+  }
+
+  .arrow-experiences img {
+    margin-top: 20px;
+    height: 30px;
+    width: 30px;
+  }
+
+  .portfolio-welcome-photo img {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .portfolio-experiences-steps {
+    display: none !important;
+  }
+}
+
 /**
  * Media query styles for screens with a maximum width of 768px.
  */
@@ -230,10 +256,6 @@ footer {
 
   .ant-dropdown-menu-title-content {
     font-size: 12px;
-  }
-
-  .portfolio-experiences-steps {
-    display: none !important;
   }
 
   .portfolio-experiences {

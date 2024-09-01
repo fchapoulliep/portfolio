@@ -7,7 +7,7 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React, { useEffect } from "react";
+import React from "react";
 import "../css/App.css";
 
 import { HashRouter as Router, Route } from "react-router-dom";
@@ -27,10 +27,6 @@ import { ConfigProvider } from "antd";
  * and the routes for different pages.
  */
 const App: React.FC = () => {
-  useEffect(() => {
-    document.title = "Portfolio";
-  }, []);
-
   return (
     <Router>
       <ConfigProvider

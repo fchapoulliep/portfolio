@@ -90,3 +90,27 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media screen and (max-width: 768px) {
+  .description-content {
+    width: 90%;
+    margin-right: 0;
+  }
+
+  .description-carousel {
+    width: 90%;
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .description-carousel {
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (max-height: 768px) {
+  .description-content {
+    padding-top: 100px;
+  }
+}
