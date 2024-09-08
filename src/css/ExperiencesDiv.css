@@ -96,10 +96,6 @@
     margin-top: 30px;
     margin-bottom: 30px;
   }
-
-  #portfolio-experience .text {
-    font-size: 12px;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -117,12 +113,17 @@
     padding-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   #portfolio-experience .portfolio-experience-image {
     width: 100%;
     height: 100%;
+  }
+
+  #portfolio-experience .ant-image {
+    width: 50%;
+    min-width: 300px;
   }
 
   #portfolio-experience .onSide {
