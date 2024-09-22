@@ -9,8 +9,12 @@
  */
 .portfolio-welcome {
   height: calc(100vh - 100px);
-  min-height: 400px;
-  background: linear-gradient(to right, black, 75%, gray);
+  min-height: 200px;
+  background-color: #171717;
+  background-image: url("../images/signatureGray.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   display: flex;
   color: #ffffff;
   align-items: center;
@@ -23,35 +27,42 @@
  * Styles for the heading in the welcome section.
  */
 .portfolio-welcome h1 {
-  font-size: calc(0.5em + 2vw);
+  font-size: calc(0.5em + 3vw);
+  margin: 0;
 }
 
-/**
- * Styles for the subheading in the welcome section.
- */
-.portfolio-welcome h2 {
+.portfolio-welcome p {
   font-size: calc(0.3em + 1vw);
+  font-style: italic;
 }
 
-/**
- * Styles for the photo container in the welcome section.
- */
-.portfolio-welcome-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  margin-bottom: 50px;
-}
-
-/**
- * Styles for the photo in the welcome section.
- */
-.portfolio-welcome-photo img {
+.portfolio-welcome-about {
+  display: none;
   position: absolute;
-  left: 3em;
-  width: 35%;
-  border-radius: 50%;
+  top: 68%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(23, 23, 23, 0.8);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ffffff;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  text-align: justify;
+}
+
+.portfolio-welcome-about.visible {
+  display: block;
+  opacity: 0;
+  transform: translate(-70%, -50%);
+  animation: fadeAbout 1s forwards;
+}
+
+@keyframes fadeAbout {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 /**
@@ -59,8 +70,47 @@
  */
 .portfolio-welcome-text {
   z-index: 2;
-  text-align: center;
-  margin-bottom: 50px;
+  text-align: start;
+  margin-bottom: 100px;
+  margin-right: 20%;
+  opacity: 0;
+  transform: translateY(30%);
+  animation: fadeIn 1s forwards;
+}
+
+.portfolio-welcome-button {
+  margin-top: 10px;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 2px;
+  font-size: calc(0.3em + 0.8vw);
+  outline: 3px solid;
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: 8px;
+  transition: all 600ms cubic-bezier(0.2, 0, 0, 0.8);
+}
+
+.portfolio-welcome-button:hover {
+  color: rgba(255, 255, 255, 0.8);
+  outline-color: rgba(71, 126, 232, 0);
+  outline-offset: 50px;
+}
+
+/**
+ * Keyframes for the fade-in animation.
+ */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.arrow-experiences {
+  position: absolute;
+  bottom: 5%;
 }
 
 /**
@@ -79,7 +129,7 @@
  */
 .arrow-experiences img:hover {
   animation: none;
-  transform: scale(1.1);
+  transform: scale(1.2);
   cursor: pointer;
 }
 
@@ -109,7 +159,7 @@
  * Styles for the scroll-to-top arrow icon on hover.
  */
 .arrow-scroll-top img:hover {
-  transform: scale(1.1);
+  transform: scale(1.2) translateY(-10px);
   cursor: pointer;
 }
 
@@ -146,12 +196,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: black;
+  background: linear-gradient(to bottom, #171717 10%, black 90%);
 }
 
 .portfolio-experiences-divider {
   color: #f7f7f7 !important;
   border: #f7f7f7 !important;
+}
+
+.portfolio-experiences-divider:first-of-type {
+  margin-top: 0;
 }
 
 /**
@@ -197,15 +251,15 @@ footer {
     height: 30px;
     width: 30px;
   }
-
-  .portfolio-welcome-photo img {
-    width: 30%;
-  }
 }
 
 @media screen and (max-width: 1024px) {
   .portfolio-experiences-steps {
     display: none !important;
+  }
+
+  .portfolio-welcome-text {
+    margin-right: 0;
   }
 }
 
@@ -227,18 +281,8 @@ footer {
     font-size: calc(0.6em + 1vw);
   }
 
-  .portfolio-welcome-photo {
-    margin-bottom: 0px;
-    height: auto;
-  }
-
-  .portfolio-welcome-photo img {
-    position: static;
-    width: 50%;
-  }
-
-  .portfolio-welcome-text {
-    margin-bottom: 20px;
+  .arrow-experiences {
+    bottom: 10%;
   }
 
   .arrow-experiences img {

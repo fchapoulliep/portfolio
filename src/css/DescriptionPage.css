@@ -48,7 +48,12 @@
 
 .description {
   min-height: calc(100vh - 100px);
-  background: linear-gradient(to right, black, 75%, gray);
+  background-color: #171717;
+  background-color: #171717;
+  background-image: url("../images/signatureGray.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,6 +65,16 @@
 .description-content {
   width: 70%;
   margin-right: 15%;
+  opacity: 0;
+  transform: translateX(-30%);
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .description-content h2 {
@@ -78,6 +93,9 @@
   margin-top: 1em;
   text-align: center;
   color: #f7f7f7;
+  opacity: 0;
+  transform: translateX(30%);
+  animation: fadeIn 1s forwards;
 }
 
 .description-carousel h2 {

@@ -111,12 +111,8 @@
   height: 2px;
   bottom: -2px;
   left: 10%;
-  background-color: black;
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-bar.background .nav-item::after {
   background-color: #ffffff;
+  transition: width 0.3s ease-in-out;
 }
 
 .active {

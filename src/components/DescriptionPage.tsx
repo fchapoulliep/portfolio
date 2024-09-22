@@ -10,6 +10,7 @@
  */
 import React, { useEffect } from "react";
 import "../css/DescriptionPage.css";
+import "../css/Background.sass";
 import { Carousel } from "antd";
 import { Image } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -30,17 +31,21 @@ import handleNavigationBarBackgroudChange from "../services/navigationBarBackgro
  * @returns DescriptionPage component
  */
 const DescriptionPage: React.FC = () => {
-
   useEffect(() => {
     handleNavigationBarBackgroudChange();
   });
 
   return (
-    <div className="description">
+    <div className="description" id="description">
+      <div className="lines">
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+      </div>
       <div className="description-content">
         <h2> Que faut-il savoir sur moi</h2>
         <p>
-          <b>Actuellement en 2ème de année de BUT Informatique, </b> je suis un
+          <b>Actuellement en 3ème de année de BUT Informatique, </b> je suis un
           élève motivé à avoir une expérience professionnelle solide. J'ai
           toujours souhaité vivre dans un monde dans lequel les tâches
           fastidieuses seraient facilitées par la technologie, c'est pourquoi ma

@@ -10,11 +10,11 @@
  */
 import React, { useEffect, useRef } from "react";
 import "../css/PortfolioPage.css";
+import "../css/Background.sass";
 
 /**
  * Importing images
  */
-import florianC from "../images/florianC.jpg";
 import FlècheBas from "../images/FlècheBas.png";
 import FlècheHaut from "../images/FlècheHaut.png";
 import ExperiencesDiv from "./ExperiencesDiv";
@@ -297,23 +297,73 @@ const PortfolioPage: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  useEffect(() => {
+    const lines = document.querySelector(".lines");
+
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        lines?.classList.add("smaller");
+      } else {
+        lines?.classList.remove("smaller");
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
+  const handleMouseEnter = () => {
+    const about = document.querySelector(".portfolio-welcome-about");
+    if (about) {
+      about.classList.add("visible");
+    }
+  };
+
+  const handleMouseLeave = () => {
+    const about = document.querySelector(".portfolio-welcome-about");
+    if (about) {
+      about.classList.remove("visible");
+    }
+  };
+
   return (
-    <div className="portfolio">
+    <div className="portfolio" id="portfolio">
       <div className="portfolio-welcome">
-        <div className="portfolio-welcome-photo">
-          <img src={florianC} alt="florianC" />
+        <div className="lines">
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+        <div className="portfolio-welcome-about" >
+          <p>
+            Je suis un étudiant en 3ème année de BUT Informatique à l'IUT de
+            Bordeaux. Passionné par le développement web et les nouvelles
+            technologies, je suis à la recherche d'une alternance pour
+            l'année 2024-2025.
+          </p>
         </div>
         <div className="portfolio-welcome-text">
-          <h1>Bonjour ! Je m'appelle Florian Chapoullié-Pino.</h1>
-          <h2>Bienvenue sur mon portfolio !</h2>
-          <h2>Bonne visite.</h2>
-          <div className="arrow-experiences">
-            <img
-              src={FlècheBas}
-              onClick={handleScrollExperiences}
-              alt="scroll-experiences-arrow"
-            />
-          </div>
+          <h1>Florian Chapoullié-Pino</h1>
+          <p>Développeur Full-Stack</p>
+          <button
+            className="portfolio-welcome-button"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            À propos
+          </button>
+        </div>
+        <div className="arrow-experiences">
+          <img
+            src={FlècheBas}
+            onClick={handleScrollExperiences}
+            alt="scroll-experiences-arrow"
+          />
         </div>
       </div>
       <div className="arrow-scroll-top">

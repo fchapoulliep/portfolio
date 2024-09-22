@@ -7,7 +7,7 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/App.css";
 
 import { HashRouter as Router, Route } from "react-router-dom";
@@ -27,6 +27,42 @@ import { ConfigProvider } from "antd";
  * and the routes for different pages.
  */
 const App: React.FC = () => {
+  useEffect(() => {
+    const cursor = document.querySelector(".cursor");
+    const handleMouseMove = (e: MouseEvent) => {
+      if (cursor) {
+        let maxHeight = document.body.scrollHeight - cursor.clientHeight;
+        let maxWidth = window.innerWidth - cursor.clientWidth;
+        if (e.pageY > maxHeight) {
+          (cursor as HTMLElement).style.top = `${maxHeight}px`;
+        } else {
+          (cursor as HTMLElement).style.top = `${e.pageY}px`;
+        }
+        if (e.pageX > maxWidth) {
+          (cursor as HTMLElement).style.left = `${maxWidth}px`;
+        } else {
+          (cursor as HTMLElement).style.left = `${e.pageX}px`;
+        }
+      }
+    };
+    const handleClick = () => {
+      if (cursor) {
+        cursor.classList.add("expand");
+        setTimeout(() => {
+          cursor.classList.remove("expand");
+        }, 500);
+      }
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
+
   return (
     <Router>
       <ConfigProvider
@@ -51,6 +87,7 @@ const App: React.FC = () => {
         <NavigationBar />
         <ResumeRedirection />
         <SocialMediaRedirection />
+        <div className="cursor"></div>
         <Routes>
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/about" element={<DescriptionPage />} />

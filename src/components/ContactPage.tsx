@@ -8,8 +8,9 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "../css/ContactPage.css";
+import "../css/Background.sass";
 import emailjs from "emailjs-com";
 
 import { Form, Input, Button, message } from "antd";
@@ -61,7 +62,12 @@ const ContactPage: React.FC = () => {
   });
 
   return (
-    <div className="contact-page">
+    <div className="contact-page" id="contact-page">
+      <div className="lines">
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
+      </div>
       <div className="contact-text">
         <h1>Mon profil vous intéresse ? Contactez-moi</h1>
         <p>Ensemble, faisons progresser le monde...</p>
