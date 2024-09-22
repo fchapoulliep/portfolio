@@ -10,7 +10,6 @@
  */
 import React, { useEffect, useRef } from "react";
 import "../css/PortfolioPage.css";
-import "../css/Background.sass";
 
 /**
  * Importing images
@@ -28,6 +27,7 @@ import symfony from "../images/symfony.png";
 import kifli from "../images/kifli.png";
 import associativeArray from "../images/associativeArray.png";
 import { Divider, Steps } from "antd";
+import Lines from "./Lines";
 
 /**
  * PortfolioPage component that returns the portfolio page of the portfolio website
@@ -334,11 +334,7 @@ const PortfolioPage: React.FC = () => {
   return (
     <div className="portfolio" id="portfolio">
       <div className="portfolio-welcome">
-        <div className="lines">
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
-        </div>
+        <Lines />
         <div className="portfolio-welcome-about" >
           <p>
             Je suis un étudiant en 3ème année de BUT Informatique à l'IUT de

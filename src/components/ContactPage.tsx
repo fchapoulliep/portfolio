@@ -10,7 +10,6 @@
  */
 import React, { useEffect } from "react";
 import "../css/ContactPage.css";
-import "../css/Background.sass";
 import emailjs from "emailjs-com";
 
 import { Form, Input, Button, message } from "antd";
@@ -20,6 +19,8 @@ import { MailOutlined, MessageOutlined } from "@ant-design/icons";
  * Importing services
  */
 import handleNavigationBarBackgroudChange from "../services/navigationBarBackgroundService";
+
+import Lines from "./Lines"
 
 /**
  * ContactPage component.
@@ -63,13 +64,9 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="contact-page" id="contact-page">
-      <div className="lines">
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
-      </div>
+      <Lines />
       <div className="contact-text">
-        <h1>Mon profil vous intéresse ? Contactez-moi</h1>
+        <h1>Mon profil vous intéresse ? <br/>Contactez-moi</h1>
         <p>Ensemble, faisons progresser le monde...</p>
         <div className="contact-mail">
           <MailOutlined style={{ fontSize: "150%", margin: "10px" }} />

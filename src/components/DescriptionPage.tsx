@@ -10,7 +10,6 @@
  */
 import React, { useEffect } from "react";
 import "../css/DescriptionPage.css";
-import "../css/Background.sass";
 import { Carousel } from "antd";
 import { Image } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -26,6 +25,8 @@ import chp from "../images/chp-services.png";
  */
 import handleNavigationBarBackgroudChange from "../services/navigationBarBackgroundService";
 
+import Lines from "./Lines";
+
 /**
  * DescriptionPage component
  * @returns DescriptionPage component
@@ -37,11 +38,7 @@ const DescriptionPage: React.FC = () => {
 
   return (
     <div className="description" id="description">
-      <div className="lines">
-        <div className="line"></div>
-        <div className="line"></div>
-        <div className="line"></div>
-      </div>
+      <Lines />
       <div className="description-content">
         <h2> Que faut-il savoir sur moi</h2>
         <p>

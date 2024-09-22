@@ -32,17 +32,12 @@ const App: React.FC = () => {
     const handleMouseMove = (e: MouseEvent) => {
       if (cursor) {
         let maxHeight = document.body.scrollHeight - cursor.clientHeight;
-        let maxWidth = window.innerWidth - cursor.clientWidth;
         if (e.pageY > maxHeight) {
           (cursor as HTMLElement).style.top = `${maxHeight}px`;
         } else {
           (cursor as HTMLElement).style.top = `${e.pageY}px`;
         }
-        if (e.pageX > maxWidth) {
-          (cursor as HTMLElement).style.left = `${maxWidth}px`;
-        } else {
-          (cursor as HTMLElement).style.left = `${e.pageX}px`;
-        }
+        (cursor as HTMLElement).style.left = `${e.pageX}px`;
       }
     };
     const handleClick = () => {
