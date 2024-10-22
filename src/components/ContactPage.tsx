@@ -18,9 +18,9 @@ import { MailOutlined, MessageOutlined } from "@ant-design/icons";
 /**
  * Importing services
  */
-import handleNavigationBarBackgroudChange from "../services/navigationBarBackgroundService";
+import handleScrollTop from "../services/scrollToTopService";
 
-import Lines from "./Lines"
+import Lines from "./Lines";
 
 /**
  * ContactPage component.
@@ -59,14 +59,17 @@ const ContactPage: React.FC = () => {
   };
 
   useEffect(() => {
-    handleNavigationBarBackgroudChange();
+    handleScrollTop();
   });
 
   return (
     <div className="contact-page" id="contact-page">
       <Lines />
       <div className="contact-text">
-        <h1>Mon profil vous intéresse ? <br/>Contactez-moi</h1>
+        <h1>
+          Mon profil vous intéresse ? <br />
+          Contactez-moi
+        </h1>
         <p>Ensemble, faisons progresser le monde...</p>
         <div className="contact-mail">
           <MailOutlined style={{ fontSize: "150%", margin: "10px" }} />

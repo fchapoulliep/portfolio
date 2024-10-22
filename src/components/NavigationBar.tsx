@@ -9,12 +9,14 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/NavigationBar.css";
 
 import { Link, useLocation } from "react-router-dom";
 import { Dropdown, Button } from "antd";
 import signature from "../images/signature.png";
+
+import handleScrollTop from "../services/scrollToTopService";
 
 /**
  * NavigationBar component
@@ -22,13 +24,6 @@ import signature from "../images/signature.png";
  */
 const NavigationBar: React.FC = () => {
   const location = useLocation();
-
-  /**
-   * Scroll to the top of the page
-   */
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
 
   /**
    * Handle the redirection to the home page when the logo is clicked
@@ -44,6 +39,32 @@ const NavigationBar: React.FC = () => {
     const navBar = document.querySelector(".nav-bar") as HTMLElement;
     navBar.classList.remove("background");
   };
+
+  /**
+   * Add background to the navigation bar when scrolling more than 100px
+   */
+  const handleScroll = () => {
+    const navBar = document.querySelector(".nav-bar") as HTMLElement;
+    if (window.scrollY > 50) {
+      navBar.classList.add("background");
+    } else {
+      navBar.classList.remove("background");
+    }
+  };
+
+  useEffect(() => {
+    if (
+      location.pathname === "/about" ||
+      location.pathname === "/about/" ||
+      location.pathname === "/contact" ||
+      location.pathname === "/contact/"
+    ) {
+      window.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [location.pathname]);
 
   const items = [
     {
@@ -177,7 +198,7 @@ const NavigationBar: React.FC = () => {
           className={`nav-item ${location.pathname === "/" ? "active" : ""}`}
           to="/"
           onClick={
-            location.pathname === "/" ? scrollToTop : resetNavBarBackground
+            location.pathname === "/" ? handleScrollTop : resetNavBarBackground
           }
         >
           Accueil
@@ -191,7 +212,7 @@ const NavigationBar: React.FC = () => {
           to="/about"
           onClick={
             location.pathname === "/about" || location.pathname === "/about/"
-              ? scrollToTop
+              ? handleScrollTop
               : resetNavBarBackground
           }
         >
@@ -208,7 +229,7 @@ const NavigationBar: React.FC = () => {
           onClick={
             location.pathname === "/contact" ||
             location.pathname === "/contact/"
-              ? scrollToTop
+              ? handleScrollTop
               : resetNavBarBackground
           }
         >

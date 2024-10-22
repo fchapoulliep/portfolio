@@ -23,7 +23,7 @@ import chp from "../images/chp-services.png";
 /**
  * Importing services
  */
-import handleNavigationBarBackgroudChange from "../services/navigationBarBackgroundService";
+import handleScrollTop from "../services/scrollToTopService";
 
 import Lines from "./Lines";
 
@@ -33,7 +33,7 @@ import Lines from "./Lines";
  */
 const DescriptionPage: React.FC = () => {
   useEffect(() => {
-    handleNavigationBarBackgroudChange();
+    handleScrollTop();
   });
 
   return (

@@ -290,13 +290,6 @@ const PortfolioPage: React.FC = () => {
     setCurrentSteps(current);
   };
 
-  /**
-   * Function to scroll to the top of the page
-   */
-  const handleScrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   useEffect(() => {
     const lines = document.querySelector(".lines");
 
@@ -358,15 +351,15 @@ const PortfolioPage: React.FC = () => {
           <img
             src={FlècheBas}
             onClick={handleScrollExperiences}
-            alt="scroll-experiences-arrow"
+            alt="Scroll to first experience"
           />
         </div>
       </div>
       <div className="arrow-scroll-top">
         <img
           src={FlècheHaut}
-          onClick={handleScrollTop}
-          alt="scroll-top-arrow"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          alt="Scroll to top"
         />
       </div>
       <div className="portfolio-experiences-steps">
