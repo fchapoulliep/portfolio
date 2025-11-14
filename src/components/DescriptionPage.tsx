@@ -42,7 +42,7 @@ const DescriptionPage: React.FC = () => {
       <div className="description-content">
         <h2> Que faut-il savoir sur moi</h2>
         <p>
-          <b>Actuellement en 3ème de année de BUT Informatique, </b> je suis un
+          <b>Actuellement en 1ère année de Master Informatique, </b> je suis un
           élève motivé à avoir une expérience professionnelle solide. J'ai
           toujours souhaité vivre dans un monde dans lequel les tâches
           fastidieuses seraient facilitées par la technologie, c'est pourquoi ma

@@ -75,8 +75,8 @@ const ContactPage: React.FC = () => {
           <MailOutlined style={{ fontSize: "150%", margin: "10px" }} />
           <p>
             Envoyez-moi un e-mail à <br />
-            <a href="mailto:florian.chapoullie-pino@etu.u-bordeaux.fr">
-              florian.chapoullie-pino@etu.u-bordeaux.fr
+            <a href="mailto:florian.chapoullie-pino@univ-lr.fr">
+              florian.chapoullie-pino@univ-lr.fr
             </a>
           </p>
         </div>

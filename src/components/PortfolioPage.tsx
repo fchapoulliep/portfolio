@@ -328,12 +328,12 @@ const PortfolioPage: React.FC = () => {
     <div className="portfolio" id="portfolio">
       <div className="portfolio-welcome">
         <Lines />
-        <div className="portfolio-welcome-about" >
+        <div className="portfolio-welcome-about">
           <p>
-            Je suis un étudiant en 3ème année de BUT Informatique à l'IUT de
-            Bordeaux. Passionné par le développement web et les nouvelles
-            technologies, je suis à la recherche d'une alternance pour
-            l'année 2024-2025.
+            Je suis un étudiant en 1ère année de Master Informatique à l'Université de
+            La Rochelle. Passionné par le développement web et les nouvelles
+            technologies, j'aime concevoir des solutions qui facilitent les
+            tâches répétitives du quotidien.
           </p>
         </div>
         <div className="portfolio-welcome-text">
@@ -739,7 +739,7 @@ const PortfolioPage: React.FC = () => {
         />
       </div>
       <footer>
-        <p>© 2024 Florian Chapoullié-Pino</p>
+        <p>© 2025 Florian Chapoullié-Pino</p>
       </footer>
     </div>
   );
