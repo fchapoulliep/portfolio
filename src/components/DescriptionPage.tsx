@@ -48,7 +48,7 @@ const DescriptionPage: React.FC = () => {
           fastidieuses seraient facilitées par la technologie, c'est pourquoi ma
           carrière future était toute tracée ! Toujours à la recherche de
           nouvelles connaissances et opportunités, je suis ouvert à toute offre
-          de stage d'emploi !
+          de stage ou d'emploi !
         </p>
       </div>
 
