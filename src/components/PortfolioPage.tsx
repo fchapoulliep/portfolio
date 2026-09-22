@@ -330,7 +330,7 @@ const PortfolioPage: React.FC = () => {
         <Lines />
         <div className="portfolio-welcome-about">
           <p>
-            Je suis un étudiant en 1ère année de Master Informatique à l'Université de
+            Je suis un étudiant en 2ème année de Master Informatique à l'Université de
             La Rochelle. Passionné par le développement web et les nouvelles
             technologies, j'aime concevoir des solutions qui facilitent les
             tâches répétitives du quotidien.
