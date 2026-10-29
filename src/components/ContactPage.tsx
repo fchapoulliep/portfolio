@@ -27,6 +27,8 @@ import { CONTACT_EMAIL } from "../config";
  * ContactPage component.
  * Renders a contact form and contact information.
  */
+const [emailUser, emailDomain] = CONTACT_EMAIL.split("@");
+
 const ContactPage: React.FC = () => {
   const [form] = Form.useForm();
 
@@ -76,7 +78,12 @@ const ContactPage: React.FC = () => {
           <MailOutlined style={{ fontSize: "150%", margin: "10px" }} />
           <p>
             Envoyez-moi un e-mail à <br />
-            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+            <a href={`mailto:${CONTACT_EMAIL}`}>
+              {/* Breaks only before the @ when the card is too narrow */}
+              <span className="nowrap">{emailUser}</span>
+              <wbr />
+              <span className="nowrap">@{emailDomain}</span>
+            </a>
           </p>
         </div>
       </div>
