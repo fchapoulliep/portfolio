@@ -54,6 +54,11 @@ const NavigationBar: React.FC = () => {
    */
   const [hasBackground, setHasBackground] = useState(false);
 
+  /**
+   * Whether the experience reports menu is open
+   */
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => setHasBackground(window.scrollY > 50);
     handleScroll();
@@ -78,13 +83,41 @@ const NavigationBar: React.FC = () => {
     <div className={`nav-bar ${hasBackground ? "background" : ""}`}>
       <div className="nav-bar-experiences">
         <Dropdown
-          menu={{ items }}
+          menu={{
+            items,
+            onClick: ({ key, domEvent }) => {
+              // A mouse click follows the link itself; Enter on a focused item does not
+              if (domEvent.type === "keydown") {
+                const report = experienceReports[Number(key) - 1];
+                window.open(
+                  `experiences/${report.file}`,
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+              }
+            },
+          }}
+          open={menuOpen}
+          onOpenChange={setMenuOpen}
+          autoFocus
           placement="bottomRight"
           arrow
           autoAdjustOverflow
           overlayClassName="dropdown-experiences"
         >
-          <Button>Mes retours d'expériences</Button>
+          <Button
+            aria-haspopup="menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(true)}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowDown") {
+                e.preventDefault();
+                setMenuOpen(true);
+              }
+            }}
+          >
+            Mes retours d'expériences
+          </Button>
         </Dropdown>
       </div>
       <div className="nav-bar-logo">

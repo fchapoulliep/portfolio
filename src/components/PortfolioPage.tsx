@@ -300,6 +300,12 @@ const PortfolioPage: React.FC = () => {
    */
   const [aboutOpen, setAboutOpen] = useState(false);
 
+  /**
+   * Pointer that pressed the "À propos" button last: a mouse opens it on
+   * hover, while touch and keyboard toggle it on click
+   */
+  const lastPointerType = useRef<string | null>(null);
+
   useEffect(() => {
     const section = experiencesRef.current;
     if (!section) {
@@ -370,7 +376,10 @@ const PortfolioPage: React.FC = () => {
     <div className="portfolio" id="portfolio">
       <div className="portfolio-welcome">
         <Lines />
-        <div className={`portfolio-welcome-about ${aboutOpen ? "visible" : ""}`}>
+        <div
+          id="welcome-about"
+          className={`portfolio-welcome-about ${aboutOpen ? "visible" : ""}`}
+        >
           <p>
             Je suis un étudiant en 2ème année de Master Informatique à l'Université de
             La Rochelle. Passionné par le développement web et les nouvelles
@@ -383,8 +392,33 @@ const PortfolioPage: React.FC = () => {
           <p>Développeur Full-Stack</p>
           <button
             className="portfolio-welcome-button"
-            onMouseEnter={() => setAboutOpen(true)}
-            onMouseLeave={() => setAboutOpen(false)}
+            aria-expanded={aboutOpen}
+            aria-controls="welcome-about"
+            onPointerEnter={(e) => {
+              if (e.pointerType === "mouse") {
+                setAboutOpen(true);
+              }
+            }}
+            onPointerLeave={(e) => {
+              if (e.pointerType === "mouse") {
+                setAboutOpen(false);
+              }
+            }}
+            onPointerDown={(e) => {
+              lastPointerType.current = e.pointerType;
+            }}
+            onClick={() => {
+              if (lastPointerType.current !== "mouse") {
+                setAboutOpen((open) => !open);
+              }
+              lastPointerType.current = null;
+            }}
+            onBlur={() => setAboutOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Escape") {
+                setAboutOpen(false);
+              }
+            }}
           >
             À propos
           </button>
