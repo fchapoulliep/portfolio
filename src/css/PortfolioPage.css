@@ -198,8 +198,9 @@
   justify-content: center;
   width: 100%;
   box-sizing: border-box;
+  flex-direction: column;
   background: #000000;
-  padding: 10px;
+  padding: 6px 10px;
   z-index: 15;
   transition: all 0.2s ease-in-out;
 }
@@ -211,6 +212,71 @@
 
 .portfolio-steps {
   width: 95%;
+}
+
+/* One thin row: the titles are cut with an ellipsis, the tooltip gives them in full */
+.portfolio-steps .step-title-text {
+  display: inline-block;
+  max-width: calc(0.95 * (100vw - 40px) / 9 - 64px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.portfolio-steps .ant-steps-item-container:focus-visible {
+  outline: 2px solid #f7f7f7;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.steps-current-label {
+  display: none;
+}
+
+.steps-tooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  max-width: 240px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: #1f1f1f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  color: #f7f7f7;
+  font-family: "Comfortaa", Arial, Helvetica, sans-serif;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Small arrow pointing at the step */
+.steps-tooltip::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  background: #1f1f1f;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.steps-tooltip.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steps-tooltip {
+    transition: none;
+  }
 }
 
 /**
@@ -279,8 +345,28 @@ footer {
 }
 
 @media screen and (max-width: 1024px) {
+  /* Only the dots stay, 44 px high, with the current title under them */
   .portfolio-experiences-steps {
-    display: none !important;
+    padding: 0 4px 6px;
+  }
+
+  .portfolio-steps {
+    width: 100%;
+  }
+
+  .portfolio-steps .step-title-text {
+    display: none;
+  }
+
+  .portfolio-steps .ant-steps-item-container {
+    padding: 10px 0;
+  }
+
+  .steps-current-label {
+    display: block;
+    margin: 0;
+    color: #f7f7f7;
+    font-size: var(--text-sm);
   }
 
   .portfolio-welcome-text {

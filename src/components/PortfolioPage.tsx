@@ -365,6 +365,31 @@ const PortfolioPage: React.FC = () => {
   };
 
   /**
+   * Bar of steps, and the tooltip that shows the full title of a step
+   */
+  const stepsBarRef = useRef<HTMLDivElement>(null);
+  const [stepTip, setStepTip] = useState({ text: "", x: 0, visible: false });
+
+  const showStepTip = (target: EventTarget) => {
+    const bar = stepsBarRef.current;
+    const item = (target as HTMLElement).closest?.(".ant-steps-item");
+    const title = item?.querySelector(".step-title-text");
+    if (!bar || !item || !title) {
+      return;
+    }
+    const barBox = bar.getBoundingClientRect();
+    const itemBox = item.getBoundingClientRect();
+    const icon = item.querySelector(".ant-steps-item-icon")?.getBoundingClientRect();
+    // Centered under the step dot, kept inside the bar
+    const center = (icon ? icon.left + icon.width / 2 : itemBox.left) - barBox.left;
+    const x = Math.min(Math.max(center, 130), barBox.width - 130);
+    setStepTip({ text: title.textContent ?? "", x, visible: true });
+  };
+
+  const hideStepTip = () =>
+    setStepTip((tip) => ({ ...tip, visible: false }));
+
+  /**
    * Scroll to a specific experience from the steps bar
    */
   const handleStepChange = (current: number) => {
@@ -445,20 +470,38 @@ const PortfolioPage: React.FC = () => {
         </button>
       </div>
       <div
+        ref={stepsBarRef}
         className={`portfolio-experiences-steps ${
           inExperiences ? "visible" : ""
         }`}
+        onMouseOver={(e) => showStepTip(e.target)}
+        onMouseLeave={hideStepTip}
+        onFocus={(e) => showStepTip(e.target)}
+        onBlur={hideStepTip}
       >
         <Steps
           className="portfolio-steps"
           direction="horizontal"
-          labelPlacement="vertical"
           size="small"
           current={currentStep}
           onChange={handleStepChange}
           responsive={false}
-          items={experiences.map(({ title }) => ({ title }))}
+          items={experiences.map(({ title }) => ({
+            title: <span className="step-title-text">{title}</span>,
+          }))}
         />
+        {/* On narrow screens only the dots stay, with the current title under them */}
+        <p className="steps-current-label" aria-hidden="true">
+          {experiences[currentStep].title}
+        </p>
+        {/* Full title of the hovered or focused step; screen readers already get it from the step */}
+        <div
+          className={`steps-tooltip ${stepTip.visible ? "visible" : ""}`}
+          style={{ left: stepTip.x }}
+          aria-hidden="true"
+        >
+          {stepTip.text}
+        </div>
       </div>
       <div className="portfolio-experiences" ref={experiencesRef}>
         {experiences.map((experience, index) => (
