@@ -89,9 +89,8 @@ const DescriptionPage: React.FC = () => {
           élève motivé à avoir une expérience professionnelle solide. J'ai
           toujours souhaité vivre dans un monde dans lequel les tâches
           fastidieuses seraient facilitées par la technologie, c'est pourquoi ma
-          carrière future était toute tracée ! Toujours à la recherche de
-          nouvelles connaissances et opportunités, je suis ouvert à toute offre
-          de stage ou d'emploi !
+          carrière future était toute tracée ! Je reste toujours à la
+          recherche de nouvelles connaissances.
         </p>
       </div>
 
