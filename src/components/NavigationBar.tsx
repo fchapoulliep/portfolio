@@ -23,7 +23,7 @@ import handleScrollTop from "../services/scrollToTopService";
  */
 const experienceReports = [
   { file: "retourOdomo.pdf", label: "Odomo" },
-  { file: "retourBiosphere.pdf", label: "Biosphere" },
+  { file: "retourBiosphere.pdf", label: "Biosphere 7" },
   { file: "retourMachine.pdf", label: "Machine" },
   { file: "retourSQL.pdf", label: "SQL" },
   { file: "retourWeb.pdf", label: "Web" },
@@ -116,7 +116,7 @@ const NavigationBar: React.FC = () => {
               }
             }}
           >
-            Mes retours d'expériences
+            Mes retours d'expérience
           </Button>
         </Dropdown>
       </div>

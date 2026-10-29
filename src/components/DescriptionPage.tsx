@@ -40,9 +40,9 @@ const DescriptionPage: React.FC = () => {
     <div className="description" id="description">
       <Lines />
       <div className="description-content">
-        <h1> Que faut-il savoir sur moi</h1>
+        <h1>Que faut-il savoir sur moi&nbsp;?</h1>
         <p>
-          <b>Actuellement en 2ème année de Master Informatique, </b> je suis un
+          <b>Actuellement en 2e année de Master Informatique, </b> je suis un
           élève motivé à avoir une expérience professionnelle solide. J'ai
           toujours souhaité vivre dans un monde dans lequel les tâches
           fastidieuses seraient facilitées par la technologie, c'est pourquoi ma
@@ -53,7 +53,7 @@ const DescriptionPage: React.FC = () => {
       </div>
 
       <div className="description-carousel">
-        <h2>Mes projets personnels :</h2>
+        <h2>Mes projets personnels&nbsp;:</h2>
         <Carousel arrows autoplay dotPosition="bottom" className="carousel">
           <div>
             <Image

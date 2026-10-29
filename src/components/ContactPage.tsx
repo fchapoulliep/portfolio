@@ -55,7 +55,7 @@ const ContactPage: React.FC = () => {
         },
         (error) => {
           message.error(
-            "Une erreur est survenue lors de l'envoi du message: " + error.text
+            "Une erreur est survenue lors de l'envoi du message : " + error.text
           );
         }
       );
@@ -70,7 +70,7 @@ const ContactPage: React.FC = () => {
       <Lines />
       <div className="contact-text">
         <h1>
-          Mon profil vous intéresse ? <br />
+          Mon profil vous intéresse&nbsp;? <br />
           Contactez-moi
         </h1>
         <p>Ensemble, faisons progresser le monde...</p>
