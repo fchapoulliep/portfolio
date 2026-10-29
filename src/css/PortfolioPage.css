@@ -397,8 +397,12 @@ footer {
     padding: var(--nav-height) var(--page-gutter) var(--bottom-bar-space);
   }
 
+  /* The same 640 px column as the experiences, on the left of which the
+     name, the button and the about panel line up */
   .portfolio-welcome-text {
-    max-width: 100%;
+    order: 1;
+    width: 100%;
+    max-width: 640px;
     margin-bottom: 0;
   }
 
@@ -419,12 +423,17 @@ footer {
     height: 44px;
   }
 
-  /* The about panel spans the page between the side margins */
+  /* The about panel opens under its button, in the flow of the column,
+     instead of floating over the subtitle and the button */
   .portfolio-welcome-about {
-    left: var(--page-gutter);
-    right: var(--page-gutter);
+    order: 2;
+    position: static;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 640px;
+    margin-top: 24px;
     padding: 20px;
-    transform: translateY(-50%);
+    transform: none;
     text-align: left;
   }
 
@@ -436,7 +445,7 @@ footer {
   }
 
   .portfolio-welcome-about.visible {
-    transform: translateY(-50%);
+    transform: none;
     animation-name: fadeAboutMobile;
   }
 
