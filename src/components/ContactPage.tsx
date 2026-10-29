@@ -99,37 +99,46 @@ const ContactPage: React.FC = () => {
         >
           <Form.Item
             name="name"
+            label="Nom"
             rules={[{ required: true, message: "Veuillez entrer votre nom" }]}
           >
-            <Input placeholder="Nom*" autoComplete="off" />
+            <Input placeholder="Votre nom" autoComplete="name" />
           </Form.Item>
 
           <Form.Item
             name="email"
+            label="Adresse e-mail"
             rules={[
               {
                 required: true,
-                message: "Veuillez entrer votre adresse email",
+                message: "Veuillez entrer votre adresse e-mail",
+              },
+              {
                 type: "email",
+                message: "Veuillez entrer une adresse e-mail valide",
               },
             ]}
           >
-            <Input placeholder="Mail*" autoComplete="off" />
+            <Input
+              type="email"
+              placeholder="vous@exemple.fr"
+              autoComplete="email"
+            />
           </Form.Item>
 
           <Form.Item
             name="message"
-            label="Message :"
+            label="Message"
             rules={[
               { required: true, message: "Veuillez entrer votre message" },
             ]}
           >
             <Input.TextArea
+              placeholder="Votre message"
               autoSize={{
                 minRows: 2,
                 maxRows: 6,
               }}
-              autoComplete="off"
             />
           </Form.Item>
 

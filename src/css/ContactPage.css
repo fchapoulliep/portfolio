@@ -131,8 +131,10 @@
   transition: all 0.1s ease-in-out;
 }
 
-.form-validation-button:hover {
-  background-color: #f0f0f0 !important;
+.contact-info .form-validation-button:hover,
+.contact-info .form-validation-button:focus-visible {
+  background-color: #333333 !important;
+  color: #f7f7f7 !important;
 }
 
 @media screen and (max-height: 900px) {

@@ -74,6 +74,9 @@ const App: React.FC = () => {
     <Router>
       <ConfigProvider
         theme={{
+          token: {
+            fontFamily: '"Comfortaa", Arial, Helvetica, sans-serif',
+          },
           components: {
             /**
              * Customizing the Steps component
