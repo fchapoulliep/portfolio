@@ -143,33 +143,50 @@
 }
 
 /**
- * Styles for the scroll-to-top arrow icon.
+ * Buttons that hold the arrow icons
  */
-.arrow-scroll-top img {
+.arrow-button {
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/**
+ * Styles for the scroll-to-top arrow button, hidden until the experiences are reached.
+ */
+.arrow-scroll-top .arrow-button {
   width: 50px;
   height: 50px;
-  transition: 0.5s;
   position: fixed;
   bottom: 50px;
   right: 50px;
   transition: all 0.5s;
   z-index: 100;
   opacity: 0;
+  visibility: hidden;
+}
+
+.arrow-scroll-top .arrow-button img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /**
- * Styles for the visible scroll-to-top arrow icon.
+ * Styles for the visible scroll-to-top arrow button.
  */
-.arrow-scroll-top.visible img {
+.arrow-scroll-top.visible .arrow-button {
   opacity: 1;
+  visibility: visible;
 }
 
 /**
- * Styles for the scroll-to-top arrow icon on hover.
+ * Styles for the scroll-to-top arrow button on hover.
  */
-.arrow-scroll-top img:hover {
+.arrow-scroll-top .arrow-button:hover {
   transform: scale(1.2) translateY(-10px);
-  cursor: pointer;
 }
 
 .ant-steps-item-finish .ant-steps-item-icon {
@@ -249,7 +266,7 @@ footer {
 }
 
 @media screen and (max-height: 768px) {
-  .arrow-scroll-top img {
+  .arrow-scroll-top .arrow-button {
     bottom: 20px;
     right: 20px;
     height: 30px;
@@ -301,8 +318,9 @@ footer {
     width: 30px;
   }
 
-  .arrow-scroll-top img {
-    bottom: 20px;
+  /* Above the mobile bottom bar */
+  .arrow-scroll-top .arrow-button {
+    bottom: 76px;
     right: 20px;
     height: 30px;
     width: 30px;

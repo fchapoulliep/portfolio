@@ -30,6 +30,7 @@ const SocialMediaRedirection: React.FC = () => {
     <div className="social-media-redirection">
       <a
         href="https://www.linkedin.com/in/florianpino/"
+        aria-label="Profil LinkedIn"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -37,12 +38,13 @@ const SocialMediaRedirection: React.FC = () => {
       </a>
       <a
         href="https://github.com/fchapoulliep"
+        aria-label="Profil GitHub"
         target="_blank"
         rel="noopener noreferrer"
       >
         <GithubOutlined style={{ color: "black", verticalAlign: "middle" }} />
       </a>
-      <a href={`mailto:${CONTACT_EMAIL}`}>
+      <a href={`mailto:${CONTACT_EMAIL}`} aria-label="Envoyer un e-mail">
         <MailOutlined style={{ color: "black", verticalAlign: "middle" }} />
       </a>
     </div>

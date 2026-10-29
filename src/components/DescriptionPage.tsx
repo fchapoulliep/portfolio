@@ -58,7 +58,7 @@ const DescriptionPage: React.FC = () => {
           <div>
             <Image
               src={fah}
-              alt="fah"
+              alt="Capture du projet FAH"
               loading="lazy"
               preview={{
                 mask: (
@@ -73,7 +73,7 @@ const DescriptionPage: React.FC = () => {
           <div>
             <Image
               src={chp}
-              alt="chp-services"
+              alt="Capture du projet CHP Services"
               loading="lazy"
               preview={{
                 mask: (

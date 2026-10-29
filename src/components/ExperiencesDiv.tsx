@@ -18,6 +18,7 @@ import { SearchOutlined } from "@ant-design/icons";
  * ExperiencesDivProps interface
  */
 interface ExperiencesDivProps {
+  title: string;
   text: ReactNode;
   image: string;
   position: "left" | "right";
@@ -34,7 +35,7 @@ interface ExperiencesDivProps {
  */
 const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
   (props, ref) => {
-    const { text, image, position, className, visible, experienceLink } =
+    const { title, text, image, position, className, visible, experienceLink } =
       props;
 
     return (
@@ -48,7 +49,7 @@ const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
           <Image
             className="portfolio-experience-image"
             src={image}
-            alt="Experience"
+            alt={`Aperçu du projet ${title}`}
             loading="lazy"
             preview={{
               mask: (
@@ -85,7 +86,7 @@ const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
           <Image
             className="portfolio-experience-image"
             src={image}
-            alt="Experience"
+            alt={`Aperçu du projet ${title}`}
             loading="lazy"
             preview={{
               mask: (

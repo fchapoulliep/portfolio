@@ -424,19 +424,25 @@ const PortfolioPage: React.FC = () => {
           </button>
         </div>
         <div className="arrow-experiences">
-          <img
-            src={arrowDown}
+          <button
+            type="button"
+            className="arrow-button"
+            aria-label="Aller aux expériences"
             onClick={() => scrollToElement(experiencesRef.current)}
-            alt="Scroll to first experience"
-          />
+          >
+            <img src={arrowDown} alt="" />
+          </button>
         </div>
       </div>
       <div className={`arrow-scroll-top ${inExperiences ? "visible" : ""}`}>
-        <img
-          src={arrowUp}
+        <button
+          type="button"
+          className="arrow-button"
+          aria-label="Revenir en haut de la page"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          alt="Scroll to top"
-        />
+        >
+          <img src={arrowUp} alt="" />
+        </button>
       </div>
       <div
         className={`portfolio-experiences-steps ${
@@ -465,6 +471,7 @@ const PortfolioPage: React.FC = () => {
               {experience.title}
             </Divider>
             <ExperiencesDiv
+              title={experience.title}
               text={experience.text}
               image={experience.image}
               position={index % 2 === 0 ? "left" : "right"}
