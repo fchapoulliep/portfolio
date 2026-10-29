@@ -173,3 +173,12 @@
     text-align: center;
   }
 }
+
+/* Field that only bots fill in: kept in the page but out of sight */
+.contact-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

@@ -8,7 +8,7 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/ContactPage.css";
 import emailjs from "@emailjs/browser";
 
@@ -21,7 +21,12 @@ import { MailOutlined, MessageOutlined } from "@ant-design/icons";
 import handleScrollTop from "../services/scrollToTopService";
 
 import Lines from "./Lines";
-import { CONTACT_EMAIL, EMAILJS, MESSAGE_MAX_LENGTH } from "../config";
+import {
+  CONTACT_EMAIL,
+  EMAILJS,
+  MESSAGE_MAX_LENGTH,
+  SEND_COOLDOWN_MS,
+} from "../config";
 
 /**
  * ContactPage component.
@@ -29,14 +34,62 @@ import { CONTACT_EMAIL, EMAILJS, MESSAGE_MAX_LENGTH } from "../config";
  */
 const [emailUser, emailDomain] = CONTACT_EMAIL.split("@");
 
+/**
+ * Time of the last message sent from this browser. Storage can be missing
+ * or blocked (private mode), in which case there is simply no delay.
+ */
+const LAST_SENT_KEY = "contact-last-sent";
+
+const readLastSent = (): number => {
+  try {
+    return Number(window.localStorage.getItem(LAST_SENT_KEY)) || 0;
+  } catch {
+    return 0;
+  }
+};
+
+const writeLastSent = (time: number) => {
+  try {
+    window.localStorage.setItem(LAST_SENT_KEY, String(time));
+  } catch {
+    // Nothing to do: the delay only applies when storage is available
+  }
+};
+
+interface ContactValues {
+  name: string;
+  email: string;
+  message: string;
+  website?: string;
+}
+
 const ContactPage: React.FC = () => {
   const [form] = Form.useForm();
+  const [sending, setSending] = useState(false);
 
   /**
    * handleMailSending function
    * @param values values of the form
    */
-  const handleMailSending = (values: any) => {
+  const handleMailSending = (values: ContactValues) => {
+    // Only bots fill the hidden field: nothing is sent, and nothing tells them so
+    if (values.website) {
+      message.success("Votre message a bien été envoyé !");
+      form.resetFields();
+      return;
+    }
+
+    const wait = readLastSent() + SEND_COOLDOWN_MS - Date.now();
+    if (wait > 0) {
+      message.warning(
+        `Votre précédent message vient de partir. Merci de patienter encore ${Math.ceil(
+          wait / 1000
+        )} s avant d'en envoyer un autre.`
+      );
+      return;
+    }
+
+    setSending(true);
     emailjs
       .send(
         EMAILJS.serviceId,
@@ -49,7 +102,8 @@ const ContactPage: React.FC = () => {
         { publicKey: EMAILJS.publicKey }
       )
       .then(
-        (result) => {
+        () => {
+          writeLastSent(Date.now());
           message.success("Votre message a bien été envoyé !");
           form.resetFields();
         },
@@ -58,7 +112,8 @@ const ContactPage: React.FC = () => {
             "Une erreur est survenue lors de l'envoi du message : " + error.text
           );
         }
-      );
+      )
+      .finally(() => setSending(false));
   };
 
   useEffect(() => {
@@ -144,11 +199,19 @@ const ContactPage: React.FC = () => {
             />
           </Form.Item>
 
+          {/* Trap for bots: off screen, out of the tab order and hidden from screen readers */}
+          <div className="contact-honeypot" aria-hidden="true">
+            <Form.Item name="website" label="Site web">
+              <Input tabIndex={-1} autoComplete="off" />
+            </Form.Item>
+          </div>
+
           <Form.Item>
             <Button
               className="form-validation-button"
               type="primary"
               htmlType="submit"
+              loading={sending}
             >
               Envoyer
             </Button>

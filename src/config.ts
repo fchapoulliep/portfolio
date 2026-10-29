@@ -17,3 +17,8 @@ export const EMAILJS = {
  * Longest message the contact form accepts
  */
 export const MESSAGE_MAX_LENGTH = 2000;
+
+/**
+ * Minimum delay between two messages sent from the same browser
+ */
+export const SEND_COOLDOWN_MS = 60_000;
