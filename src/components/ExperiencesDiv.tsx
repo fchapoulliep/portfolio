@@ -49,6 +49,7 @@ const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
             className="portfolio-experience-image"
             src={image}
             alt="Experience"
+            loading="lazy"
             preview={{
               mask: (
                 <span>
@@ -85,6 +86,7 @@ const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
             className="portfolio-experience-image"
             src={image}
             alt="Experience"
+            loading="lazy"
             preview={{
               mask: (
                 <span>

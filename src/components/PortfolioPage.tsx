@@ -14,17 +14,17 @@ import "../css/PortfolioPage.css";
 /**
  * Importing images
  */
-import FlècheBas from "../images/FlècheBas.png";
-import FlècheHaut from "../images/FlècheHaut.png";
+import arrowDown from "../images/arrow-down.webp";
+import arrowUp from "../images/arrow-up.webp";
 import ExperiencesDiv from "./ExperiencesDiv";
-import biosphere7 from "../images/biosphere7.png";
+import biosphere7 from "../images/biosphere7.webp";
 import odomo from "../images/odomo.png";
 import machine from "../images/machine.png";
 import sql from "../images/SQL.png";
-import web from "../images/web.png";
+import web from "../images/web.webp";
 import swot from "../images/swot.png";
-import symfony from "../images/symfony.png";
-import kifli from "../images/kifli.png";
+import symfony from "../images/symfony.webp";
+import kifli from "../images/kifli.webp";
 import associativeArray from "../images/associativeArray.png";
 import { Divider, Steps } from "antd";
 import Lines from "./Lines";
@@ -425,7 +425,7 @@ const PortfolioPage: React.FC = () => {
         </div>
         <div className="arrow-experiences">
           <img
-            src={FlècheBas}
+            src={arrowDown}
             onClick={() => scrollToElement(experiencesRef.current)}
             alt="Scroll to first experience"
           />
@@ -433,7 +433,7 @@ const PortfolioPage: React.FC = () => {
       </div>
       <div className={`arrow-scroll-top ${inExperiences ? "visible" : ""}`}>
         <img
-          src={FlècheHaut}
+          src={arrowUp}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           alt="Scroll to top"
         />

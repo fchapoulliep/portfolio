@@ -17,8 +17,8 @@ import { SearchOutlined } from "@ant-design/icons";
 /**
  * Importing images
  */
-import fah from "../images/fah.png";
-import chp from "../images/chp-services.png";
+import fah from "../images/fah.webp";
+import chp from "../images/chp-services.webp";
 
 /**
  * Importing services
@@ -59,6 +59,7 @@ const DescriptionPage: React.FC = () => {
             <Image
               src={fah}
               alt="fah"
+              loading="lazy"
               preview={{
                 mask: (
                   <span>
@@ -73,6 +74,7 @@ const DescriptionPage: React.FC = () => {
             <Image
               src={chp}
               alt="chp-services"
+              loading="lazy"
               preview={{
                 mask: (
                   <span>
