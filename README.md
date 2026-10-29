@@ -27,5 +27,5 @@ Le portfolio propose également des liens vers [LinkedIn](https://www.linkedin.c
 - Ant Design pour les composants d'interface
 - Sass et CSS pour la mise en forme
 - IntersectionObserver du navigateur pour les animations liées au défilement
-- EmailJS pour l'envoi du formulaire de contact
+- EmailJS (`@emailjs/browser`) pour l'envoi du formulaire de contact
 - Create React App pour le développement et la génération du build

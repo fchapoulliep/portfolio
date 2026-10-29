@@ -10,7 +10,7 @@
  */
 import React, { useEffect } from "react";
 import "../css/ContactPage.css";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 
 import { Form, Input, Button, message } from "antd";
 import { MailOutlined, MessageOutlined } from "@ant-design/icons";
@@ -46,7 +46,7 @@ const ContactPage: React.FC = () => {
           email: values.email,
           message: values.message,
         },
-        EMAILJS.publicKey
+        { publicKey: EMAILJS.publicKey }
       )
       .then(
         (result) => {
