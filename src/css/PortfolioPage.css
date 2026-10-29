@@ -420,4 +420,10 @@ footer {
     overflow: hidden;
   }
 
+  /* The experiences follow each other with the scroll alone: the steps bar
+     took 69 px more under the top bar for nine dots and one title */
+  .portfolio-experiences-steps,
+  .portfolio-experiences-steps.visible {
+    display: none;
+  }
 }
