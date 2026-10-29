@@ -14,7 +14,7 @@ import "../css/NavigationBar.css";
 
 import { Link, useLocation } from "react-router-dom";
 import { Dropdown, Button } from "antd";
-import signature from "../images/signature.png";
+import monogram from "../images/monogram.svg";
 
 import handleScrollTop from "../services/scrollToTopService";
 
@@ -191,7 +191,7 @@ const NavigationBar: React.FC = () => {
         </Dropdown>
       </div>
       <div className="nav-bar-logo">
-        <img src={signature} alt="Logo" onClick={handleLogoRedirection} />
+        <img src={monogram} alt="Logo" onClick={handleLogoRedirection} />
       </div>
       <div className="nav-bar-redirection">
         <Link

@@ -20,7 +20,7 @@
   min-height: calc(100vh - 100px);
   padding-top: 100px;
   background-color: #171717;
-  background-image: url("../images/signatureGray.png");
+  background-image: url("../images/monogram-watermark.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
