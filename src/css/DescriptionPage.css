@@ -183,4 +183,13 @@
     width: 90%;
     min-width: 300px;
   }
+
+  /* Readable titles on phones, the page title staying the larger one */
+  .description-content h1 {
+    font-size: 18px;
+  }
+
+  .description-carousel h2 {
+    font-size: 16px;
+  }
 }

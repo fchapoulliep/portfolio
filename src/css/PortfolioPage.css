@@ -95,7 +95,7 @@
 .portfolio-welcome-button::before {
   content: "";
   position: absolute;
-  inset: -12px;
+  inset: -13px;
 }
 
 .portfolio-welcome-button:hover {
