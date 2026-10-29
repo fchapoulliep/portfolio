@@ -1,7 +1,7 @@
 /**
  * Contact details shared across the site, so that every link uses the same address
  */
-export const CONTACT_EMAIL = "florian.chapoullie-pino@etudiant.univ-lr.fr";
+export const CONTACT_EMAIL = "florianchapino@gmail.com";
 
 export const RESUME_URL = `${import.meta.env.BASE_URL}experiences/CVChapoulliePinoFlorian.pdf`;
 export const LINKEDIN_URL = "https://www.linkedin.com/in/florianpino/";
