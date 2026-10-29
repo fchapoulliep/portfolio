@@ -479,7 +479,7 @@ const PortfolioPage: React.FC = () => {
         ))}
       </div>
       <footer>
-        <p>© 2025 Florian Chapoullié-Pino</p>
+        <p>© {new Date().getFullYear()} Florian Chapoullié-Pino</p>
       </footer>
     </div>
   );
