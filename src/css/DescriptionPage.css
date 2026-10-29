@@ -148,6 +148,19 @@
   }
 }
 
+/* 44 px touch areas around the small carousel arrows and dots */
+.description-carousel .slick-arrow::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+}
+
+.description-carousel .slick-dots li button::before {
+  content: "";
+  position: absolute;
+  inset: -21px -4px;
+}
+
 /* Caption of the current slide, with room for three lines so it never shifts the page */
 .carousel-caption {
   min-height: 84px;
@@ -175,13 +188,10 @@
 }
 
 @media screen and (max-width: 768px) {
-  .description-content {
-    width: 90%;
-    margin-right: 0;
-  }
-
+  .description-content,
   .description-carousel {
-    width: 90%;
-    min-width: 300px;
+    width: calc(100% - 2 * var(--page-gutter));
+    min-width: 0;
+    margin-right: 0;
   }
 }

@@ -56,6 +56,15 @@
   animation: fadeAbout 1s forwards;
 }
 
+@keyframes fadeAboutMobile {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeAbout {
   to {
     opacity: 1;
@@ -291,6 +300,19 @@ footer {
 
   .arrow-experiences {
     bottom: 10%;
+  }
+
+  /* The about panel spans the page between the side margins */
+  .portfolio-welcome-about {
+    left: var(--page-gutter);
+    right: var(--page-gutter);
+    padding: 20px;
+    transform: translateY(-50%);
+  }
+
+  .portfolio-welcome-about.visible {
+    transform: translateY(-50%);
+    animation-name: fadeAboutMobile;
   }
 
   .arrow-experiences img {

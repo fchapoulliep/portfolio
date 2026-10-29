@@ -144,7 +144,9 @@
   }
 
   .contact-text {
-    width: 80%;
+    box-sizing: border-box;
+    width: calc(100% - 2 * var(--page-gutter));
+    padding: 20px 0;
     align-items: center;
   }
 
@@ -157,8 +159,9 @@
   }
 
   .contact-info {
-    width: 80%;
-    margin-bottom: 60px;
+    box-sizing: border-box;
+    width: calc(100% - 2 * var(--page-gutter));
+    margin-bottom: 40px;
   }
 }
 
