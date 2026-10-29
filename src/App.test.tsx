@@ -1,9 +1,15 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './components/App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./components/App";
 
-test('renders learn react link', () => {
+test("renders the home page with its navigation", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(
+    screen.getByRole("heading", { level: 1, name: "Florian Chapoullié-Pino" })
+  ).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Contact" })).toBeInTheDocument();
+  expect(
+    screen.getByRole("link", { name: "Retour à l'accueil" })
+  ).toBeInTheDocument();
 });
