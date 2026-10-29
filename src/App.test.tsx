@@ -3,11 +3,18 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import emailjs from "@emailjs/browser";
 import App from "./components/App";
+import { redirectLegacyHashUrl } from "./services/hashRedirectService";
 
 vi.mock("@emailjs/browser", () => ({ default: { send: vi.fn() } }));
 
+/**
+ * Opens a page of the site, as a visitor typing its address
+ */
+const visit = (path: string) =>
+  window.history.replaceState(null, "", import.meta.env.BASE_URL + path);
+
 beforeEach(() => {
-  window.location.hash = "#/";
+  visit("");
   document.documentElement.classList.remove("dark");
   window.localStorage.clear();
 });
@@ -28,7 +35,7 @@ test("renders the home page with its navigation", () => {
 });
 
 test("the contact form points out the missing fields and sends nothing", async () => {
-  window.location.hash = "#/contact";
+  visit("contact");
   render(<App />);
 
   await userEvent.click(screen.getByRole("button", { name: "Envoyer" }));
@@ -54,4 +61,14 @@ test("the theme toggle switches to dark and remembers it", async () => {
   expect(
     screen.getByRole("button", { name: "Passer au thème clair" })
   ).toBeInTheDocument();
+});
+
+test("an old #/ link opens its page at the address without the hash", () => {
+  visit("#/contact");
+  redirectLegacyHashUrl();
+  render(<App />);
+
+  expect(window.location.pathname).toBe(`${import.meta.env.BASE_URL}contact`);
+  expect(window.location.hash).toBe("");
+  expect(screen.getByRole("button", { name: "Envoyer" })).toBeInTheDocument();
 });

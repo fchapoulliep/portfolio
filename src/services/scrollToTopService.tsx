@@ -14,9 +14,8 @@ const handleScrollTop = () => {
 };
 
 /**
- * Scroll to an element of the page. The router uses the URL hash, so the
- * sections are reached in script rather than with #anchor links; the element's
- * scroll-margin keeps it clear of the fixed navigation bar.
+ * Scroll to an element of the page; the element's scroll-margin keeps it clear
+ * of the fixed navigation bar.
  */
 export const scrollToElement = (element: HTMLElement | null) => {
   element?.scrollIntoView({ behavior: scrollBehavior(), block: "start" });

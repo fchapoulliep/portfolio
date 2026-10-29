@@ -24,7 +24,7 @@ Le portfolio propose également des liens vers [LinkedIn](https://www.linkedin.c
 
 ## Technologies utilisées
 - React 18 et TypeScript
-- React Router pour la navigation entre les pages
+- React Router pour la navigation entre les pages, avec de vraies adresses (`/portfolio/contact`). GitHub Pages ne connaît que des fichiers : le build copie `index.html` pour chaque route (`about.html`, `contact.html`) et en `404.html`. Une nouvelle route s'ajoute donc aussi dans `vite.config.ts`.
 - Tailwind CSS 4, avec les tokens du design system personnel (couleurs, polices Comfortaa et Nunito, rayons, monogramme FC) dans `src/index.css`
 - Icônes Lucide (`lucide-react`)
 - IntersectionObserver du navigateur pour les apparitions au défilement et le sommaire de l'accueil

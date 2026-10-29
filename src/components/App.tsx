@@ -7,7 +7,7 @@
 
 import React, { useLayoutEffect } from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Navigate,
   Route,
   Routes,
@@ -33,10 +33,14 @@ const ScrollToTopOnNavigate: React.FC = () => {
 };
 
 /**
- * The main component of the portfolio application.
+ * The main component of the portfolio application. The pages live under the
+ * base path of the site (/portfolio/ on GitHub Pages).
  */
 const App: React.FC = () => (
-  <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+  <Router
+    basename={import.meta.env.BASE_URL}
+    future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+  >
     <ScrollToTopOnNavigate />
     <Cursor />
     <div className="flex min-h-svh flex-col">
