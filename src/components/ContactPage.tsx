@@ -21,7 +21,7 @@ import { MailOutlined, MessageOutlined } from "@ant-design/icons";
 import handleScrollTop from "../services/scrollToTopService";
 
 import Lines from "./Lines";
-import { CONTACT_EMAIL } from "../config";
+import { CONTACT_EMAIL, EMAILJS, MESSAGE_MAX_LENGTH } from "../config";
 
 /**
  * ContactPage component.
@@ -39,14 +39,14 @@ const ContactPage: React.FC = () => {
   const handleMailSending = (values: any) => {
     emailjs
       .send(
-        "service_73k4ey1",
-        "template_k5hn2mp",
+        EMAILJS.serviceId,
+        EMAILJS.templateId,
         {
           name: values.name,
           email: values.email,
           message: values.message,
         },
-        "oBHTiHRivtj8QSy34"
+        EMAILJS.publicKey
       )
       .then(
         (result) => {
@@ -135,6 +135,8 @@ const ContactPage: React.FC = () => {
           >
             <Input.TextArea
               placeholder="Votre message"
+              maxLength={MESSAGE_MAX_LENGTH}
+              showCount
               autoSize={{
                 minRows: 2,
                 maxRows: 6,
