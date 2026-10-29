@@ -8,7 +8,7 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/DescriptionPage.css";
 import { Carousel } from "antd";
 import { Image } from "antd";
@@ -19,6 +19,8 @@ import { SearchOutlined } from "@ant-design/icons";
  */
 import fah from "../images/fah.webp";
 import chp from "../images/chp-services.webp";
+import pokedex3d from "../images/3dpokedex.webp";
+import dex3dMosaic from "../images/dex3d-mosaic.webp";
 
 /**
  * Importing services
@@ -28,10 +30,56 @@ import handleScrollTop from "../services/scrollToTopService";
 import Lines from "./Lines";
 
 /**
+ * A personal project shown in the carousel, in display order
+ */
+interface PersonalProject {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+}
+
+const personalProjects: PersonalProject[] = [
+  {
+    title: "FAH",
+    description:
+      "Site de mode présentant la collection 2024 : femme, homme et unisexe.",
+    image: fah,
+    alt: "Capture du projet FAH",
+  },
+  {
+    title: "CHP Services",
+    description:
+      "Site vitrine d'une entreprise de chauffage, climatisation, plomberie et couverture sur le bassin d'Arcachon.",
+    image: chp,
+    alt: "Capture du projet CHP Services",
+  },
+  {
+    title: "3D Pokédex",
+    description:
+      "Pokédex 3D des 151 Pokémon originaux, réalisé avec React et Three.js, avec des modèles interactifs rendus avec Blender.",
+    image: pokedex3d,
+    alt: "Capture du 3D Pokédex : modèle 3D de Venusaur dans une forêt",
+  },
+  {
+    title: "DragonDex, NarutoDex, MarioDex et BleachDex 3D",
+    description:
+      "Encyclopédies 3D de personnages des univers Dragon Ball, Naruto, Super Mario et Bleach, sur la même base React et Three.js, avec des modèles interactifs rendus avec Blender.",
+    image: dex3dMosaic,
+    alt: "Captures des encyclopédies 3D Dragon Ball, Naruto, Super Mario et Bleach",
+  },
+];
+
+/**
  * DescriptionPage component
  * @returns DescriptionPage component
  */
 const DescriptionPage: React.FC = () => {
+  /**
+   * Project shown by the carousel, whose caption is displayed under it
+   */
+  const [currentProject, setCurrentProject] = useState(0);
+
   useEffect(() => {
     handleScrollTop();
   }, []);
@@ -54,38 +102,35 @@ const DescriptionPage: React.FC = () => {
 
       <div className="description-carousel">
         <h2>Mes projets personnels&nbsp;:</h2>
-        <Carousel arrows autoplay dotPosition="bottom" className="carousel">
-          <div>
-            <Image
-              src={fah}
-              alt="Capture du projet FAH"
-              loading="lazy"
-              preview={{
-                mask: (
-                  <span>
-                    Voir plus
-                    <SearchOutlined style={{ marginLeft: "5px" }} />
-                  </span>
-                ),
-              }}
-            />
-          </div>
-          <div>
-            <Image
-              src={chp}
-              alt="Capture du projet CHP Services"
-              loading="lazy"
-              preview={{
-                mask: (
-                  <span>
-                    Voir plus
-                    <SearchOutlined style={{ marginLeft: "5px" }} />
-                  </span>
-                ),
-              }}
-            />
-          </div>
+        <Carousel
+          arrows
+          autoplay
+          dotPosition="bottom"
+          className="carousel"
+          beforeChange={(_, next) => setCurrentProject(next)}
+        >
+          {personalProjects.map((project) => (
+            <div key={project.title}>
+              <Image
+                src={project.image}
+                alt={project.alt}
+                loading="lazy"
+                preview={{
+                  mask: (
+                    <span>
+                      Voir plus
+                      <SearchOutlined style={{ marginLeft: "5px" }} />
+                    </span>
+                  ),
+                }}
+              />
+            </div>
+          ))}
         </Carousel>
+        <div className="carousel-caption">
+          <h3>{personalProjects[currentProject].title}</h3>
+          <p>{personalProjects[currentProject].description}</p>
+        </div>
       </div>
     </div>
   );
