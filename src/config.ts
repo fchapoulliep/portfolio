@@ -8,13 +8,14 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/florianpino/";
 export const GITHUB_URL = "https://github.com/fchapoulliep";
 
 /**
- * EmailJS identifiers of the contact form. They are public by design: the
- * allowed domains and the reCAPTCHA are set in the EmailJS dashboard.
+ * EmailJS identifiers of the contact form. They are public by design (the
+ * browser sends them): the allowed domains are set in the EmailJS dashboard,
+ * and the account's private key must never appear in this repository.
  */
 export const EMAILJS = {
-  serviceId: "service_73k4ey1",
-  templateId: "template_k5hn2mp",
-  publicKey: "oBHTiHRivtj8QSy34",
+  serviceId: "service_9e35x0b",
+  templateId: "template_lf8lawz",
+  publicKey: "C5AaqySgCRvvxZqet",
 } as const;
 
 /**
