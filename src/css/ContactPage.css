@@ -174,7 +174,7 @@
     box-sizing: border-box;
     width: calc(100% - 2 * var(--page-gutter));
     max-width: 560px;
-    padding: 16px 0 24px;
+    padding: 24px 0;
     align-items: center;
     text-align: center;
   }
