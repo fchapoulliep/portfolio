@@ -155,3 +155,32 @@
     transform: none;
   }
 }
+
+/* Laptops and desktops: text at reading width and a capped image, so that
+   one experience fits in the window under the navigation and steps bars */
+@media screen and (min-width: 769px) {
+  .portfolio-experience {
+    width: min(85%, 1100px);
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .portfolio-experience .text {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 62ch;
+  }
+
+  .portfolio-experience .ant-image {
+    flex: 0 1 42%;
+    max-width: 460px;
+    text-align: center;
+  }
+
+  .portfolio-experience .portfolio-experience-image {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: min(42vh, 320px);
+  }
+}

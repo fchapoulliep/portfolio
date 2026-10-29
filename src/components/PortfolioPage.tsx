@@ -359,7 +359,9 @@ const PortfolioPage: React.FC = () => {
    */
   const scrollToElement = (element: HTMLElement | null) => {
     if (element) {
-      const top = element.getBoundingClientRect().top - 120;
+      // Below the navigation bar (100 px) and the steps bar when it shows
+      const offset = 100 + (stepsBarRef.current?.offsetHeight ?? 0) + 16;
+      const top = element.getBoundingClientRect().top - offset;
       window.scrollBy({ top, behavior: "smooth" });
     }
   };
