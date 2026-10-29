@@ -39,6 +39,8 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
+    max-width: calc(100% - 155px);
     font-size: 14px;
+    line-height: 1.25;
   }
 }

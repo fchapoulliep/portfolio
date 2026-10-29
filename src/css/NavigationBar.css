@@ -169,11 +169,11 @@
   }
 
   .nav-bar-experiences {
-    width: 50%;
+    width: 42%;
   }
 
   .nav-bar-redirection {
-    width: 50%;
+    width: 58%;
   }
 
   .nav-bar-redirection p,
@@ -181,9 +181,10 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
     font-size: 14px;
+    white-space: nowrap;
   }
 
   .nav-bar-experiences .ant-btn {

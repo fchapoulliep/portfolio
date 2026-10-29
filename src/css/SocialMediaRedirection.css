@@ -45,7 +45,7 @@
   .social-media-redirection {
     top: auto;
     bottom: 0;
-    right: 16px;
+    right: 12px;
     height: 56px;
     flex-direction: row;
     z-index: 1001;
@@ -53,7 +53,7 @@
 
   .social-media-redirection a {
     display: flex;
-    margin: 0 0 0 8px;
+    margin: 0 0 0 4px;
     padding: 12px;
   }
 
