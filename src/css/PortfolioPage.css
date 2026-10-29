@@ -183,7 +183,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  background: #000000;
   padding: 10px;
   z-index: 15;
   transition: all 0.2s ease-in-out;

@@ -412,6 +412,7 @@ const PortfolioPage: React.FC = () => {
         <Steps
           className="portfolio-steps"
           direction="horizontal"
+          labelPlacement="vertical"
           size="small"
           current={currentStep}
           onChange={handleStepChange}
