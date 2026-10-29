@@ -55,13 +55,14 @@ const PortfolioPage: React.FC = () => {
   return (
     <>
       <section className="relative isolate flex min-h-svh items-center overflow-x-clip">
-        {/* The lines and the watermark share one fade, so both melt into the plain
-            background at the same height, gone at the bottom of the intro: no edge
-            can cut the FC (see .backdrop-fade for the dithering) */}
+        {/* The lines fade into the plain background (see .backdrop-fade) */}
         <div aria-hidden className="backdrop-fade absolute inset-0 -z-10">
           <BackgroundLines />
-          <Watermark className="top-1/2 -right-[12%] h-[85%] -translate-y-1/2 md:h-[105%]" />
         </div>
+        {/* The watermark stays whole and crisp, without a fade: at 5 % over the
+            dark background a fade shows bands. The section only clips sideways
+            (overflow-x-clip), so its foot runs just under the intro uncut */}
+        <Watermark className="top-1/2 -right-[12%] h-[85%] -translate-y-1/2 md:h-[105%]" />
         <div className="mx-auto w-full max-w-6xl animate-rise px-6 pt-24 pb-20 md:pt-28">
           {/* On a narrow phone the name breaks after the first name, never at the hyphen */}
           <h1 className="text-[1.75rem] leading-[1.15] sm:text-5xl sm:leading-[1.1] lg:text-6xl lg:leading-[1.05]">
