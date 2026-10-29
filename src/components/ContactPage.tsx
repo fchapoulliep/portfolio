@@ -60,7 +60,7 @@ const ContactPage: React.FC = () => {
 
   useEffect(() => {
     handleScrollTop();
-  });
+  }, []);
 
   return (
     <div className="contact-page" id="contact-page">

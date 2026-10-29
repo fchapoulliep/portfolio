@@ -9,7 +9,7 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/NavigationBar.css";
 
 import { Link, useLocation } from "react-router-dom";
@@ -19,11 +19,47 @@ import monogram from "../images/monogram.svg";
 import handleScrollTop from "../services/scrollToTopService";
 
 /**
+ * Experience reports listed in the dropdown, in display order
+ */
+const experienceReports = [
+  { file: "retourOdomo.pdf", label: "Odomo" },
+  { file: "retourBiosphere.pdf", label: "Biosphere" },
+  { file: "retourMachine.pdf", label: "Machine" },
+  { file: "retourSQL.pdf", label: "SQL" },
+  { file: "retourWeb.pdf", label: "Web" },
+  { file: "retourSWOT.pdf", label: "SWOT" },
+  { file: "retourSymfony.pdf", label: "Symfony" },
+  { file: "retourKifli.pdf", label: "Chiffrement de Kifli" },
+  { file: "retourTableauAssociatif.pdf", label: "Tableau Associatif" },
+];
+
+const items = experienceReports.map(({ file, label }, index) => ({
+  key: String(index + 1),
+  label: (
+    <a href={`experiences/${file}`} target="_blank" rel="noopener noreferrer">
+      Retour d'expérience {label}
+    </a>
+  ),
+}));
+
+/**
  * NavigationBar component
  * @returns NavigationBar component
  */
 const NavigationBar: React.FC = () => {
   const location = useLocation();
+
+  /**
+   * Whether the page is scrolled enough to give the bar a background
+   */
+  const [hasBackground, setHasBackground] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setHasBackground(window.scrollY > 50);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname]);
 
   /**
    * Handle the redirection to the home page when the logo is clicked
@@ -32,153 +68,21 @@ const NavigationBar: React.FC = () => {
     window.location.href = "/portfolio";
   };
 
-  /**
-   * Reset the background of the navigation bar
-   */
-  const resetNavBarBackground = () => {
-    const navBar = document.querySelector(".nav-bar") as HTMLElement;
-    navBar.classList.remove("background");
-  };
+  const isActive = (path: string) =>
+    location.pathname === path || location.pathname === `${path}/`;
 
-  /**
-   * Add background to the navigation bar when scrolling more than 100px
-   */
-  const handleScroll = () => {
-    const navBar = document.querySelector(".nav-bar") as HTMLElement;
-    if (window.scrollY > 50) {
-      navBar.classList.add("background");
-    } else {
-      navBar.classList.remove("background");
-    }
-  };
-
-  useEffect(() => {
-    if (
-      location.pathname === "/about" ||
-      location.pathname === "/about/" ||
-      location.pathname === "/contact" ||
-      location.pathname === "/contact/"
-    ) {
-      window.addEventListener("scroll", handleScroll);
-    }
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [location.pathname]);
-
-  const items = [
-    {
-      key: "1",
-      label: (
-        <a
-          href="experiences/retourOdomo.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience Odomo
-        </a>
-      ),
-    },
-    {
-      key: "2",
-      label: (
-        <a
-          href="experiences/retourBiosphere.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience Biosphere
-        </a>
-      ),
-    },
-    {
-      key: "3",
-      label: (
-        <a
-          href="experiences/retourMachine.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience Machine
-        </a>
-      ),
-    },
-    {
-      key: "4",
-      label: (
-        <a
-          href="experiences/retourSQL.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience SQL
-        </a>
-      ),
-    },
-    {
-      key: "5",
-      label: (
-        <a
-          href="experiences/retourWeb.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience Web
-        </a>
-      ),
-    },
-    {
-      key: "6",
-      label: (
-        <a
-          href="experiences/retourSWOT.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience SWOT
-        </a>
-      ),
-    },
-    {
-      key: "7",
-      label: (
-        <a
-          href="experiences/retourSymfony.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience Symfony
-        </a>
-      ),
-    },
-    {
-      key: "8",
-      label: (
-        <a
-          href="experiences/retourKifli.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience Chiffrement de Kifli
-        </a>
-      ),
-    },
-    {
-      key: "9",
-      label: (
-        <a
-          href="experiences/retourTableauAssociatif.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Retour d'expérience Tableau Associatif
-        </a>
-      ),
-    },
-  ];
+  const renderLink = (path: string, label: string) => (
+    <Link
+      className={`nav-item ${isActive(path) ? "active" : ""}`}
+      to={path}
+      onClick={isActive(path) ? handleScrollTop : undefined}
+    >
+      {label}
+    </Link>
+  );
 
   return (
-    <div className="nav-bar">
+    <div className={`nav-bar ${hasBackground ? "background" : ""}`}>
       <div className="nav-bar-experiences">
         <Dropdown
           menu={{ items }}
@@ -194,47 +98,9 @@ const NavigationBar: React.FC = () => {
         <img src={monogram} alt="Logo" onClick={handleLogoRedirection} />
       </div>
       <div className="nav-bar-redirection">
-        <Link
-          className={`nav-item ${location.pathname === "/" ? "active" : ""}`}
-          to="/"
-          onClick={
-            location.pathname === "/" ? handleScrollTop : resetNavBarBackground
-          }
-        >
-          Accueil
-        </Link>
-        <Link
-          className={`nav-item ${
-            location.pathname === "/about" || location.pathname === "/about/"
-              ? "active"
-              : ""
-          }`}
-          to="/about"
-          onClick={
-            location.pathname === "/about" || location.pathname === "/about/"
-              ? handleScrollTop
-              : resetNavBarBackground
-          }
-        >
-          À propos
-        </Link>
-        <Link
-          className={`nav-item ${
-            location.pathname === "/contact" ||
-            location.pathname === "/contact/"
-              ? "active"
-              : ""
-          }`}
-          to="/contact"
-          onClick={
-            location.pathname === "/contact" ||
-            location.pathname === "/contact/"
-              ? handleScrollTop
-              : resetNavBarBackground
-          }
-        >
-          Contact
-        </Link>
+        {renderLink("/", "Accueil")}
+        {renderLink("/about", "À propos")}
+        {renderLink("/contact", "Contact")}
       </div>
     </div>
   );

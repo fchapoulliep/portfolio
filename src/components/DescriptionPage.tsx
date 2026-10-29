@@ -34,7 +34,7 @@ import Lines from "./Lines";
 const DescriptionPage: React.FC = () => {
   useEffect(() => {
     handleScrollTop();
-  });
+  }, []);
 
   return (
     <div className="description" id="description">

@@ -22,6 +22,7 @@ interface ExperiencesDivProps {
   image: string;
   position: "left" | "right";
   className?: string;
+  visible: boolean;
   experienceLink: string;
 }
 
@@ -33,11 +34,16 @@ interface ExperiencesDivProps {
  */
 const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
   (props, ref) => {
-    const { text, image, position, className, experienceLink } =
+    const { text, image, position, className, visible, experienceLink } =
       props;
 
     return (
-      <div id="portfolio-experience" className={className} ref={ref}>
+      <div
+        className={`portfolio-experience ${className ?? ""} ${
+          visible ? "visible" : ""
+        }`}
+        ref={ref}
+      >
         {position === "left" && (
           <Image
             className="portfolio-experience-image"

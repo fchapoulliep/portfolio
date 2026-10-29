@@ -4,7 +4,7 @@
  * CSS styles for the portfolio experience section.
  */
 
-#portfolio-experience {
+.portfolio-experience {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -16,7 +16,7 @@
   opacity: 0;
 }
 
-#portfolio-experience .text {
+.portfolio-experience .text {
   width: 60%;
   color: #f7f7f7;
   font-size: calc(8px + 0.5vw);
@@ -29,7 +29,7 @@
   box-shadow: 0 0 10px #000;
 }
 
-#portfolio-experience .onSide {
+.portfolio-experience .onSide {
   border-left: solid #f7f7f7;
   border-left-width: 3px;
   color: #f7f7f7;
@@ -40,7 +40,7 @@
   text-decoration: none;
 }
 
-#portfolio-experience .onSide:nth-child(1) {
+.portfolio-experience .onSide:nth-child(1) {
   border-left: solid #f7f7f7;
   border-left-width: 3px;
   color: #f7f7f7;
@@ -48,18 +48,18 @@
   writing-mode: vertical-lr;
 }
 
-#portfolio-experience .portfolio-experience-image {
+.portfolio-experience .portfolio-experience-image {
   width: 100%;
   height: 100%;
   border-radius: 10px;
 }
 
-#portfolio-experience .onSide:hover {
+.portfolio-experience .onSide:hover {
   transform: scale(1.1);
   color: #333333;
 }
 
-#portfolio-experience .onSide:nth-child(1):hover {
+.portfolio-experience .onSide:nth-child(1):hover {
   transform: scale(1.1) rotate(180deg);
 }
 
@@ -79,33 +79,33 @@
   margin-right: -60px;
 }
 
-#portfolio-experience.even.visible {
+.portfolio-experience.even.visible {
   opacity: 1;
   transition: opacity 0.5s transform 0.5s;
   transform: translateX(0);
 }
 
-#portfolio-experience.odd.visible {
+.portfolio-experience.odd.visible {
   opacity: 1;
   transition: opacity 0.5s transform 0.5s;
   transform: translateX(0);
 }
 
 @media screen and (max-height: 768px) {
-  #portfolio-experience {
+  .portfolio-experience {
     margin-top: 30px;
     margin-bottom: 30px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #portfolio-experience {
+  .portfolio-experience {
     flex-direction: column;
     margin-bottom: 0;
     margin-top: 0;
   }
 
-  #portfolio-experience .text {
+  .portfolio-experience .text {
     width: 90%;
     margin-right: 0;
     margin-left: 0;
@@ -116,17 +116,17 @@
     font-size: 14px;
   }
 
-  #portfolio-experience .portfolio-experience-image {
+  .portfolio-experience .portfolio-experience-image {
     width: 100%;
     height: 100%;
   }
 
-  #portfolio-experience .ant-image {
+  .portfolio-experience .ant-image {
     width: 50%;
     min-width: 300px;
   }
 
-  #portfolio-experience .onSide {
+  .portfolio-experience .onSide {
     display: none;
   }
 }

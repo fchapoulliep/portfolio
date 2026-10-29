@@ -5,12 +5,13 @@
   margin: auto
   width: 90vw
 
-#portfolio .lines.smaller
-  height: calc(80vh + 110px)
-
 #portfolio .lines
   position: absolute
   height: calc(100% + 12px)
+
+@media screen and (max-width: 768px)
+  #portfolio .lines
+    height: calc(80vh + 110px)
 
 #description .lines, #contact-page .lines
   position: fixed
