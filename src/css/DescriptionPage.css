@@ -94,6 +94,23 @@
   color: #f7f7f7;
 }
 
+/* Rounded like the site cards, also while the slides move */
+.description-carousel .slick-list {
+  border-radius: 12px;
+  clip-path: inset(0 round 12px);
+}
+
+.description-carousel .ant-image {
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.description-carousel .ant-image-img,
+.description-carousel .ant-image-mask {
+  border-radius: 12px;
+}
+
 /* Caption of the current slide, with room for three lines so it never shifts the page */
 .carousel-caption {
   min-height: 84px;
