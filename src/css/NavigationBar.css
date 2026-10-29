@@ -180,8 +180,20 @@
 
   .nav-bar-redirection p,
   .nav-bar-redirection a {
-    padding-left: 5px;
-    padding-right: 5px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 14px;
+  }
+
+  .nav-bar-experiences .ant-btn {
+    min-height: 44px;
+    height: auto;
+    font-size: 14px;
+    white-space: normal;
+    text-align: left;
   }
 
   .nav-bar-logo {
