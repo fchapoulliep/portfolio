@@ -111,19 +111,22 @@ const DescriptionPage: React.FC = () => {
         >
           {personalProjects.map((project) => (
             <div key={project.title}>
-              <Image
-                src={project.image}
-                alt={project.alt}
-                loading="lazy"
-                preview={{
-                  mask: (
-                    <span>
-                      Voir plus
-                      <SearchOutlined style={{ marginLeft: "5px" }} />
-                    </span>
-                  ),
-                }}
-              />
+              <div className="carousel-media">
+                <Image
+                  src={project.image}
+                  alt={project.alt}
+                  loading="lazy"
+                  placeholder={<div className="carousel-skeleton" />}
+                  preview={{
+                    mask: (
+                      <span>
+                        Voir plus
+                        <SearchOutlined style={{ marginLeft: "5px" }} />
+                      </span>
+                    ),
+                  }}
+                />
+              </div>
             </div>
           ))}
         </Carousel>
