@@ -25,13 +25,13 @@ import handleScrollTop from "../services/scrollToTopService";
 const experienceReports = [
   { file: "retourOdomo.pdf", label: "Odomo" },
   { file: "retourBiosphere.pdf", label: "Biosphere 7" },
-  { file: "retourMachine.pdf", label: "Machine" },
+  { file: "retourMachine.pdf", label: "Machine virtuelle" },
   { file: "retourSQL.pdf", label: "SQL" },
-  { file: "retourWeb.pdf", label: "Web" },
+  { file: "retourWeb.pdf", label: "Site web" },
   { file: "retourSWOT.pdf", label: "SWOT" },
   { file: "retourSymfony.pdf", label: "Symfony" },
   { file: "retourKifli.pdf", label: "Chiffrement de Kifli" },
-  { file: "retourTableauAssociatif.pdf", label: "Tableau Associatif" },
+  { file: "retourTableauAssociatif.pdf", label: "Tableau associatif" },
 ];
 
 const items = experienceReports.map(({ file, label }, index) => ({
