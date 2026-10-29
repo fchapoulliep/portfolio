@@ -40,7 +40,7 @@ const DescriptionPage: React.FC = () => {
     <div className="description" id="description">
       <Lines />
       <div className="description-content">
-        <h2> Que faut-il savoir sur moi</h2>
+        <h1> Que faut-il savoir sur moi</h1>
         <p>
           <b>Actuellement en 2ème année de Master Informatique, </b> je suis un
           élève motivé à avoir une expérience professionnelle solide. J'ai

@@ -76,7 +76,8 @@
   }
 }
 
-.description-content h2 {
+.description-content h1 {
+  margin: 0.83em 0;
   font-size: calc(0.5em + 1vw);
   color: #f7f7f7;
 }
