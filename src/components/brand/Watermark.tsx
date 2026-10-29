@@ -13,8 +13,8 @@ const Watermark: React.FC<{ className: string }> = ({ className }) => (
     role="presentation"
     aria-label={undefined}
     className={cn(
-      // Phones keep the text clear: no watermark below 768 px
-      "pointer-events-none absolute -z-10 hidden w-auto opacity-(--watermark-opacity) md:block",
+      // Shown on phones too, smaller there (see each page): at 5 % it never hurts the text
+      "pointer-events-none absolute -z-10 w-auto opacity-(--watermark-opacity)",
       className
     )}
   />

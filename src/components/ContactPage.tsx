@@ -216,10 +216,10 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="relative isolate overflow-hidden">
-      <Watermark className="top-10 -right-[14%] h-[34rem]" />
+      <Watermark className="top-10 -right-[14%] h-[24rem] md:h-[34rem]" />
       <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-28 pb-24 md:pt-36 md:pb-32 lg:grid-cols-2 lg:gap-16">
         <div className="animate-rise">
-          <h1 className="text-4xl leading-[1.1] md:text-5xl">
+          <h1 className="text-[1.75rem] leading-[1.15] sm:text-4xl sm:leading-[1.1] md:text-5xl">
             Mon profil vous intéresse&nbsp;? <br />
             Contactez-moi
           </h1>

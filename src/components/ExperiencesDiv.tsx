@@ -6,8 +6,8 @@
  * side, the image alternating between left and right.
  */
 
-import React, { forwardRef } from "react";
-import { ArrowUpRight } from "lucide-react";
+import React, { forwardRef, useState } from "react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 import ZoomableImage from "./ZoomableImage";
 import { buttonClasses } from "./ui/button";
@@ -31,6 +31,9 @@ const ExperiencesDiv = forwardRef<HTMLElement, ExperiencesDivProps>(
   ({ experience, index }, ref) => {
     const { slug, title, image, imageFit, report, paragraphs } = experience;
     const [revealRef, visible] = useReveal<HTMLDivElement>();
+    // On a phone only the first paragraph shows until "Lire la suite": nine full
+    // texts made the home page eleven screens long
+    const [expanded, setExpanded] = useState(false);
 
     return (
       <article
@@ -63,10 +66,36 @@ const ExperiencesDiv = forwardRef<HTMLElement, ExperiencesDivProps>(
               {title}
             </h3>
             <div className="mt-4 max-w-prose space-y-4 leading-relaxed">
-              {paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              {paragraphs.map((paragraph, i) => (
+                <p
+                  key={paragraph.slice(0, 40)}
+                  className={cn(i > 0 && !expanded && "max-md:hidden")}
+                >
+                  {paragraph}
+                </p>
               ))}
             </div>
+            {paragraphs.length > 1 && (
+              <button
+                type="button"
+                aria-expanded={expanded}
+                onClick={() => setExpanded((open) => !open)}
+                className={buttonClasses({
+                  variant: "ghost",
+                  size: "sm",
+                  className: "mt-2 -ml-3 md:hidden",
+                })}
+              >
+                {expanded ? "Réduire" : "Lire la suite"}
+                <ChevronDown
+                  strokeWidth={1.75}
+                  className={cn(
+                    "transition-transform duration-200 ease-soft",
+                    expanded && "rotate-180"
+                  )}
+                />
+              </button>
+            )}
             <a
               href={report}
               target="_blank"

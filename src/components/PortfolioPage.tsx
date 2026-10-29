@@ -54,12 +54,12 @@ const PortfolioPage: React.FC = () => {
 
   return (
     <>
-      <section className="relative isolate flex min-h-svh items-center overflow-hidden">
+      <section className="relative isolate flex items-center overflow-hidden md:min-h-svh">
         <BackgroundLines />
-        <Watermark className="top-1/2 -right-[12%] h-[115%] -translate-y-1/2" />
-        <div className="mx-auto w-full max-w-6xl animate-rise px-6 pt-28 pb-20">
+        <Watermark className="top-1/2 -right-[12%] h-[85%] -translate-y-1/2 md:h-[115%]" />
+        <div className="mx-auto w-full max-w-6xl animate-rise px-6 pt-24 pb-12 md:pt-28 md:pb-20">
           {/* On a narrow phone the name breaks after the first name, never at the hyphen */}
-          <h1 className="text-4xl leading-[1.1] sm:text-5xl lg:text-6xl lg:leading-[1.05]">
+          <h1 className="text-[1.75rem] leading-[1.15] sm:text-5xl sm:leading-[1.1] lg:text-6xl lg:leading-[1.05]">
             Florian <span className="whitespace-nowrap">Chapoullié-Pino</span>
           </h1>
           <p className="mt-4 text-lg text-muted-foreground md:text-xl">
