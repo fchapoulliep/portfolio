@@ -193,8 +193,8 @@ const ContactPage: React.FC = () => {
               maxLength={MESSAGE_MAX_LENGTH}
               showCount
               autoSize={{
-                minRows: 4,
-                maxRows: 8,
+                minRows: 3,
+                maxRows: 6,
               }}
             />
           </Form.Item>
