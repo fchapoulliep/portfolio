@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-57 -56 240 240">
-  <!-- Filigrane : le monogramme FC, sombre et translucide. La marge autour (centrée sur le tracé)
-       règle sa taille, puisque le fond est posé en « contain » : moins de marge, monogramme plus grand. -->
-  <g opacity=".35">
-    <path d="M 102.30 31.86 A 50 50 0 1 0 102.30 96.14 M 50 50 V 92 M 50 50 H 112 M 50 70 H 84" fill="none" stroke="#000" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-</svg>
