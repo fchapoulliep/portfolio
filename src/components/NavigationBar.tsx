@@ -230,9 +230,9 @@ const NavigationBar: React.FC = () => {
               </li>
             ))}
           </ul>
-          <p className="mobile-menu-heading" id="mobile-menu-reports">
+          <h2 className="mobile-menu-heading" id="mobile-menu-reports">
             Mes retours d'expérience
-          </p>
+          </h2>
           <ul
             className="mobile-menu-reports"
             aria-labelledby="mobile-menu-reports"
