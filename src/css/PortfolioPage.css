@@ -408,12 +408,10 @@ footer {
     width: 30px;
   }
 
-  /* Above the mobile bottom bar */
-  .arrow-scroll-top .arrow-button {
-    bottom: 76px;
-    right: 20px;
-    height: 30px;
-    width: 30px;
+  /* No floating arrow over the text: on phones the monogram of the top bar
+     brings the page back to the top */
+  .arrow-scroll-top {
+    display: none;
   }
 
   .portfolio-experiences {

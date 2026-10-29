@@ -23,7 +23,9 @@ const ResumeRedirection: React.FC = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Souhaitez-vous voir mon CV ?
+        {/* The question fits on one line from 480 px, the short label below */}
+        <span className="resume-label-long">Souhaitez-vous voir mon CV ?</span>
+        <span className="resume-label-short">Voir mon CV</span>
       </a>
     </div>
   );
