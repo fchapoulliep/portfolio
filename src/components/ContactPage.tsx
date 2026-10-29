@@ -170,6 +170,12 @@ const ContactPage: React.FC = () => {
           name: values.name,
           email: values.email,
           message: values.message,
+          // Shown in the e-mail as {{time}}, in French time whatever the visitor's zone
+          time: new Date().toLocaleString("fr-FR", {
+            dateStyle: "long",
+            timeStyle: "short",
+            timeZone: "Europe/Paris",
+          }),
         },
         { publicKey: EMAILJS.publicKey }
       )
