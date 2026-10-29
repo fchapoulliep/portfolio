@@ -21,7 +21,9 @@ export const useReveal = <T extends HTMLElement>() => {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      // Any pixel is enough: a tall block (an experience on a phone) peeking under
+      // the browser bars would otherwise stay invisible, leaving a gap until a scroll
+      { threshold: 0 }
     );
     observer.observe(element);
     return () => observer.disconnect();
