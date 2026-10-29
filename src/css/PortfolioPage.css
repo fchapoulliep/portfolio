@@ -402,6 +402,11 @@ footer {
     margin-bottom: 0;
   }
 
+  /* The ring drawn 11 px around the button lines up with the name above */
+  .portfolio-welcome-button {
+    margin-left: 11px;
+  }
+
   .arrow-experiences {
     bottom: calc(var(--bottom-bar-space) + 8px);
   }
