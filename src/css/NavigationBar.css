@@ -244,16 +244,35 @@
   list-style: none;
 }
 
+/* The pages first, a step larger than the reports */
 .mobile-menu a {
   display: flex;
   align-items: center;
-  min-height: 44px;
+  min-height: 48px;
   color: #ffffff;
   text-decoration: none;
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
+}
+
+/* The current page stays as legible as the others, marked by a bar in the
+   margin instead of the gray that reads as a disabled link */
+.mobile-menu a.active {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.mobile-menu a.active::before {
+  content: "";
+  width: 3px;
+  height: 1.1em;
+  margin-left: -11px;
+  margin-right: 8px;
+  border-radius: 2px;
+  background-color: #ffffff;
 }
 
 .mobile-menu .mobile-menu-reports a {
+  min-height: 44px;
   font-size: var(--text-md);
 }
 
