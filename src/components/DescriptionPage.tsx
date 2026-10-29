@@ -99,6 +99,8 @@ const DescriptionPage: React.FC = () => {
         <Carousel
           arrows
           autoplay
+          pauseOnFocus
+          pauseOnDotsHover
           dotPosition="bottom"
           className="carousel"
         >
