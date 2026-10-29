@@ -307,6 +307,7 @@ footer {
   color: white;
   text-align: center;
   padding: 1em;
+  padding-bottom: calc(1em + var(--bottom-bar-space));
   font-size: var(--text-sm);
 }
 

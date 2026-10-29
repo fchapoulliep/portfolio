@@ -21,6 +21,15 @@
 
   /* Side margin of the page content on phones */
   --page-gutter: 20px;
+
+  /* Room left at the end of each page for the mobile bottom bar */
+  --bottom-bar-space: 0px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --bottom-bar-space: calc(56px + env(safe-area-inset-bottom));
+  }
 }
 
 @media (max-width: 768px) {
@@ -42,13 +51,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Room for the mobile bottom bar, so that it never hides the end of a page */
-@media (max-width: 768px) {
-  body {
-    padding-bottom: 56px;
-    background-color: #000000;
-  }
-}
 
 * {
   font-family: "Comfortaa", Arial, Helvetica, sans-serif;

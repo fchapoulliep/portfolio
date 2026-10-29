@@ -15,8 +15,11 @@
 .contact-page {
   display: flex;
   flex-direction: row;
-  min-height: calc(100vh - 100px);
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
   padding-top: 100px;
+  padding-bottom: var(--bottom-bar-space);
   background-color: #171717;
   background-image: url("../images/monogram-watermark.svg");
   background-position: center;
@@ -26,6 +29,7 @@
   justify-content: center;
   color: #f7f7f7;
   overflow: hidden;
+  overflow: clip;
 }
 
 .contact-text h1 {
