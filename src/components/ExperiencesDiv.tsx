@@ -1,104 +1,84 @@
 /**
  * ExperiencesDiv.tsx
  * @file ExperiencesDiv.tsx
- * @description ExperiencesDiv.tsx is a React component for the experiences of the portfolio website.
- * It is a functional component that returns a div with the experience.
+ * @description One experience of the home page: its image, its full text and
+ * the link to its report. From 768 px the image and the text sit side by
+ * side, the image alternating between left and right.
  */
 
-/**
- * Importing necessary modules to make the component work
- */
 import React, { forwardRef } from "react";
-import "../css/ExperiencesDiv.css";
-import { ReactNode } from "react";
-import { Image } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { ArrowUpRight } from "lucide-react";
 
-/**
- * ExperiencesDivProps interface
- */
+import ZoomableImage from "./ZoomableImage";
+import { buttonClasses } from "./ui/button";
+import { cn } from "../lib/cn";
+import { useReveal } from "../hooks/useReveal";
+import { Experience } from "../data/experiences";
+
 interface ExperiencesDivProps {
-  title: string;
-  text: ReactNode;
-  image: string;
-  position: "left" | "right";
-  className?: string;
-  visible: boolean;
-  experienceLink: string;
+  experience: Experience;
+  /** Position in the list, from 0 */
+  index: number;
 }
 
 /**
- * ExperiencesDiv functional component
- * @param {ExperiencesDivProps} props
- * @param {React.Ref<HTMLDivElement>} ref
- * @returns {JSX.Element}
+ * Number of an experience on two digits: 01, 02…
  */
-const ExperiencesDiv = forwardRef<HTMLDivElement, ExperiencesDivProps>(
-  (props, ref) => {
-    const { title, text, image, position, className, visible, experienceLink } =
-      props;
+export const experienceNumber = (index: number) =>
+  String(index + 1).padStart(2, "0");
+
+const ExperiencesDiv = forwardRef<HTMLElement, ExperiencesDivProps>(
+  ({ experience, index }, ref) => {
+    const { slug, title, image, imageFit, report, paragraphs } = experience;
+    const [revealRef, visible] = useReveal<HTMLDivElement>();
 
     return (
-      <div
-        className={`portfolio-experience ${className ?? ""} ${
-          visible ? "visible" : ""
-        }`}
+      <article
+        id={slug}
         ref={ref}
+        aria-labelledby={`${slug}-title`}
+        className="scroll-mt-24 py-10 first:pt-0 last:pb-0 md:py-12"
       >
-        {position === "left" && (
-          <Image
-            className="portfolio-experience-image"
+        <div
+          ref={revealRef}
+          className={cn(
+            "grid items-center gap-6 transition-[opacity,transform] duration-500 ease-soft md:grid-cols-12 md:gap-10",
+            !visible && "translate-y-2 opacity-0"
+          )}
+        >
+          <ZoomableImage
             src={image}
             alt={`Aperçu du projet ${title}`}
-            loading="lazy"
-            preview={{
-              mask: (
-                <span>
-                  Voir plus
-                  <SearchOutlined style={{ marginLeft: "5px" }} />
-                </span>
-              ),
-            }}
+            fit={imageFit}
+            className={cn(
+              "aspect-3/2 rounded-lg border border-border md:col-span-5",
+              index % 2 === 1 && "md:order-last"
+            )}
           />
-        )}
-        {position === "right" && (
-          <a
-            href={experienceLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="onSide"
-          >
-            EN SAVOIR PLUS
-          </a>
-        )}
-        <div className="text">{text}</div>
-        {position === "left" && (
-          <a
-            href={experienceLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="onSide"
-          >
-            EN SAVOIR PLUS
-          </a>
-        )}
-        {position === "right" && (
-          <Image
-            className="portfolio-experience-image"
-            src={image}
-            alt={`Aperçu du projet ${title}`}
-            loading="lazy"
-            preview={{
-              mask: (
-                <span>
-                  Voir plus
-                  <SearchOutlined style={{ marginLeft: "5px" }} />
-                </span>
-              ),
-            }}
-          />
-        )}
-      </div>
+          <div className="md:col-span-7">
+            <p className="text-xs font-semibold tracking-[0.14em] text-muted-foreground tabular-nums">
+              {experienceNumber(index)}
+            </p>
+            <h3 id={`${slug}-title`} className="mt-1 text-xl md:text-2xl">
+              {title}
+            </h3>
+            <div className="mt-4 max-w-prose space-y-4 leading-relaxed">
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+              ))}
+            </div>
+            <a
+              href={report}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonClasses({ variant: "outline", className: "mt-6" })}
+            >
+              Lire le retour d'expérience
+              <ArrowUpRight strokeWidth={1.75} />
+            </a>
+          </div>
+        </div>
+      </article>
     );
   }
 );

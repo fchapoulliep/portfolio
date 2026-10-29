@@ -4,13 +4,11 @@
   "private": true,
   "homepage": "https://fchapoulliep.github.io/portfolio/",
   "dependencies": {
-    "@ant-design/icons": "^5.3.7",
     "@emailjs/browser": "^5.0.3",
-    "antd": "^5.17.4",
+    "lucide-react": "^1.64.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.30.6",
-    "sass": "^1.79.3"
+    "react-router-dom": "^6.30.6"
   },
   "type": "module",
   "scripts": {
@@ -22,6 +20,7 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
@@ -32,6 +31,7 @@
     "@vitejs/plugin-react": "^6.1.2",
     "gh-pages": "^6.1.1",
     "jsdom": "^30.1.3",
+    "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.3.5",
     "vitest": "^5.0.5"

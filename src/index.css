@@ -1,0 +1,200 @@
+/*
+ * Tokens of the personal design system (florian-design skill, tokens.css),
+ * adapted to Vite: the fonts come from Google Fonts (index.html) instead of
+ * next/font, and the theme follows the .dark class that index.html sets on
+ * <html> before the first paint.
+ */
+
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------- Light ---------- */
+:root {
+  --radius: 0.75rem;
+
+  --background: #fafafa;
+  --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+
+  /* No accent color: the main action is the ink itself */
+  --primary: #171717;
+  --primary-foreground: #fafafa;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #171717;
+  --muted: #f0f0f0;
+  --muted-foreground: #666666;
+  /* "accent" in the shadcn sense: the hover surface, not a hue */
+  --accent: #ededed;
+  --accent-foreground: #171717;
+
+  --destructive: #c0392b;
+  --success: #2e7d4f;
+  --warning: #a35f00;
+
+  --border: #e6e6e6;
+  --border-strong: #d4d4d4;
+  --input: #e0e0e0;
+  /* The focus ring keeps 3:1 against the background (3.6:1 here) */
+  --ring: #858585;
+
+  /* Brand patterns */
+  --line: rgb(0 0 0 / 0.07);
+  --drop: rgb(0 0 0 / 0.35);
+  --watermark-opacity: 0.05;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.04);
+  --shadow-float: 0 8px 30px rgb(0 0 0 / 0.08);
+}
+
+/* ---------- Dark ---------- */
+.dark {
+  --background: #121212;
+  --foreground: #f5f5f5;
+  --card: #1a1a1a;
+  --card-foreground: #f5f5f5;
+  --popover: #1a1a1a;
+  --popover-foreground: #f5f5f5;
+
+  --primary: #f5f5f5;
+  --primary-foreground: #121212;
+  --secondary: #242424;
+  --secondary-foreground: #f5f5f5;
+  --muted: #242424;
+  --muted-foreground: #a3a3a3;
+  --accent: #262626;
+  --accent-foreground: #f5f5f5;
+
+  --destructive: #f0706a;
+  --success: #5cc48a;
+  --warning: #e8a64a;
+
+  --border: #2a2a2a;
+  --border-strong: #3a3a3a;
+  --input: #2f2f2f;
+  --ring: #737373;
+
+  --line: rgb(255 255 255 / 0.07);
+  --drop: rgb(255 255 255 / 0.6);
+  --watermark-opacity: 0.05;
+
+  /* In dark, depth comes from borders and surfaces, not shadows */
+  --shadow-card: none;
+  --shadow-float: 0 8px 30px rgb(0 0 0 / 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-line: var(--line);
+
+  /* Comfortaa for the titles, Nunito for the text and the interface */
+  --font-display: "Comfortaa", ui-rounded, system-ui, sans-serif;
+  --font-sans: "Nunito", ui-rounded, system-ui, sans-serif;
+
+  /* One set of radii, driven by --radius (12 px). Buttons and chips: rounded-full */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-float: var(--shadow-float);
+
+  --ease-soft: cubic-bezier(0.2, 0, 0, 1);
+
+  /* The drop of light that runs down the vertical lines */
+  --animate-drop: drop 7s cubic-bezier(0.4, 0.26, 0, 0.97) infinite;
+  @keyframes drop {
+    from {
+      top: -30%;
+    }
+    to {
+      top: 110%;
+    }
+  }
+
+  /* Entrances: a fade and a slide of 8 px (4 px for what drops from a button) */
+  --animate-rise: rise 400ms cubic-bezier(0.2, 0, 0, 1) both;
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+  }
+  --animate-enter: enter 200ms cubic-bezier(0.2, 0, 0, 1) both;
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(-0.25rem);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: light;
+    /* No jump of the layout when a menu or an image locks the scroll */
+    scrollbar-gutter: stable;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  /* The page stays still behind an enlarged image or the open mobile menu */
+  html:has(dialog[open]),
+  html:has([data-scroll-lock]) {
+    overflow: hidden;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-bold tracking-tight;
+    text-wrap: balance;
+  }
+  ::selection {
+    @apply bg-foreground text-background;
+  }
+  /* A visible focus everywhere, in the ring color of the theme */
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

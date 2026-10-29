@@ -3,6 +3,10 @@
  */
 export const CONTACT_EMAIL = "florian.chapoullie-pino@etudiant.univ-lr.fr";
 
+export const RESUME_URL = `${import.meta.env.BASE_URL}experiences/CVChapoulliePinoFlorian.pdf`;
+export const LINKEDIN_URL = "https://www.linkedin.com/in/florianpino/";
+export const GITHUB_URL = "https://github.com/fchapoulliep";
+
 /**
  * EmailJS identifiers of the contact form. They are public by design: the
  * allowed domains and the reCAPTCHA are set in the EmailJS dashboard.

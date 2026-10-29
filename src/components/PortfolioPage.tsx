@@ -1,544 +1,149 @@
 /**
  * PortfolioPage.tsx
  * @file PortfolioPage.tsx
- * @description PortfolioPage.tsx is a React component for the portfolio page of the portfolio website.
- * It is a functional component that returns a div with the class name "portfolio".
+ * @description Home page of the portfolio: the welcome screen, then the
+ * experiences, with a sticky table of contents on large screens.
  */
 
-/**
- * Importing necessary modules to make the component work
- */
-import React, { ReactNode, useEffect, useRef, useState } from "react";
-import "../css/PortfolioPage.css";
+import React, { useEffect, useRef, useState } from "react";
+import { ArrowDown, FileText } from "lucide-react";
+
+import BackgroundLines from "./brand/BackgroundLines";
+import Watermark from "./brand/Watermark";
+import SectionTitle from "./brand/SectionTitle";
+import ExperiencesDiv, { experienceNumber } from "./ExperiencesDiv";
+import { buttonClasses } from "./ui/button";
+import { experiences } from "../data/experiences";
+import { RESUME_URL } from "../config";
+import { scrollToElement } from "../services/scrollToTopService";
 
 /**
- * Importing images
- */
-import arrowDown from "../images/arrow-down.webp";
-import arrowUp from "../images/arrow-up.webp";
-import ExperiencesDiv from "./ExperiencesDiv";
-import biosphere7 from "../images/biosphere7.webp";
-import odomo from "../images/odomo.png";
-import machine from "../images/machine.png";
-import sql from "../images/SQL.png";
-import web from "../images/web.webp";
-import swot from "../images/swot.png";
-import symfony from "../images/symfony.webp";
-import kifli from "../images/kifli.webp";
-import associativeArray from "../images/associativeArray.png";
-import { Divider, Steps } from "antd";
-import Lines from "./Lines";
-
-/**
- * An experience shown on the home page, in display order
- */
-interface Experience {
-  title: string;
-  image: string;
-  link: string;
-  text: ReactNode;
-}
-
-const experiences: Experience[] = [
-  {
-    title: "Odomo",
-    image: odomo,
-    link: "experiences/retourOdomo.pdf",
-    text: (
-      <p>
-        La réalisation de ce projet a été pour moi une véritable
-        opportunité de démontrer les compétences que je vais développer
-        tout au long de ma carrière professionnelle. J'ai pu identifier
-        les moyens nécessaires pour répondre aux besoins d'un client à
-        l'aide d'un langage de programmation, tout en fournissant un
-        rapport détaillé et en expliquant clairement le code et son
-        fonctionnement.
-        <br />
-        <br /> Ce projet m'a apporté de nombreux bénéfices, tels que la
-        mise en place d'un planning optimisé pour un travail d'équipe
-        efficace dans des conditions optimales, ainsi que le développement
-        d'un sens des responsabilités, étant donné l'importance de livrer
-        un code fonctionnel qui répond aux attentes du client.{" "}
-      </p>
-    ),
-  },
-  {
-    title: "Biosphere 7",
-    image: biosphere7,
-    link: "experiences/retourBiosphere.pdf",
-    text: (
-      <p>
-        Ce projet a été extrêmement enrichissant pour moi en termes
-        d'apprentissage. Au cours des deux phases du projet, j'ai
-        notamment contribué à la mise en place de deux stratégies
-        destinées à une intelligence artificielle.
-        <br />
-        <br />
-        Cela m'a permis de comprendre comment aborder une tâche donnée,
-        qu'il s'agisse du cahier des charges et des règles associées ou
-        des méthodes de travail à adopter. <br />
-        <br />
-        Le principal bénéfice de ce projet a été, pour moi, l'éveil de mon
-        esprit logique, qui m'a permis de déterminer quelles actions
-        étaient possibles et préférables selon chaque situation.
-      </p>
-    ),
-  },
-  {
-    title: "Machine Virtuelle",
-    image: machine,
-    link: "experiences/retourMachine.pdf",
-    text: (
-      <p>
-        Ce projet consistait à installer une machine virtuelle pour
-        permettre à une équipe de développeurs de créer un nouveau jeu en
-        utilisant le langage Go, qu'il a donc fallu installer, ainsi qu'un
-        IDE pour l'utiliser.
-        <br />
-        <br />
-        L'objectif était d'installer une machine avec un matériel adapté,
-        ainsi que de configurer un compte administrateur et un compte
-        développeur, chacun ayant des droits spécifiques selon leur
-        statut. Il a également été nécessaire de mettre en place l'outil
-        Git pour effectuer un git clone et de modifier le prompt Bash pour
-        afficher l'état de ce Git depuis n'importe où.
-        <br />
-        <br />
-        Ce projet nous a permis, à mes camarades et moi, de maîtriser
-        l'installation d'une machine selon des caractéristiques bien
-        définies, ainsi que de comprendre le fonctionnement d'un terminal
-        de commande et comment le modifier pour y afficher des
-        informations utiles.
-      </p>
-    ),
-  },
-  {
-    title: "SQL",
-    image: sql,
-    link: "experiences/retourSQL.pdf",
-    text: (
-      <p>
-        Ce travail de groupe dans le cadre d'un projet universitaire m'a
-        permis de développer mes connaissances et de maîtriser
-        adéquatement le langage SQL.
-        <br />
-        <br />
-        Le défi principal de ce projet était d'établir une cohésion
-        d'équipe avec mon binôme, en veillant à se répartir les tâches de
-        manière efficace pour optimiser le temps de travail. Au-delà de
-        cet esprit d'équipe, l'aspect le plus crucial de cette activité a
-        été de garantir la qualité des données, en s'assurant qu'elles
-        soient cohérentes, complètes et précises.
-        <br />
-        <br />
-        Ainsi, mes compétences en bases de données se sont
-        considérablement améliorées, notamment en ce qui concerne la
-        création et le remplissage d'une base de données, ainsi que
-        l'élaboration d'un schéma entité-association.
-      </p>
-    ),
-  },
-  {
-    title: "Site Web",
-    image: web,
-    link: "experiences/retourWeb.pdf",
-    text: (
-      <p>
-        Ce projet m'a permis de développer mon esprit créatif et de
-        maîtriser de manière approfondie les langages HTML et CSS pour
-        réaliser un site web pour une entreprise.
-        <br />
-        <br />
-        Le site devait respecter des critères précis et la législation en
-        vigueur, car il s'agissait d'une société produisant des boissons
-        alcoolisées. J'ai ainsi appris à intégrer les normes légales
-        requises pour un site internet, tout en veillant à créer une
-        interface ergonomique et pratique pour le client.
-        <br />
-        <br />
-        Cette expérience a été pour moi une grande leçon, m'enseignant non
-        seulement le HTML et le CSS, mais aussi l'ergonomie web et les
-        réglementations à respecter dans ce domaine.
-      </p>
-    ),
-  },
-  {
-    title: "SWOT",
-    image: swot,
-    link: "experiences/retourSWOT.pdf",
-    text: (
-      <p>
-        Ce projet m'a permis de mieux appréhender ma vision d'une
-        entreprise.
-        <br />
-        <br />
-        En collaboration avec mes camarades, nous avons réalisé une
-        analyse fonctionnelle d'une entreprise. De plus, nous avons
-        identifié les différentes opportunités et menaces auxquelles elle
-        était confrontée.
-        <br />
-        <br />
-        J'en retire de nombreux aspects positifs, tels que la mise en
-        place d'un planning optimisé pour travailler en équipe dans de
-        bonnes conditions, ainsi que la maîtrise des outils de recherche.
-        Il était crucial de fournir des informations vérifiées et
-        pertinentes afin de mieux comprendre l'environnement de
-        l'entreprise.
-      </p>
-    ),
-  },
-  {
-    title: "Symfony",
-    image: symfony,
-    link: "experiences/retourSymfony.pdf",
-    text: (
-      <p>
-        Ce projet m'a permis de développer mon esprit créatif et de
-        maîtriser de manière approfondie les langages HTML et CSS, ainsi
-        que PHP avec le framework Symfony, pour réaliser une application
-        full-stack.
-        <br />
-        <br />
-        L'application devait respecter des critères précis définis lors
-        d'une réunion avec le Product Owner. J'ai ainsi appris à créer un
-        site ergonomique et pratique pour le client.
-        <br />
-        <br />
-        Cette expérience a été pour moi une grande leçon, m'enseignant non
-        seulement le PHP et l'utilisation de Symfony, mais aussi
-        l'ergonomie web et les normes à respecter dans ce domaine.
-      </p>
-    ),
-  },
-  {
-    title: "Chiffrement de Kifli",
-    image: kifli,
-    link: "experiences/retourKifli.pdf",
-    text: (
-      <p>
-        Ce projet m'a permis de développer mes compétences en Python et de
-        comprendre le fonctionnement du chiffrement de Kifli.
-        <br />
-        <br />
-        Le défi principal de ce projet était de comprendre le
-        fonctionnement de l'algorithme de chiffrement de Kifli et de
-        l'implémenter en Python.
-        <br />
-        <br />
-        Ainsi, mes compétences en Python se sont considérablement
-        améliorées, notamment en ce qui concerne la manipulation des
-        chaînes de caractères et la gestion des fichiers.
-      </p>
-    ),
-  },
-  {
-    title: "Tableau associatif",
-    image: associativeArray,
-    link: "experiences/retourTableauAssociatif.pdf",
-    text: (
-      <p>
-        Ce projet consistait à créer notre propre tableau associatif en
-        Java, en réalisant deux implémentations : une statique et une
-        dynamique. L'objectif était ensuite de comparer les performances
-        des deux implémentations à l'aide de benchmarks.
-        <br />
-        <br />
-        La première implémentation statique utilisait un tableau de taille
-        fixe pour stocker les clés et les valeurs associées. La deuxième
-        implémentation dynamique utilisait une structure de données telle
-        qu'une liste chaînée ou un arbre pour permettre une taille
-        variable du tableau associatif.
-        <br />
-        <br />
-        Ce projet nous a permis de mieux comprendre les concepts de base
-        des tableaux associatifs et d'apprécier les avantages et les
-        inconvénients des différentes approches d'implémentation.
-      </p>
-    ),
-  },
-];
-
-/**
- * The dividers alternate between left, center and right
- */
-const dividerOrientations = ["left", "center", "right"] as const;
-
-/**
- * PortfolioPage component that returns the portfolio page of the portfolio website
+ * PortfolioPage component that returns the home page of the portfolio website
  * @returns PortfolioPage component
  */
 const PortfolioPage: React.FC = () => {
   /**
-   * Reference to the experiences section of the page
-   */
-  const experiencesRef = useRef<HTMLDivElement>(null);
-
-  /**
    * References to each experience, in display order
    */
-  const experienceRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const experienceRefs = useRef<(HTMLElement | null)[]>([]);
 
   /**
-   * Whether the experiences section is on screen (shows the steps and the scroll-to-top arrow)
+   * Experience marked as current in the table of contents
    */
-  const [inExperiences, setInExperiences] = useState(false);
-
-  /**
-   * Experiences already revealed by the scroll animation
-   */
-  const [revealed, setRevealed] = useState<boolean[]>(() =>
-    experiences.map(() => false)
-  );
-
-  /**
-   * Current step of the experiences steps bar
-   */
-  const [currentStep, setCurrentStep] = useState(0);
-
-  /**
-   * Whether the "À propos" panel is open
-   */
-  const [aboutOpen, setAboutOpen] = useState(false);
-
-  /**
-   * Pointer that pressed the "À propos" button last: a mouse opens it on
-   * hover, while touch and keyboard toggle it on click
-   */
-  const lastPointerType = useRef<string | null>(null);
+  const [currentSlug, setCurrentSlug] = useState(experiences[0].slug);
 
   useEffect(() => {
-    const section = experiencesRef.current;
-    if (!section) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setInExperiences(entry.isIntersecting),
-      { threshold: 0.05 }
-    );
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
+    // The current experience is the one crossing a thin band at mid-height of the window
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
+          if (entry.isIntersecting) {
+            setCurrentSlug(entry.target.id);
           }
-          const index = experienceRefs.current.indexOf(
-            entry.target as HTMLDivElement
-          );
-          if (index === -1) {
-            return;
-          }
-          setRevealed((previous) =>
-            previous[index]
-              ? previous
-              : previous.map((value, i) => (i === index ? true : value))
-          );
-          setCurrentStep(index);
         });
       },
-      { threshold: 0.4 }
+      { rootMargin: "-45% 0px -50% 0px" }
     );
-
     experienceRefs.current.forEach((element) => {
       if (element) {
         observer.observe(element);
       }
     });
-
     return () => observer.disconnect();
   }, []);
 
-  /**
-   * Scroll to an element, keeping room for the fixed navigation bar
-   */
-  const scrollToElement = (element: HTMLElement | null) => {
-    if (element) {
-      // Below the navigation bar and the steps bar when it shows
-      const navHeight =
-        document.querySelector<HTMLElement>(".nav-bar")?.offsetHeight ?? 0;
-      const offset = navHeight + (stepsBarRef.current?.offsetHeight ?? 0) + 16;
-      const top = element.getBoundingClientRect().top - offset;
-      window.scrollBy({ top, behavior: "smooth" });
-    }
-  };
-
-  /**
-   * Bar of steps, and the tooltip that shows the full title of a step
-   */
-  const stepsBarRef = useRef<HTMLDivElement>(null);
-  const [stepTip, setStepTip] = useState({ text: "", x: 0, visible: false });
-
-  const showStepTip = (target: EventTarget) => {
-    const bar = stepsBarRef.current;
-    const item = (target as HTMLElement).closest?.(".ant-steps-item");
-    const title = item?.querySelector(".step-title-text");
-    if (!bar || !item || !title) {
-      return;
-    }
-    const barBox = bar.getBoundingClientRect();
-    const itemBox = item.getBoundingClientRect();
-    const icon = item.querySelector(".ant-steps-item-icon")?.getBoundingClientRect();
-    // Centered under the step dot, kept inside the bar
-    const center = (icon ? icon.left + icon.width / 2 : itemBox.left) - barBox.left;
-    const x = Math.min(Math.max(center, 130), barBox.width - 130);
-    setStepTip({ text: title.textContent ?? "", x, visible: true });
-  };
-
-  const hideStepTip = () =>
-    setStepTip((tip) => ({ ...tip, visible: false }));
-
-  /**
-   * Scroll to a specific experience from the steps bar
-   */
-  const handleStepChange = (current: number) => {
-    scrollToElement(experienceRefs.current[current]);
-    setCurrentStep(current);
-  };
-
   return (
-    <div className="portfolio" id="portfolio">
-      <div className="portfolio-welcome">
-        <Lines />
-        <div
-          id="welcome-about"
-          className={`portfolio-welcome-about ${aboutOpen ? "visible" : ""}`}
-        >
-          <p>
-            Je suis un étudiant en 2e année de Master Informatique à l'Université de
-            La Rochelle. Passionné par le développement web et les nouvelles
-            technologies, j'aime concevoir des solutions qui facilitent les
-            tâches répétitives du quotidien.
-          </p>
-        </div>
-        <div className="portfolio-welcome-text">
+    <>
+      <section className="relative isolate flex min-h-svh items-center overflow-hidden">
+        <BackgroundLines />
+        <Watermark className="top-1/2 -right-[12%] h-[115%] -translate-y-1/2" />
+        <div className="mx-auto w-full max-w-6xl animate-rise px-6 pt-28 pb-20">
           {/* On a narrow phone the name breaks after the first name, never at the hyphen */}
-          <h1>
-            Florian <span className="nowrap">Chapoullié-Pino</span>
+          <h1 className="text-4xl leading-[1.1] sm:text-5xl lg:text-6xl lg:leading-[1.05]">
+            Florian <span className="whitespace-nowrap">Chapoullié-Pino</span>
           </h1>
-          <p>Développeur Full-Stack</p>
-          <button
-            className="portfolio-welcome-button"
-            aria-expanded={aboutOpen}
-            aria-controls="welcome-about"
-            onPointerEnter={(e) => {
-              if (e.pointerType === "mouse") {
-                setAboutOpen(true);
+          <p className="mt-4 text-lg text-muted-foreground md:text-xl">
+            Développeur Full-Stack
+          </p>
+          <p className="mt-6 max-w-prose leading-relaxed">
+            Je suis un étudiant en 2e année de Master Informatique à
+            l'Université de La Rochelle. Passionné par le développement web et
+            les nouvelles technologies, j'aime concevoir des solutions qui
+            facilitent les tâches répétitives du quotidien.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() =>
+                scrollToElement(document.getElementById("experiences"))
               }
-            }}
-            onPointerLeave={(e) => {
-              if (e.pointerType === "mouse") {
-                setAboutOpen(false);
-              }
-            }}
-            onPointerDown={(e) => {
-              lastPointerType.current = e.pointerType;
-            }}
-            onClick={() => {
-              if (lastPointerType.current !== "mouse") {
-                setAboutOpen((open) => !open);
-              }
-              lastPointerType.current = null;
-            }}
-            onBlur={() => setAboutOpen(false)}
-            onKeyDown={(e) => {
-              if (e.key === "Escape") {
-                setAboutOpen(false);
-              }
-            }}
-          >
-            À propos
-          </button>
-        </div>
-        <div className="arrow-experiences">
-          <button
-            type="button"
-            className="arrow-button"
-            aria-label="Aller aux expériences"
-            onClick={() => scrollToElement(experiencesRef.current)}
-          >
-            <img src={arrowDown} alt="" />
-          </button>
-        </div>
-      </div>
-      <div className={`arrow-scroll-top ${inExperiences ? "visible" : ""}`}>
-        <button
-          type="button"
-          className="arrow-button"
-          aria-label="Revenir en haut de la page"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          <img src={arrowUp} alt="" />
-        </button>
-      </div>
-      <div
-        ref={stepsBarRef}
-        className={`portfolio-experiences-steps ${
-          inExperiences ? "visible" : ""
-        }`}
-        onMouseOver={(e) => showStepTip(e.target)}
-        onMouseLeave={hideStepTip}
-        onFocus={(e) => showStepTip(e.target)}
-        onBlur={hideStepTip}
-      >
-        <Steps
-          className="portfolio-steps"
-          direction="horizontal"
-          size="small"
-          current={currentStep}
-          onChange={handleStepChange}
-          responsive={false}
-          items={experiences.map(({ title }) => ({
-            title: <span className="step-title-text">{title}</span>,
-          }))}
-        />
-        {/* On narrow screens only the dots stay, with the current title under them */}
-        <p className="steps-current-label" aria-hidden="true">
-          {experiences[currentStep].title}
-        </p>
-        {/* Full title of the hovered or focused step; screen readers already get it from the step */}
-        <div
-          className={`steps-tooltip ${stepTip.visible ? "visible" : ""}`}
-          style={{ left: stepTip.x }}
-          aria-hidden="true"
-        >
-          {stepTip.text}
-        </div>
-      </div>
-      <div className="portfolio-experiences" ref={experiencesRef}>
-        {experiences.map((experience, index) => (
-          <React.Fragment key={experience.title}>
-            <Divider
-              className="portfolio-experiences-divider"
-              type="horizontal"
-              orientation={dividerOrientations[index % 3]}
+              className={buttonClasses()}
             >
-              {experience.title}
-            </Divider>
-            <ExperiencesDiv
-              title={experience.title}
-              text={experience.text}
-              image={experience.image}
-              position={index % 2 === 0 ? "left" : "right"}
-              className={index % 2 === 0 ? "even" : "odd"}
-              visible={revealed[index]}
-              ref={(element) => {
-                experienceRefs.current[index] = element;
-              }}
-              experienceLink={experience.link}
-            />
-          </React.Fragment>
-        ))}
-      </div>
-      <footer>
-        <p>© {new Date().getFullYear()} Florian Chapoullié-Pino</p>
-      </footer>
-    </div>
+              Voir mes expériences
+              <ArrowDown strokeWidth={1.75} />
+            </button>
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonClasses({ variant: "outline" })}
+            >
+              <FileText strokeWidth={1.75} />
+              Mon CV
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="experiences"
+        aria-labelledby="experiences-title"
+        className="scroll-mt-16 pt-16 pb-20 md:pt-20 md:pb-24"
+      >
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionTitle id="experiences-title">Mes expériences</SectionTitle>
+          <div className="mt-10 md:mt-12 xl:grid xl:grid-cols-[10rem_minmax(0,1fr)] xl:gap-10">
+            <nav
+              aria-label="Sommaire des expériences"
+              className="hidden xl:block"
+            >
+              <ol className="sticky top-24 border-l border-border">
+                {experiences.map(({ slug, title }, index) => (
+                  <li key={slug}>
+                    <button
+                      type="button"
+                      aria-current={currentSlug === slug ? "true" : undefined}
+                      onClick={() =>
+                        scrollToElement(experienceRefs.current[index])
+                      }
+                      className="-ml-px flex w-full items-baseline gap-2.5 border-l-2 border-transparent py-1.5 pl-4 text-left text-sm text-muted-foreground transition-colors duration-150 ease-soft hover:text-foreground aria-[current=true]:border-foreground aria-[current=true]:font-semibold aria-[current=true]:text-foreground"
+                    >
+                      <span className="text-xs tabular-nums">
+                        {experienceNumber(index)}
+                      </span>{" "}
+                      {/* The space keeps "07 Symfony" apart for screen readers; flex hides it */}
+                      {title}
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+            <div className="divide-y divide-border">
+              {experiences.map((experience, index) => (
+                <ExperiencesDiv
+                  key={experience.slug}
+                  experience={experience}
+                  index={index}
+                  ref={(element) => {
+                    experienceRefs.current[index] = element;
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -1,26 +1,23 @@
 /**
  * ContactPage.tsx
  * @file ContactPage.tsx
- * @description ContactPage.tsx is a React component for the contact page of the portfolio website.
- * It is a functional component that returns a div with the class name "contact-page".
+ * @description Contact page: my e-mail address and a form sent with EmailJS.
  */
 
-/**
- * Importing necessary modules to make the component work
- */
-import React, { useEffect, useState } from "react";
-import "../css/ContactPage.css";
+import React, { ChangeEvent, FormEvent, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import {
+  CircleAlert,
+  CircleCheck,
+  LoaderCircle,
+  Mail,
+  Send,
+  TriangleAlert,
+} from "lucide-react";
 
-import { Form, Input, Button, message } from "antd";
-import { MailOutlined, MessageOutlined } from "@ant-design/icons";
-
-/**
- * Importing services
- */
-import handleScrollTop from "../services/scrollToTopService";
-
-import Lines from "./Lines";
+import Watermark from "./brand/Watermark";
+import { buttonClasses } from "./ui/button";
+import { cn } from "../lib/cn";
 import {
   CONTACT_EMAIL,
   EMAILJS,
@@ -28,10 +25,6 @@ import {
   SEND_COOLDOWN_MS,
 } from "../config";
 
-/**
- * ContactPage component.
- * Renders a contact form and contact information.
- */
 const [emailUser, emailDomain] = CONTACT_EMAIL.split("@");
 
 /**
@@ -60,32 +53,111 @@ interface ContactValues {
   name: string;
   email: string;
   message: string;
-  website?: string;
+  website: string;
 }
 
+type FieldName = "name" | "email" | "message";
+type FieldErrors = Partial<Record<FieldName, string>>;
+type Status = { kind: "success" | "warning" | "error"; text: string } | null;
+
+const emptyValues: ContactValues = {
+  name: "",
+  email: "",
+  message: "",
+  website: "",
+};
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+/**
+ * Errors of the form, in the order of its fields
+ */
+const validate = (values: ContactValues): FieldErrors => {
+  const errors: FieldErrors = {};
+  if (!values.name.trim()) {
+    errors.name = "Veuillez entrer votre nom";
+  }
+  if (!values.email.trim()) {
+    errors.email = "Veuillez entrer votre adresse e-mail";
+  } else if (!EMAIL_PATTERN.test(values.email.trim())) {
+    errors.email = "Veuillez entrer une adresse e-mail valide";
+  }
+  if (!values.message.trim()) {
+    errors.message = "Veuillez entrer votre message";
+  }
+  return errors;
+};
+
+const SUCCESS: Status = {
+  kind: "success",
+  text: "Votre message a bien été envoyé !",
+};
+
+const statusStyles = {
+  success: { Icon: CircleCheck, color: "text-success" },
+  warning: { Icon: TriangleAlert, color: "text-warning" },
+  error: { Icon: CircleAlert, color: "text-destructive" },
+};
+
+const fieldClasses =
+  "w-full rounded-md border border-input bg-background px-3.5 text-base transition-[border-color] duration-150 ease-soft placeholder:text-muted-foreground hover:border-border-strong aria-invalid:border-destructive";
+
+/**
+ * ContactPage component.
+ * Renders a contact form and contact information.
+ */
 const ContactPage: React.FC = () => {
-  const [form] = Form.useForm();
+  const formRef = useRef<HTMLFormElement>(null);
+  const [values, setValues] = useState<ContactValues>(emptyValues);
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [status, setStatus] = useState<Status>(null);
   const [sending, setSending] = useState(false);
+
+  const update =
+    (field: keyof ContactValues) =>
+    (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const { value } = e.target;
+      setValues((previous) => ({ ...previous, [field]: value }));
+      // An error goes away as soon as the field is corrected
+      setErrors((previous) =>
+        previous[field as FieldName]
+          ? { ...previous, [field]: undefined }
+          : previous
+      );
+    };
 
   /**
    * handleMailSending function
-   * @param values values of the form
+   * @param e submit event of the form
    */
-  const handleMailSending = (values: ContactValues) => {
+  const handleMailSending = (e: FormEvent) => {
+    e.preventDefault();
+    setStatus(null);
+
     // Only bots fill the hidden field: nothing is sent, and nothing tells them so
     if (values.website) {
-      message.success("Votre message a bien été envoyé !");
-      form.resetFields();
+      setStatus(SUCCESS);
+      setValues(emptyValues);
+      return;
+    }
+
+    const found = validate(values);
+    setErrors(found);
+    const firstInvalid = (Object.keys(found) as FieldName[])[0];
+    if (firstInvalid) {
+      const field = formRef.current?.elements.namedItem(firstInvalid);
+      (field as HTMLElement | null)?.focus();
       return;
     }
 
     const wait = readLastSent() + SEND_COOLDOWN_MS - Date.now();
     if (wait > 0) {
-      message.warning(
-        `Votre précédent message vient de partir. Merci de patienter encore ${Math.ceil(
+      setStatus({
+        kind: "warning",
+        text: `Votre précédent message vient de partir. Merci de patienter encore ${Math.ceil(
           wait / 1000
-        )} s avant d'en envoyer un autre.`
-      );
+        )} s avant d'en envoyer un autre.`,
+      });
       return;
     }
 
@@ -104,119 +176,191 @@ const ContactPage: React.FC = () => {
       .then(
         () => {
           writeLastSent(Date.now());
-          message.success("Votre message a bien été envoyé !");
-          form.resetFields();
+          setStatus(SUCCESS);
+          setValues(emptyValues);
         },
         (error) => {
-          message.error(
-            "Une erreur est survenue lors de l'envoi du message : " + error.text
-          );
+          setStatus({
+            kind: "error",
+            text:
+              "Une erreur est survenue lors de l'envoi du message : " +
+              error.text,
+          });
         }
       )
       .finally(() => setSending(false));
   };
 
-  useEffect(() => {
-    handleScrollTop();
-  }, []);
+  /**
+   * Label, control and error of a field, linked for screen readers
+   */
+  const errorProps = (field: FieldName) => ({
+    "aria-invalid": errors[field] ? true : undefined,
+    "aria-describedby": errors[field] ? `${field}-error` : undefined,
+  });
+
+  const fieldError = (field: FieldName) =>
+    errors[field] && (
+      <p id={`${field}-error`} className="mt-1.5 text-sm text-destructive">
+        {errors[field]}
+      </p>
+    );
+
+  const StatusIcon = status && statusStyles[status.kind].Icon;
 
   return (
-    <div className="contact-page" id="contact-page">
-      <Lines />
-      <div className="contact-text">
-        <h1>
-          Mon profil vous intéresse&nbsp;? <br />
-          Contactez-moi
-        </h1>
-        <p>Ensemble, faisons progresser le monde...</p>
-        <div className="contact-mail">
-          <MailOutlined style={{ fontSize: "150%", margin: "10px" }} />
-          <p>
-            Envoyez-moi un e-mail à <br />
-            <a href={`mailto:${CONTACT_EMAIL}`}>
-              {/* Breaks only before the @ when the card is too narrow */}
-              <span className="nowrap">{emailUser}</span>
-              <wbr />
-              <span className="nowrap">@{emailDomain}</span>
-            </a>
+    <div className="relative isolate overflow-hidden">
+      <Watermark className="top-10 -right-[14%] h-[34rem]" />
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-28 pb-24 md:pt-36 md:pb-32 lg:grid-cols-2 lg:gap-16">
+        <div className="animate-rise">
+          <h1 className="text-4xl leading-[1.1] md:text-5xl">
+            Mon profil vous intéresse&nbsp;? <br />
+            Contactez-moi
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            Ensemble, faisons progresser le monde...
           </p>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="mt-8 flex max-w-md items-center gap-4 rounded-lg border border-border bg-card p-4 shadow-card transition-[border-color,transform] duration-200 ease-soft hover:-translate-y-0.5 hover:border-border-strong"
+          >
+            <span className="grid size-11 shrink-0 place-items-center rounded-full bg-muted">
+              <Mail strokeWidth={1.75} className="size-5" />
+            </span>
+            <span className="min-w-0">
+              <span className="block text-sm text-muted-foreground">
+                Envoyez-moi un e-mail à
+              </span>
+              {/* Breaks only before the @ when the card is too narrow */}
+              <span className="block font-semibold">
+                <span className="whitespace-nowrap">{emailUser}</span>
+                <wbr />
+                <span className="whitespace-nowrap">@{emailDomain}</span>
+              </span>
+            </span>
+          </a>
         </div>
-      </div>
-      <div className="contact-info">
-        <h2>
-          Envoyez un message ici <MessageOutlined />
-        </h2>
-        <Form
-          form={form}
-          onFinish={handleMailSending}
-          className="form"
-          layout="vertical"
+
+        <form
+          ref={formRef}
+          onSubmit={handleMailSending}
+          noValidate
+          aria-labelledby="contact-form-title"
+          className="animate-rise rounded-lg border border-border bg-card p-6 shadow-card md:p-8"
         >
-          <Form.Item
-            name="name"
-            label="Nom"
-            rules={[{ required: true, message: "Veuillez entrer votre nom" }]}
-          >
-            <Input placeholder="Votre nom" autoComplete="name" />
-          </Form.Item>
+          <h2 id="contact-form-title" className="text-xl md:text-2xl">
+            Envoyez un message ici
+          </h2>
 
-          <Form.Item
-            name="email"
-            label="Adresse e-mail"
-            rules={[
-              {
-                required: true,
-                message: "Veuillez entrer votre adresse e-mail",
-              },
-              {
-                type: "email",
-                message: "Veuillez entrer une adresse e-mail valide",
-              },
-            ]}
-          >
-            <Input
-              type="email"
-              placeholder="vous@exemple.fr"
-              autoComplete="email"
-            />
-          </Form.Item>
+          <div className="mt-6 space-y-5">
+            <div>
+              <label htmlFor="name" className="text-sm font-semibold">
+                Nom
+              </label>
+              <input
+                id="name"
+                name="name"
+                required
+                autoComplete="name"
+                placeholder="Votre nom"
+                value={values.name}
+                onChange={update("name")}
+                className={cn(fieldClasses, "mt-1.5 h-11 md:h-10")}
+                {...errorProps("name")}
+              />
+              {fieldError("name")}
+            </div>
 
-          <Form.Item
-            name="message"
-            label="Message"
-            rules={[
-              { required: true, message: "Veuillez entrer votre message" },
-            ]}
-          >
-            <Input.TextArea
-              placeholder="Votre message"
-              maxLength={MESSAGE_MAX_LENGTH}
-              showCount
-              autoSize={{
-                minRows: 3,
-                maxRows: 6,
-              }}
-            />
-          </Form.Item>
+            <div>
+              <label htmlFor="email" className="text-sm font-semibold">
+                Adresse e-mail
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+                placeholder="vous@exemple.fr"
+                value={values.email}
+                onChange={update("email")}
+                className={cn(fieldClasses, "mt-1.5 h-11 md:h-10")}
+                {...errorProps("email")}
+              />
+              {fieldError("email")}
+            </div>
 
-          {/* Trap for bots: off screen, out of the tab order and hidden from screen readers */}
-          <div className="contact-honeypot" aria-hidden="true">
-            <Form.Item name="website" label="Site web">
-              <Input tabIndex={-1} autoComplete="off" />
-            </Form.Item>
+            <div>
+              <div className="flex items-baseline justify-between gap-4">
+                <label htmlFor="message" className="text-sm font-semibold">
+                  Message
+                </label>
+                <span
+                  id="message-count"
+                  className="text-xs text-muted-foreground tabular-nums"
+                >
+                  {values.message.length} / {MESSAGE_MAX_LENGTH}
+                </span>
+              </div>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={5}
+                maxLength={MESSAGE_MAX_LENGTH}
+                placeholder="Votre message"
+                value={values.message}
+                onChange={update("message")}
+                className={cn(fieldClasses, "mt-1.5 block min-h-32 resize-y py-2.5")}
+                {...errorProps("message")}
+              />
+              {fieldError("message")}
+            </div>
           </div>
 
-          <Form.Item>
-            <Button
-              className="form-validation-button"
-              type="primary"
-              htmlType="submit"
-              loading={sending}
-            >
-              Envoyer
-            </Button>
-          </Form.Item>
-        </Form>
+          {/* Trap for bots: off screen, out of the tab order and hidden from screen readers */}
+          <div aria-hidden className="absolute -left-[10000px] size-px overflow-hidden">
+            <label htmlFor="website">Site web</label>
+            <input
+              id="website"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={values.website}
+              onChange={update("website")}
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={sending}
+            className={buttonClasses({ className: "mt-6 w-full sm:w-auto" })}
+          >
+            {sending ? (
+              <LoaderCircle strokeWidth={1.75} className="animate-spin" />
+            ) : (
+              <Send strokeWidth={1.75} />
+            )}
+            {sending ? "Envoi en cours" : "Envoyer"}
+          </button>
+
+          <p role="status" className="mt-4 flex items-start gap-2 text-sm empty:mt-0">
+            {status && StatusIcon && (
+              <>
+                <StatusIcon
+                  strokeWidth={1.75}
+                  className={cn(
+                    "mt-px size-4 shrink-0",
+                    statusStyles[status.kind].color
+                  )}
+                />
+                <span className={statusStyles[status.kind].color}>
+                  {status.text}
+                </span>
+              </>
+            )}
+          </p>
+        </form>
       </div>
     </div>
   );

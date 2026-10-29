@@ -1,18 +1,14 @@
 /**
  * DescriptionPage.tsx
  * @file DescriptionPage.tsx
- * @description DescriptionPage.tsx is a React component where there is my description and my personal projects.
- * It is a functional component that returns a div with the class name "description".
+ * @description About page: who I am, then my personal projects as cards.
  */
 
-/**
- * Importing necessary modules to make the component work
- */
-import React, { useEffect } from "react";
-import "../css/DescriptionPage.css";
-import { Carousel } from "antd";
-import { Image } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import React from "react";
+
+import Watermark from "./brand/Watermark";
+import SectionTitle from "./brand/SectionTitle";
+import ZoomableImage from "./ZoomableImage";
 
 /**
  * Importing images
@@ -23,14 +19,7 @@ import pokedex3d from "../images/3dpokedex.webp";
 import dex3dMosaic from "../images/dex3d-mosaic.webp";
 
 /**
- * Importing services
- */
-import handleScrollTop from "../services/scrollToTopService";
-
-import Lines from "./Lines";
-
-/**
- * A personal project shown in the carousel, in display order
+ * A personal project, in display order. The screenshots all measure 1200 x 572.
  */
 interface PersonalProject {
   title: string;
@@ -74,60 +63,52 @@ const personalProjects: PersonalProject[] = [
  * DescriptionPage component
  * @returns DescriptionPage component
  */
-const DescriptionPage: React.FC = () => {
-  useEffect(() => {
-    handleScrollTop();
-  }, []);
+const DescriptionPage: React.FC = () => (
+  <div className="relative isolate overflow-hidden">
+    <Watermark className="top-10 -right-[14%] h-[34rem]" />
+    <section className="mx-auto max-w-6xl animate-rise px-6 pt-28 pb-14 md:pt-36 md:pb-20">
+      <h1 className="text-4xl leading-[1.1] md:text-5xl">
+        Que faut-il savoir sur moi&nbsp;?
+      </h1>
+      <p className="mt-6 max-w-prose text-lg leading-relaxed text-muted-foreground">
+        <strong className="font-semibold text-foreground">
+          Actuellement en 2e année de Master Informatique,
+        </strong>{" "}
+        je suis un élève motivé à avoir une expérience professionnelle solide.
+        J'ai toujours souhaité vivre dans un monde dans lequel les tâches
+        fastidieuses seraient facilitées par la technologie, c'est pourquoi ma
+        carrière future était toute tracée ! Je reste toujours à la recherche
+        de nouvelles connaissances.
+      </p>
+    </section>
 
-  return (
-    <div className="description" id="description">
-      <Lines />
-      <div className="description-content">
-        <h1>Que faut-il savoir sur moi&nbsp;?</h1>
-        <p>
-          <b>Actuellement en 2e année de Master Informatique, </b> je suis un
-          élève motivé à avoir une expérience professionnelle solide. J'ai
-          toujours souhaité vivre dans un monde dans lequel les tâches
-          fastidieuses seraient facilitées par la technologie, c'est pourquoi ma
-          carrière future était toute tracée ! Je reste toujours à la
-          recherche de nouvelles connaissances.
-        </p>
-      </div>
-
-      <div className="description-carousel">
-        <h2>Mes projets personnels&nbsp;:</h2>
-        <Carousel
-          arrows
-          autoplay
-          pauseOnFocus
-          pauseOnDotsHover
-          dotPosition="bottom"
-          className="carousel"
-        >
-          {personalProjects.map((project) => (
-            <div key={project.title}>
-              <div className="carousel-media">
-                <Image
-                  src={project.image}
-                  alt={project.alt}
-                  loading="lazy"
-                  placeholder={<div className="carousel-skeleton" />}
-                  preview={{
-                    mask: (
-                      <span>
-                        Voir plus
-                        <SearchOutlined style={{ marginLeft: "5px" }} />
-                      </span>
-                    ),
-                  }}
-                />
-              </div>
+    <section
+      aria-labelledby="projects-title"
+      className="mx-auto max-w-6xl px-6 pb-24 md:pb-32"
+    >
+      <SectionTitle id="projects-title">Mes projets personnels</SectionTitle>
+      <ul className="mt-10 grid gap-6 sm:grid-cols-2 md:mt-12">
+        {personalProjects.map((project) => (
+          <li
+            key={project.title}
+            className="overflow-hidden rounded-lg border border-border bg-card shadow-card transition-[border-color,transform] duration-200 ease-soft hover:-translate-y-0.5 hover:border-border-strong"
+          >
+            <ZoomableImage
+              src={project.image}
+              alt={project.alt}
+              className="aspect-[1200/572] border-b border-border"
+            />
+            <div className="p-5 md:p-6">
+              <h3 className="text-lg md:text-xl">{project.title}</h3>
+              <p className="mt-2 leading-relaxed text-muted-foreground">
+                {project.description}
+              </p>
             </div>
-          ))}
-        </Carousel>
-      </div>
-    </div>
-  );
-};
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+);
 
 export default DescriptionPage;
