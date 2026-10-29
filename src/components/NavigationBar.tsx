@@ -61,13 +61,6 @@ const NavigationBar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname]);
 
-  /**
-   * Handle the redirection to the home page when the logo is clicked
-   */
-  const handleLogoRedirection = () => {
-    window.location.href = "/portfolio";
-  };
-
   const isActive = (path: string) =>
     location.pathname === path || location.pathname === `${path}/`;
 
@@ -95,7 +88,13 @@ const NavigationBar: React.FC = () => {
         </Dropdown>
       </div>
       <div className="nav-bar-logo">
-        <img src={monogram} alt="Logo" onClick={handleLogoRedirection} />
+        <Link
+          to="/"
+          aria-label="Retour à l'accueil"
+          onClick={isActive("/") ? handleScrollTop : undefined}
+        >
+          <img src={monogram} alt="" />
+        </Link>
       </div>
       <div className="nav-bar-redirection">
         {renderLink("/", "Accueil")}

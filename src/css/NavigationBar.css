@@ -65,6 +65,10 @@
   width: 33.3%;
 }
 
+.nav-bar-logo a {
+  display: flex;
+}
+
 .nav-bar-logo img {
   width: 44px;
   height: 44px;
