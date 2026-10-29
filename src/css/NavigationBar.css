@@ -166,35 +166,89 @@
   background: rgba(0, 0, 0, 0.8) !important;
 }
 
+/* The burger and its panel only exist on phones and small tablets */
+.nav-burger {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
-  .nav-bar-experiences {
-    width: 42%;
+  .nav-bar {
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 var(--page-gutter);
   }
 
+  .nav-bar-experiences,
   .nav-bar-redirection {
-    width: 58%;
-  }
-
-  .nav-bar-redirection p,
-  .nav-bar-redirection a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding-left: 4px;
-    padding-right: 4px;
-    font-size: var(--text-md);
-    white-space: nowrap;
-  }
-
-  .nav-bar-experiences .ant-btn {
-    min-height: 44px;
-    height: auto;
-    font-size: var(--text-md);
-    white-space: normal;
-    text-align: left;
+    display: none;
   }
 
   .nav-bar-logo {
-    display: none;
+    width: auto;
   }
+
+  .nav-burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #ffffff;
+    font-size: var(--text-2xl);
+    cursor: pointer;
+  }
+}
+
+.nav-burger:focus-visible,
+.mobile-menu a:focus-visible {
+  outline: 2px solid #f7f7f7;
+  outline-offset: 2px;
+}
+
+/* Everything under the bar, bottom bar included; a click on it closes the menu */
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 100px 0 0 0;
+  z-index: 1100;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mobile-menu {
+  box-sizing: border-box;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  padding: 8px var(--page-gutter) 24px;
+  background: #000000;
+  border-radius: 0 0 12px 12px;
+}
+
+.mobile-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-menu a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: var(--text-lg);
+}
+
+.mobile-menu .mobile-menu-reports a {
+  font-size: var(--text-md);
+}
+
+.mobile-menu-heading {
+  margin: 16px 0 4px;
+  color: gray;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

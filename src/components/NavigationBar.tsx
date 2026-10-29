@@ -9,11 +9,12 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../css/NavigationBar.css";
 
 import { Link, useLocation } from "react-router-dom";
 import { Dropdown, Button } from "antd";
+import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
 import monogram from "../images/monogram.svg";
 
 import handleScrollTop from "../services/scrollToTopService";
@@ -59,6 +60,52 @@ const NavigationBar: React.FC = () => {
    */
   const [menuOpen, setMenuOpen] = useState(false);
 
+  /**
+   * Whether the mobile menu (burger) is open
+   */
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const burgerRef = useRef<HTMLButtonElement>(null);
+  const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      return;
+    }
+    // The page does not scroll behind the open menu
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    firstMobileLinkRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        burgerRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    // The burger disappears above 768 px, so its menu closes with it
+    const desktop = window.matchMedia("(min-width: 769px)");
+    const handleChange = () => {
+      if (desktop.matches) {
+        setMobileMenuOpen(false);
+      }
+    };
+    desktop.addEventListener("change", handleChange);
+    return () => desktop.removeEventListener("change", handleChange);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => setHasBackground(window.scrollY > 50);
     handleScroll();
@@ -79,8 +126,19 @@ const NavigationBar: React.FC = () => {
     </Link>
   );
 
+  const pages: [string, string][] = [
+    ["/", "Accueil"],
+    ["/about", "À propos"],
+    ["/contact", "Contact"],
+  ];
+
   return (
-    <div className={`nav-bar ${hasBackground ? "background" : ""}`}>
+    <>
+    <div
+      className={`nav-bar ${
+        hasBackground || mobileMenuOpen ? "background" : ""
+      }`}
+    >
       <div className="nav-bar-experiences">
         <Dropdown
           menu={{
@@ -134,7 +192,68 @@ const NavigationBar: React.FC = () => {
         {renderLink("/about", "À propos")}
         {renderLink("/contact", "Contact")}
       </div>
+      <button
+        type="button"
+        ref={burgerRef}
+        className="nav-burger"
+        aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-expanded={mobileMenuOpen}
+        aria-controls="mobile-menu"
+        onClick={() => setMobileMenuOpen((open) => !open)}
+      >
+        {mobileMenuOpen ? <CloseOutlined /> : <MenuOutlined />}
+      </button>
     </div>
+    {mobileMenuOpen && (
+      <div
+        className="mobile-menu-backdrop"
+        onClick={() => setMobileMenuOpen(false)}
+      >
+        <nav
+          id="mobile-menu"
+          className="mobile-menu"
+          aria-label="Menu principal"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <ul>
+            {pages.map(([path, label], index) => (
+              <li key={path}>
+                <Link
+                  ref={index === 0 ? firstMobileLinkRef : undefined}
+                  to={path}
+                  className={isActive(path) ? "active" : ""}
+                  aria-current={isActive(path) ? "page" : undefined}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mobile-menu-heading" id="mobile-menu-reports">
+            Mes retours d'expérience
+          </p>
+          <ul
+            className="mobile-menu-reports"
+            aria-labelledby="mobile-menu-reports"
+          >
+            {experienceReports.map(({ file, label }) => (
+              <li key={file}>
+                <a
+                  href={`experiences/${file}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    )}
+    </>
   );
 };
 

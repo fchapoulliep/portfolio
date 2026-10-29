@@ -18,6 +18,9 @@
   --title-section: var(--text-2xl); /* h2 */
 
   --leading-body: 1.5;
+
+  /* Side margin of the page content on phones */
+  --page-gutter: 20px;
 }
 
 @media (max-width: 768px) {
