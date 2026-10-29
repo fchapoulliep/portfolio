@@ -194,10 +194,13 @@ const NavigationBar: React.FC = () => {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-40 border-b transition-[background-color,border-color] duration-200 ease-soft",
+          // Solid bar, no border, no blur: a 24 px gradient from the bar's colour
+          // lets the page (and the FC watermark) appear beneath it, with no line
+          // where a border or the edge of a blur would cut it
+          "fixed inset-x-0 top-0 z-40 transition-[background-color] duration-200 ease-soft after:pointer-events-none after:absolute after:inset-x-0 after:top-full after:h-6 after:bg-linear-to-b after:from-background after:to-transparent after:opacity-0 after:transition-opacity after:duration-200",
           scrolled || mobileMenuOpen
-            ? "border-border bg-background/90 backdrop-blur-md"
-            : "border-transparent"
+            ? "bg-background after:opacity-100"
+            : ""
         )}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-6">
