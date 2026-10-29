@@ -75,7 +75,7 @@
   margin-right: 20%;
   opacity: 0;
   transform: translateY(30%);
-  animation: fadeIn 1s forwards;
+  animation: fadeInVertical 1s forwards;
 }
 
 .portfolio-welcome-button {
@@ -104,16 +104,6 @@
   color: rgba(255, 255, 255, 0.8);
   outline-color: rgba(71, 126, 232, 0);
   outline-offset: 50px;
-}
-
-/**
- * Keyframes for the fade-in animation.
- */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .arrow-experiences {
