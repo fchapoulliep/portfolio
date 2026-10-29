@@ -8,7 +8,7 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../css/DescriptionPage.css";
 import { Carousel } from "antd";
 import { Image } from "antd";
@@ -75,11 +75,6 @@ const personalProjects: PersonalProject[] = [
  * @returns DescriptionPage component
  */
 const DescriptionPage: React.FC = () => {
-  /**
-   * Project shown by the carousel, whose caption is displayed under it
-   */
-  const [currentProject, setCurrentProject] = useState(0);
-
   useEffect(() => {
     handleScrollTop();
   }, []);
@@ -107,7 +102,6 @@ const DescriptionPage: React.FC = () => {
           autoplay
           dotPosition="bottom"
           className="carousel"
-          beforeChange={(_, next) => setCurrentProject(next)}
         >
           {personalProjects.map((project) => (
             <div key={project.title}>
@@ -130,10 +124,6 @@ const DescriptionPage: React.FC = () => {
             </div>
           ))}
         </Carousel>
-        <div className="carousel-caption">
-          <h3>{personalProjects[currentProject].title}</h3>
-          <p>{personalProjects[currentProject].description}</p>
-        </div>
       </div>
     </div>
   );

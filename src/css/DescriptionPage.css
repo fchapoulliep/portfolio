@@ -161,25 +161,6 @@
   inset: -21px -4px;
 }
 
-/* Caption of the current slide, with room for three lines so it never shifts the page */
-.carousel-caption {
-  min-height: 84px;
-  margin-top: 12px;
-  text-align: left;
-}
-
-.carousel-caption h3 {
-  margin: 0 0 4px;
-  font-size: var(--text-lg);
-  color: #f7f7f7;
-}
-
-.carousel-caption p {
-  margin: 0;
-  font-size: var(--text-md);
-  line-height: 1.4;
-  color: #bfbfbf;
-}
 
 .description-carousel img {
   width: 100%;
