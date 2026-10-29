@@ -67,7 +67,7 @@ const DescriptionPage: React.FC = () => (
   <div className="relative isolate overflow-hidden">
     <Watermark className="top-10 -right-[14%] h-[24rem] md:h-[34rem]" />
     <section className="mx-auto max-w-6xl animate-rise px-6 pt-28 pb-14 md:pt-36 md:pb-20">
-      <h1 className="text-[1.75rem] leading-[1.15] sm:text-4xl sm:leading-[1.1] md:text-5xl">
+      <h1 className="text-2xl leading-[1.2] sm:text-3xl sm:leading-[1.15] md:text-4xl md:leading-[1.1]">
         Que faut-il savoir sur moi&nbsp;?
       </h1>
       <p className="mt-6 max-w-prose text-lg leading-relaxed text-muted-foreground">
