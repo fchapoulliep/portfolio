@@ -151,6 +151,20 @@
       transform: translateY(-0.25rem);
     }
   }
+
+  /* The scroll cue under the home intro: a slow nudge downwards */
+  --animate-nudge: nudge 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  @keyframes nudge {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0.375rem);
+    }
+  }
 }
 
 @layer base {
@@ -197,4 +211,26 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/*
+ * The home backdrop (lines and watermark) fades out towards the bottom of
+ * the intro. At 5 % over the dark background the fade only has about ten
+ * shades, which show as bands: a fine noise multiplies the gradient
+ * (dithering), so neighbouring pixels round to different shades and the eye
+ * reads a smooth fade.
+ */
+.backdrop-fade {
+  -webkit-mask-image:
+    linear-gradient(to bottom, black 55%, transparent),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mask-image:
+    linear-gradient(to bottom, black 55%, transparent),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%, 160px 160px;
+  mask-size: 100% 100%, 160px 160px;
+  -webkit-mask-repeat: no-repeat, repeat;
+  mask-repeat: no-repeat, repeat;
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }

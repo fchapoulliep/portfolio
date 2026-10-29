@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowDown, FileText } from "lucide-react";
+import { ArrowDown, ChevronDown, FileText } from "lucide-react";
 
 import BackgroundLines from "./brand/BackgroundLines";
 import Watermark from "./brand/Watermark";
@@ -54,10 +54,15 @@ const PortfolioPage: React.FC = () => {
 
   return (
     <>
-      <section className="relative isolate flex items-center overflow-hidden md:min-h-svh">
-        <BackgroundLines />
-        <Watermark className="top-1/2 -right-[12%] h-[85%] -translate-y-1/2 md:h-[115%]" />
-        <div className="mx-auto w-full max-w-6xl animate-rise px-6 pt-24 pb-12 md:pt-28 md:pb-20">
+      <section className="relative isolate flex min-h-svh items-center overflow-x-clip">
+        {/* The lines and the watermark share one fade, so both melt into the plain
+            background at the same height, gone at the bottom of the intro: no edge
+            can cut the FC (see .backdrop-fade for the dithering) */}
+        <div aria-hidden className="backdrop-fade absolute inset-0 -z-10">
+          <BackgroundLines />
+          <Watermark className="top-1/2 -right-[12%] h-[85%] -translate-y-1/2 md:h-[105%]" />
+        </div>
+        <div className="mx-auto w-full max-w-6xl animate-rise px-6 pt-24 pb-20 md:pt-28">
           {/* On a narrow phone the name breaks after the first name, never at the hyphen */}
           <h1 className="text-[1.75rem] leading-[1.15] sm:text-5xl sm:leading-[1.1] lg:text-6xl lg:leading-[1.05]">
             Florian <span className="whitespace-nowrap">Chapoullié-Pino</span>
@@ -93,6 +98,20 @@ const PortfolioPage: React.FC = () => {
             </a>
           </div>
         </div>
+        {/* The intro fills the screen: a slow arrow says the projects are below */}
+        <button
+          type="button"
+          aria-label="Découvrir mes projets"
+          onClick={() =>
+            scrollToElement(document.getElementById("experiences"))
+          }
+          className="absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-1/2 grid size-11 -translate-x-1/2 place-items-center rounded-full text-muted-foreground transition-colors duration-200 ease-soft hover:text-foreground"
+        >
+          <ChevronDown
+            strokeWidth={1.75}
+            className="size-6 animate-nudge motion-reduce:animate-none"
+          />
+        </button>
       </section>
 
       <section
