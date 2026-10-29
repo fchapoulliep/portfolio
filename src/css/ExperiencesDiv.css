@@ -122,11 +122,34 @@
   }
 
   .portfolio-experience .ant-image {
+    order: 1;
     width: 50%;
     min-width: 300px;
   }
 
-  .portfolio-experience .onSide {
-    display: none;
+  .portfolio-experience .text {
+    order: 2;
+  }
+
+  /* The vertical side link becomes a horizontal link under the text */
+  .portfolio-experience .onSide,
+  .portfolio-experience .onSide:nth-child(1) {
+    order: 3;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    min-height: 44px;
+    margin: 0 0 24px;
+    padding-bottom: 4px;
+    writing-mode: horizontal-tb;
+    transform: none;
+    border-left: none;
+    border-bottom: 2px solid #f7f7f7;
+    font-size: 14px;
+  }
+
+  .portfolio-experience .onSide:hover,
+  .portfolio-experience .onSide:nth-child(1):hover {
+    transform: none;
   }
 }
