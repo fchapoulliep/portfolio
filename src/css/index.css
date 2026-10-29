@@ -13,6 +13,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Room for the mobile bottom bar, so that it never hides the end of a page */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 56px;
+    background-color: #000000;
+  }
+}
+
 * {
   font-family: "Comfortaa", Arial, Helvetica, sans-serif;
 }

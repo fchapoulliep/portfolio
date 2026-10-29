@@ -23,13 +23,24 @@
   color: #282c34;
 }
 
+/* On mobile, the CV link becomes a bottom bar that also holds the social links */
 @media (max-width: 768px) {
   .resume-redirection {
-    left: 10px;
-    bottom: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    z-index: 1000;
   }
 
   .resume-redirection a {
-    font-size: calc(0.2em + 1.5vw);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 14px;
   }
 }

@@ -42,9 +42,21 @@
   transform: scale(1.1);
 }
 
+/* On mobile, the links sit in the bottom bar instead of over the content */
 @media screen and (max-width: 768px) {
+  .social-media-redirection {
+    top: auto;
+    bottom: 0;
+    right: 16px;
+    height: 56px;
+    flex-direction: row;
+    z-index: 1001;
+  }
+
   .social-media-redirection a {
-    padding: 5px;
+    display: flex;
+    margin: 0 0 0 8px;
+    padding: 12px;
   }
 
   .social-media-redirection a svg {
