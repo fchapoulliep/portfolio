@@ -135,8 +135,8 @@ const NavigationBar: React.FC = () => {
   return (
     <>
     <div
-      className={`nav-bar ${
-        hasBackground || mobileMenuOpen ? "background" : ""
+      className={`nav-bar ${hasBackground ? "background" : ""} ${
+        mobileMenuOpen ? "menu-open" : ""
       }`}
     >
       <div className="nav-bar-experiences">

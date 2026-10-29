@@ -39,10 +39,21 @@
   height: 100px;
   position: fixed;
   z-index: 100;
-  transition: all 0.2s ease-in-out;
+  /* Fades in and out with the page scroll */
+  transition: background-color 0.2s ease-in-out;
 }
 
 .nav-bar.background {
+  background-color: black;
+}
+
+/* With the burger menu, the bar turns black in the same frame as the panel
+   appears, and back when it closes: a layer of its own, without transition */
+.nav-bar.menu-open::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background-color: black;
 }
 
