@@ -56,6 +56,13 @@ body {
   overflow-x: hidden;
 }
 
+/* The page color under every page, so no white shows below a short page
+   or when a phone overscrolls */
+html,
+body {
+  background-color: #171717;
+}
+
 
 * {
   font-family: "Comfortaa", Arial, Helvetica, sans-serif;
