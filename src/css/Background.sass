@@ -13,6 +13,13 @@
   #portfolio .lines
     height: 100%
 
+  // On phones the text spans the lines: they stay, quieter, behind it
+  .line
+    background: rgba(255, 255, 255, 0.06)
+
+    &::after
+      opacity: 0.35
+
 #description .lines, #contact-page .lines
   position: fixed
   height: 100%

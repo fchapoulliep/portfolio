@@ -174,10 +174,22 @@
 }
 
 @media screen and (max-width: 768px) {
+  /* One column on the side margins, held to about 70 characters on tablets,
+     with every title on the same left edge as the text */
   .description-content,
   .description-carousel {
     width: calc(100% - 2 * var(--page-gutter));
+    max-width: 640px;
     min-width: 0;
     margin-right: 0;
+  }
+
+  .description-carousel {
+    margin: 8px 0 24px;
+  }
+
+  .description-carousel h2 {
+    margin: 0 0 16px;
+    text-align: left;
   }
 }

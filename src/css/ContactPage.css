@@ -168,15 +168,26 @@
     flex-direction: column;
   }
 
+  /* One centered column, at most 560 px wide, with a 24 px gap between
+     the introduction, the e-mail card and the form */
   .contact-text {
     box-sizing: border-box;
     width: calc(100% - 2 * var(--page-gutter));
-    padding: 12px 0;
+    max-width: 560px;
+    padding: 16px 0 24px;
     align-items: center;
+    text-align: center;
   }
 
   .contact-text h1 {
+    margin: 0 0 12px;
     text-align: center;
+  }
+
+  .contact-text > p {
+    margin: 0 0 24px;
+    line-height: var(--leading-body);
+    text-wrap: balance;
   }
 
   .contact-mail {
@@ -186,6 +197,7 @@
   .contact-info {
     box-sizing: border-box;
     width: calc(100% - 2 * var(--page-gutter));
+    max-width: 560px;
     margin-bottom: 24px;
   }
 
