@@ -10,6 +10,7 @@
  */
 import React from "react";
 import "../css/SocialMediaRedirection.css";
+import { CONTACT_EMAIL } from "../config";
 
 /**
  *  Link to the social media images
@@ -41,7 +42,7 @@ const SocialMediaRedirection: React.FC = () => {
       >
         <GithubOutlined style={{ color: "black", verticalAlign: "middle" }} />
       </a>
-      <a href="mailto:florian.chapoullie-pino@etu.u-bordeaux.fr">
+      <a href={`mailto:${CONTACT_EMAIL}`}>
         <MailOutlined style={{ color: "black", verticalAlign: "middle" }} />
       </a>
     </div>

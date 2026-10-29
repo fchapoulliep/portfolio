@@ -21,6 +21,7 @@ import { MailOutlined, MessageOutlined } from "@ant-design/icons";
 import handleScrollTop from "../services/scrollToTopService";
 
 import Lines from "./Lines";
+import { CONTACT_EMAIL } from "../config";
 
 /**
  * ContactPage component.
@@ -75,9 +76,7 @@ const ContactPage: React.FC = () => {
           <MailOutlined style={{ fontSize: "150%", margin: "10px" }} />
           <p>
             Envoyez-moi un e-mail à <br />
-            <a href="mailto:florian.chapoullie-pino@etudiant.univ-lr.fr">
-              florian.chapoullie-pino@etudiant.univ-lr.fr
-            </a>
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </p>
         </div>
       </div>
