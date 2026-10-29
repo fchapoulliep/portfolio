@@ -136,6 +136,11 @@ const NavigationBar: React.FC = () => {
    * Whether the mobile menu (burger) is open
    */
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // Reports list folded inside the mobile menu, closed again with the menu
+  const [mobileReportsOpen, setMobileReportsOpen] = useState(false);
+  useEffect(() => {
+    if (!mobileMenuOpen) setMobileReportsOpen(false);
+  }, [mobileMenuOpen]);
   const burgerRef = useRef<HTMLButtonElement>(null);
   const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
 
@@ -261,14 +266,22 @@ const NavigationBar: React.FC = () => {
       </header>
 
       {mobileMenuOpen && (
-        <nav
-          id="mobile-menu"
-          aria-label="Menu principal"
-          // Locks the page scroll while the menu is open (see index.css)
-          data-scroll-lock
-          className="fixed inset-x-0 top-16 bottom-0 z-30 animate-enter overflow-y-auto overscroll-contain bg-background md:hidden"
-        >
-          <div className="flex min-h-full flex-col px-6 pt-4 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
+        <>
+          {/* A light veil: the page stays visible behind, a tap outside closes the menu */}
+          <div
+            aria-hidden
+            onClick={() => setMobileMenuOpen(false)}
+            className="fixed inset-x-0 top-16 bottom-0 z-30 animate-enter bg-background/60 backdrop-blur-[2px] md:hidden"
+          />
+          {/* A compact panel under the bar, not a full screen: pages, then the
+              reports folded, then the resume and the networks */}
+          <nav
+            id="mobile-menu"
+            aria-label="Menu principal"
+            // Locks the page scroll while the menu is open (see index.css)
+            data-scroll-lock
+            className="fixed top-[4.5rem] right-4 z-40 max-h-[calc(100svh-5.5rem)] w-[min(18rem,calc(100vw-2rem))] animate-enter overflow-y-auto overscroll-contain rounded-lg border border-border bg-popover p-2 shadow-float md:hidden"
+          >
             <ul>
               {pages.map(({ path, label }, index) => (
                 <li key={path}>
@@ -280,57 +293,70 @@ const NavigationBar: React.FC = () => {
                       setMobileMenuOpen(false);
                       scrollTopIfActive(path)?.();
                     }}
-                    className="-mx-3 flex h-14 items-center rounded-lg px-3 font-display text-2xl font-bold text-muted-foreground transition-colors duration-150 ease-soft hover:bg-accent hover:text-foreground aria-[current=page]:text-foreground"
+                    className="flex h-11 items-center rounded-md px-3 font-semibold text-muted-foreground transition-colors duration-150 ease-soft hover:bg-accent hover:text-foreground aria-[current=page]:bg-accent aria-[current=page]:text-foreground"
                   >
                     {label}
                   </Link>
                 </li>
               ))}
-            </ul>
-
-            <h2
-              id="mobile-menu-reports"
-              className="mt-8 font-sans text-xs font-semibold tracking-[0.14em] text-muted-foreground uppercase"
-            >
-              Retours d'expérience
-            </h2>
-            <ul
-              aria-labelledby="mobile-menu-reports"
-              className="mt-2 grid gap-x-6 min-[480px]:grid-cols-2"
-            >
-              {experiences.map(({ slug, title, report }) => (
-                <li key={slug}>
-                  <a
-                    href={report}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="-mx-3 flex min-h-11 items-center justify-between gap-3 rounded-md px-3 text-base transition-colors duration-150 ease-soft hover:bg-accent"
+              <li>
+                <button
+                  type="button"
+                  aria-expanded={mobileReportsOpen}
+                  aria-controls="mobile-menu-reports"
+                  onClick={() => setMobileReportsOpen((open) => !open)}
+                  className="flex h-11 w-full items-center justify-between rounded-md px-3 font-semibold text-muted-foreground transition-colors duration-150 ease-soft hover:bg-accent hover:text-foreground"
+                >
+                  Retours d'expérience
+                  <ChevronDown
+                    strokeWidth={1.75}
+                    className={cn(
+                      "size-4 transition-transform duration-200 ease-soft",
+                      mobileReportsOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+                {mobileReportsOpen && (
+                  <ul
+                    id="mobile-menu-reports"
+                    className="mb-1 ml-3 animate-enter border-l border-border pl-2"
                   >
-                    {title}
-                    <ArrowUpRight
-                      strokeWidth={1.75}
-                      className="size-4 shrink-0 text-muted-foreground"
-                    />
-                  </a>
-                </li>
-              ))}
+                    {experiences.map(({ slug, title, report }) => (
+                      <li key={slug}>
+                        <a
+                          href={report}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex min-h-11 items-center justify-between gap-3 rounded-md px-3 text-sm transition-colors duration-150 ease-soft hover:bg-accent"
+                        >
+                          {title}
+                          <ArrowUpRight
+                            strokeWidth={1.75}
+                            className="size-4 shrink-0 text-muted-foreground"
+                          />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
             </ul>
 
-            <div className="mt-auto flex items-center justify-between gap-4 border-t border-border pt-6">
+            <div className="mt-2 flex items-center justify-between gap-3 border-t border-border px-1 pt-3 pb-1">
               <a
                 href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={buttonClasses({ variant: "outline" })}
+                className={buttonClasses({ variant: "outline", size: "sm" })}
               >
                 <FileText strokeWidth={1.75} />
                 Mon CV
               </a>
-              <SocialLinks className="-mr-2.5" />
+              <SocialLinks className="-mr-1" />
             </div>
-          </div>
-        </nav>
+          </nav>
+        </>
       )}
     </>
   );
