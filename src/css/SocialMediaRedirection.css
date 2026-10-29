@@ -40,24 +40,43 @@
   transform: scale(1.1);
 }
 
-/* On mobile, the links sit in the bottom bar instead of over the content */
+/* On mobile, thin white icons aligned in the bottom bar, 44 px each */
 @media screen and (max-width: 768px) {
   .social-media-redirection {
     top: auto;
-    bottom: 0;
-    right: 12px;
+    bottom: env(safe-area-inset-bottom);
+    right: var(--page-gutter);
     height: 56px;
     flex-direction: row;
+    gap: 4px;
     z-index: 1001;
   }
 
   .social-media-redirection a {
     display: flex;
-    margin: 0 0 0 4px;
-    padding: 12px;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .social-media-redirection a .anticon {
+    color: #f7f7f7 !important;
+    font-size: 20px;
   }
 
   .social-media-redirection a svg {
-    font-size: 130%;
+    font-size: 1em;
+  }
+
+  .social-media-redirection a:hover {
+    transform: none;
+  }
+
+  .social-media-redirection a:focus-visible {
+    outline: 2px solid #f7f7f7;
   }
 }
