@@ -7,7 +7,7 @@
 /**
  * Importing necessary modules to make the component work
  */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../css/App.css";
 
 import { HashRouter as Router, Route } from "react-router-dom";
@@ -27,33 +27,45 @@ import { ConfigProvider } from "antd";
  * and the routes for different pages.
  */
 const App: React.FC = () => {
+  const cursorRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const cursor = document.querySelector(".cursor");
+    const cursor = cursorRef.current;
+    if (!cursor) {
+      return;
+    }
+    let expandTimer: number | undefined;
+
+    /**
+     * The cursor is fixed to the viewport, so it stays on the pointer while scrolling
+     */
     const handleMouseMove = (e: MouseEvent) => {
-      if (cursor) {
-        let maxHeight = document.body.scrollHeight - cursor.clientHeight;
-        if (e.pageY > maxHeight) {
-          (cursor as HTMLElement).style.top = `${maxHeight}px`;
-        } else {
-          (cursor as HTMLElement).style.top = `${e.pageY}px`;
-        }
-        (cursor as HTMLElement).style.left = `${e.pageX}px`;
-      }
+      cursor.style.top = `${e.clientY}px`;
+      cursor.style.left = `${e.clientX}px`;
+      cursor.classList.add("visible");
+    };
+    const handleMouseLeave = () => {
+      cursor.classList.remove("visible");
     };
     const handleClick = () => {
-      if (cursor) {
-        cursor.classList.add("expand");
-        setTimeout(() => {
-          cursor.classList.remove("expand");
-        }, 500);
-      }
+      cursor.classList.add("expand");
+      window.clearTimeout(expandTimer);
+      expandTimer = window.setTimeout(() => {
+        cursor.classList.remove("expand");
+      }, 500);
     };
 
     document.addEventListener("mousemove", handleMouseMove);
+    document.documentElement.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("click", handleClick);
 
     return () => {
+      window.clearTimeout(expandTimer);
       document.removeEventListener("mousemove", handleMouseMove);
+      document.documentElement.removeEventListener(
+        "mouseleave",
+        handleMouseLeave
+      );
       document.removeEventListener("click", handleClick);
     };
   }, []);
@@ -82,7 +94,7 @@ const App: React.FC = () => {
         <NavigationBar />
         <ResumeRedirection />
         <SocialMediaRedirection />
-        <div className="cursor"></div>
+        <div className="cursor" ref={cursorRef}></div>
         <Routes>
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/about" element={<DescriptionPage />} />

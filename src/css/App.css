@@ -1,14 +1,24 @@
 .cursor {
+  display: none;
+  top: 0;
+  left: 0;
+  opacity: 0;
   width: 25px;
   height: 25px;
   border: 2px solid #b3b1b1;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 1000;
   background-color: transparent;
-  transition: width 0.3s ease, height 0.3s ease, transform 0.1s ease;
+  transition: width 0.3s ease, height 0.3s ease, transform 0.1s ease,
+    opacity 0.2s ease;
+}
+
+/* Shown only once the mouse has moved over the page */
+.cursor.visible {
+  opacity: 1;
 }
 
 .cursor::before {
@@ -26,11 +36,12 @@
 .cursor.expand {
   width: 45px;
   height: 45px;
-  transition: width 0.3s ease, height 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.2s ease;
 }
 
-@media screen and (max-width: 768px) {
+/* Only for a precise pointer that can hover, never on touch screens */
+@media (hover: hover) and (pointer: fine) {
   .cursor {
-    display: none;
+    display: block;
   }
 }
