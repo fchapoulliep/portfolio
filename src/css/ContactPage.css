@@ -150,7 +150,7 @@
   .contact-text {
     box-sizing: border-box;
     width: calc(100% - 2 * var(--page-gutter));
-    padding: 20px 0;
+    padding: 12px 0;
     align-items: center;
   }
 
@@ -162,10 +162,38 @@
     margin-top: 0;
   }
 
+  /* A compact card on phones: 16 px padding, 44 px fields, tight regular gaps */
   .contact-info {
     box-sizing: border-box;
     width: calc(100% - 2 * var(--page-gutter));
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+    padding: 16px;
+  }
+
+  .contact-info h2 {
+    margin: 0 0 12px;
+  }
+
+  .contact-info .ant-form-item {
+    margin-bottom: 12px;
+  }
+
+  .contact-info .ant-form-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .contact-info .ant-form-item-label {
+    padding-bottom: 4px;
+  }
+
+  .contact-info input.ant-input {
+    min-height: 44px;
+  }
+
+  .contact-info .form-validation-button {
+    height: 44px;
+    margin-top: 0;
+    padding: 0 24px;
   }
 }
 
