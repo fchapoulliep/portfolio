@@ -92,7 +92,7 @@
   text-decoration: none;
   padding-left: 1em;
   padding-right: 1em;
-  font-size: calc(0.3em + 1vw);
+  font-size: var(--text-lg);
 }
 
 .nav-bar-redirection .nav-item {
@@ -130,7 +130,6 @@
   background-color: transparent;
   color: #ffffff;
   border: none;
-  font-size: calc(0.3em + 1vw);
   display: flex;
   align-items: center;
   line-height: normal !important;
@@ -140,6 +139,10 @@
   background-color: transparent;
   color: #282c34 !important;
   border: none;
+}
+
+.nav-bar-experiences .ant-btn {
+  font-size: var(--text-lg);
 }
 
 .ant-dropdown-trigger {
@@ -164,10 +167,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .nav-bar {
-    font-size: 22px;
-  }
-
   .nav-bar-experiences {
     width: 42%;
   }
@@ -183,14 +182,14 @@
     min-height: 44px;
     padding-left: 4px;
     padding-right: 4px;
-    font-size: 14px;
+    font-size: var(--text-md);
     white-space: nowrap;
   }
 
   .nav-bar-experiences .ant-btn {
     min-height: 44px;
     height: auto;
-    font-size: 14px;
+    font-size: var(--text-md);
     white-space: normal;
     text-align: left;
   }

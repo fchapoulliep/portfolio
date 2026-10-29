@@ -29,12 +29,12 @@
 }
 
 .contact-text h1 {
-  font-size: calc(0.8em + 1vw);
+  font-size: var(--title-page);
   margin-bottom: 20px;
 }
 
 .contact-text p {
-  font-size: calc(0.5em + 0.8vw);
+  font-size: var(--text-lg);
 }
 
 .contact-mail a {
@@ -51,7 +51,7 @@
 }
 
 .contact-mail p {
-  font-size: calc(0.6em + 0.4vw);
+  font-size: var(--text-md);
 }
 
 .contact-text {
@@ -106,6 +106,10 @@
   overflow: hidden;
 }
 
+.contact-info h2 {
+  font-size: var(--title-section);
+}
+
 .contact-info form {
   width: 100%;
 }
@@ -115,7 +119,7 @@
   border: none;
   border-radius: 10px;
   color: #f7f7f7;
-  font-size: calc(0.5em + 0.5vw);
+  font-size: var(--text-md);
   padding: 20px;
   margin-top: 10px;
   cursor: pointer;
@@ -156,30 +160,13 @@
     width: 80%;
     margin-bottom: 60px;
   }
-
-  /* Smaller than the page title, and the icon stays on the same line */
-  .contact-info h2 {
-    font-size: 16px;
-  }
 }
 
 @media screen and (max-width: 480px) {
-  .contact-text h1 {
-    font-size: calc(0.8em + 1.5vw);
-  }
-
-  .contact-text p {
-    font-size: calc(0.5em + 1vw);
-  }
-
   .contact-mail {
     width: 100%;
     flex-direction: column;
     padding: 4px 16px 8px;
     text-align: center;
-  }
-
-  .form-validation-button {
-    font-size: calc(0.5em + 1vw);
   }
 }

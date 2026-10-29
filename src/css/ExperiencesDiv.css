@@ -17,7 +17,8 @@
 .portfolio-experience .text {
   width: 60%;
   color: #f7f7f7;
-  font-size: calc(8px + 0.5vw);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
   padding-left: 30px;
   padding-right: 30px;
   border: solid 1px #f7f7f7;
@@ -32,6 +33,7 @@
   border-left-width: 3px;
   color: #f7f7f7;
   writing-mode: vertical-rl;
+  font-size: var(--text-md);
   margin-left: 16px;
   margin-right: 16px;
   transition: all 0.5s ease-in-out;
@@ -111,7 +113,6 @@
     padding-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    font-size: 14px;
   }
 
   .portfolio-experience .portfolio-experience-image {
@@ -143,7 +144,6 @@
     transform: none;
     border-left: none;
     border-bottom: 2px solid #f7f7f7;
-    font-size: 14px;
   }
 
   .portfolio-experience .onSide:hover,

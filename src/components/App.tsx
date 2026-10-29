@@ -76,6 +76,8 @@ const App: React.FC = () => {
         theme={{
           token: {
             fontFamily: '"Comfortaa", Arial, Helvetica, sans-serif',
+            // Body size of the type scale, also for the form inputs
+            fontSize: 16,
           },
           components: {
             /**

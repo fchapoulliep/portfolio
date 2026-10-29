@@ -19,12 +19,12 @@
  * 
  * @class description-content h2
  * @description Represents the heading within the description content.
- * @property {string} font-size - The font size of the heading (calculated as 0.5em + 1vw).
+ * @property {string} font-size - The page title size of the type scale (--title-page).
  * @property {string} color - The color of the heading (#f7f7f7).
  * 
  * @class description-content p
  * @description Represents the paragraph within the description content.
- * @property {string} font-size - The font size of the paragraph (calculated as 10px + 0.5vw).
+ * @property {string} font-size - The body text size of the type scale (--text-md).
  * @property {string} color - The color of the paragraph (#f7f7f7).
  * 
  * @class description-carousel
@@ -69,12 +69,13 @@
 
 .description-content h1 {
   margin: 0.83em 0;
-  font-size: calc(0.5em + 1vw);
+  font-size: var(--title-page);
   color: #f7f7f7;
 }
 
 .description-content p {
-  font-size: calc(10px + 0.5vw);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
   color: #f7f7f7;
 }
 
@@ -90,7 +91,7 @@
 }
 
 .description-carousel h2 {
-  font-size: calc(0.5em + 1vw);
+  font-size: var(--title-section);
   color: #f7f7f7;
 }
 
@@ -156,13 +157,13 @@
 
 .carousel-caption h3 {
   margin: 0 0 4px;
-  font-size: 15px;
+  font-size: var(--text-lg);
   color: #f7f7f7;
 }
 
 .carousel-caption p {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--text-md);
   line-height: 1.4;
   color: #bfbfbf;
 }
@@ -182,14 +183,5 @@
   .description-carousel {
     width: 90%;
     min-width: 300px;
-  }
-
-  /* Readable titles on phones, the page title staying the larger one */
-  .description-content h1 {
-    font-size: 18px;
-  }
-
-  .description-carousel h2 {
-    font-size: 16px;
   }
 }

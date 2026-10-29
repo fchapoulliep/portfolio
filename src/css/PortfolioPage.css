@@ -25,12 +25,12 @@
  * Styles for the heading in the welcome section.
  */
 .portfolio-welcome h1 {
-  font-size: calc(0.5em + 3vw);
+  font-size: var(--title-display);
   margin: 0;
 }
 
 .portfolio-welcome p {
-  font-size: calc(0.3em + 1vw);
+  font-size: var(--text-lg);
   font-style: italic;
 }
 
@@ -84,7 +84,7 @@
   border: none;
   border-radius: 20px;
   padding: 2px;
-  font-size: max(14px, calc(0.3em + 0.8vw));
+  font-size: var(--text-md);
   outline: 3px solid;
   outline-color: rgba(255, 255, 255, 0.5);
   outline-offset: 8px;
@@ -215,6 +215,7 @@
 }
 
 .portfolio-experiences-divider {
+  font-size: var(--text-xl) !important;
   color: #f7f7f7 !important;
   border: #f7f7f7 !important;
 }
@@ -231,11 +232,11 @@ footer {
   color: white;
   text-align: center;
   padding: 1em;
-  font-size: 14px;
+  font-size: var(--text-sm);
 }
 
 .ant-dropdown-menu-title-content {
-  font-size: calc(0.3em + 0.5vw);
+  font-size: var(--text-sm);
 }
 
 /**
@@ -288,14 +289,6 @@ footer {
     height: 80vh;
   }
 
-  .portfolio-welcome h1 {
-    font-size: calc(0.8em + 2vw);
-  }
-
-  .portfolio-welcome h2 {
-    font-size: calc(0.6em + 1vw);
-  }
-
   .arrow-experiences {
     bottom: 10%;
   }
@@ -314,19 +307,8 @@ footer {
     width: 30px;
   }
 
-  .ant-dropdown-menu-title-content {
-    font-size: 12px;
-  }
-
   .portfolio-experiences {
     overflow: hidden;
   }
 
-  footer {
-    font-size: 12px;
-  }
-
-  .portfolio-experiences-divider {
-    font-size: 12px !important;
-  }
 }
