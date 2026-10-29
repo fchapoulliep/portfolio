@@ -1,0 +1,57 @@
+{
+  "slug": "retourBiosphere",
+  "titre": "Biosphere 7",
+  "teinte": "#e7f4e7",
+  "chapeau": "Un jeu de plateau doté d'une intelligence artificielle, développé en Java, et la comparaison de plusieurs approches algorithmiques.",
+  "infos": [
+    {
+      "label": "Technologies",
+      "valeur": [
+        "Java",
+        "intelligence artificielle"
+      ]
+    }
+  ],
+  "contexte": [
+    "Biosphere 7 est un jeu de plateau doté d'une intelligence artificielle, développé en Java à partir du besoin d'un client. Le projet s'est déroulé en deux phases.",
+    "J'ai notamment contribué à la mise en place de deux stratégies destinées à l'intelligence artificielle."
+  ],
+  "objectifs": [
+    "Retranscrire en Java le besoin du client.",
+    "Imaginer différentes intelligences artificielles et comparer leurs approches algorithmiques.",
+    "Respecter le cahier des charges et les règles du jeu."
+  ],
+  "demarche": [
+    "Analyse du besoin du client",
+    "Retranscription en Java",
+    "Conception de différentes intelligences artificielles",
+    "Application des besoins du client",
+    "Explication de la démarche logique derrière l'implémentation"
+  ],
+  "resultat": "Un code qui répond aux besoins du client, documenté de manière claire.",
+  "figures": [
+    {
+      "src": "../img/retourBiosphere.png",
+      "alt": "Plateau de jeu quadrillé, avec des pions rouges et bleus.",
+      "legende": "Le plateau de jeu de Biosphere 7."
+    }
+  ],
+  "competences": {
+    "Techniques": [
+      "Java",
+      "Intelligence artificielle",
+      "Comparaison d'approches algorithmiques"
+    ],
+    "Savoir-faire": [
+      "Analyser",
+      "Rechercher",
+      "Planifier",
+      "Implémenter",
+      "Esprit logique"
+    ]
+  },
+  "bilan": [
+    "Ce projet a été très enrichissant. Il m'a appris à aborder une tâche donnée, qu'il s'agisse du cahier des charges, des règles associées ou des méthodes de travail à adopter.",
+    "Son principal apport a été l'éveil de mon esprit logique : déterminer quelles actions sont possibles, et lesquelles sont préférables, selon chaque situation."
+  ]
+}

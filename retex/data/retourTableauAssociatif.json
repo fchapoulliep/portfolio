@@ -1,0 +1,49 @@
+{
+  "slug": "retourTableauAssociatif",
+  "titre": "Tableau associatif",
+  "teinte": "#e1f5f2",
+  "chapeau": "Deux implémentations d'un tableau associatif en Java, l'une statique et l'autre dynamique, comparées par des benchmarks.",
+  "infos": [
+    {
+      "label": "Technologies",
+      "valeur": [
+        "Java"
+      ]
+    }
+  ],
+  "contexte": [
+    "Ce projet consistait à créer notre propre tableau associatif en Java, en réalisant deux implémentations : une statique et une dynamique. Il fallait ensuite comparer leurs performances à l'aide de benchmarks.",
+    "L'implémentation statique utilisait un tableau de taille fixe pour stocker les clés et les valeurs associées. L'implémentation dynamique reposait sur une structure de données telle qu'une liste chaînée ou un arbre, pour permettre une taille variable."
+  ],
+  "objectifs": [
+    "Comprendre le fonctionnement des HashMap.",
+    "Développer une implémentation statique et une implémentation dynamique.",
+    "Comparer les performances des deux implémentations par des benchmarks."
+  ],
+  "demarche": [
+    "Analyse du sujet",
+    "Étude du fonctionnement des HashMap",
+    "Développement",
+    "Réalisation d'un benchmark",
+    "Documentation et explication du travail réalisé"
+  ],
+  "resultat": "Deux implémentations d'un tableau associatif en Java, l'une statique et l'autre dynamique, puis des benchmarks pour les comparer.",
+  "competences": {
+    "Techniques": [
+      "Java",
+      "Tableaux associatifs (HashMap)",
+      "Structures de données",
+      "Benchmark"
+    ],
+    "Savoir-faire": [
+      "Analyser",
+      "Rechercher",
+      "Comprendre",
+      "Développer",
+      "Comparer"
+    ]
+  },
+  "bilan": [
+    "Ce projet m'a permis de mieux comprendre les concepts de base des tableaux associatifs, et d'apprécier les avantages et les inconvénients des différentes approches d'implémentation."
+  ]
+}

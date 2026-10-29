@@ -1,0 +1,61 @@
+{
+  "slug": "retourOdomo",
+  "titre": "Odomo",
+  "teinte": "#fdede3",
+  "chapeau": "Implémentation d'un besoin client : une centrale domotique autonome, développée en Java.",
+  "infos": [
+    {
+      "label": "Équipe",
+      "valeur": "En équipe"
+    },
+    {
+      "label": "Technologies",
+      "valeur": [
+        "Java",
+        "matrices (tableaux 2D)"
+      ]
+    }
+  ],
+  "contexte": [
+    "Ce projet consistait à répondre au besoin d'un client, exprimé dans un cahier des charges, en développant en Java une centrale domotique autonome."
+  ],
+  "objectifs": [
+    "Identifier les moyens nécessaires pour répondre aux besoins du client à l'aide d'un langage de programmation.",
+    "Livrer un code fonctionnel, conforme aux attentes du client.",
+    "Fournir un rapport détaillé qui explique clairement le code et son fonctionnement."
+  ],
+  "demarche": [
+    "Analyse du cahier des charges",
+    "Développement en Java",
+    "Utilisation de matrices (tableaux 2D)",
+    "Application des besoins du client",
+    "Documentation et explication du travail réalisé"
+  ],
+  "resultat": "Un code qui répond aux besoins du client, documenté de manière claire.",
+  "figures": [
+    {
+      "src": "../img/retourOdomo.png",
+      "alt": "Sortie texte de la centrale en mode météo, avec les mesures intérieures et extérieures.",
+      "legende": "Affichage de la centrale en mode « météo » : mesures intérieures et extérieures."
+    }
+  ],
+  "competences": {
+    "Techniques": [
+      "Java",
+      "Matrices (tableaux 2D)",
+      "Documentation du code"
+    ],
+    "Savoir-faire": [
+      "Écouter",
+      "Rédiger",
+      "Planifier",
+      "Implémenter",
+      "Documenter",
+      "Travailler en équipe"
+    ]
+  },
+  "bilan": [
+    "Ce projet a été une véritable occasion de démontrer des compétences que je développerai tout au long de ma carrière : répondre au besoin d'un client avec un langage de programmation, puis expliquer clairement le code et son fonctionnement.",
+    "J'en retiens la mise en place d'un planning optimisé pour un travail d'équipe efficace, un sens des responsabilités renforcé, puisqu'il fallait livrer un code fonctionnel conforme aux attentes du client, et une nette progression en Java et dans l'usage des matrices."
+  ]
+}

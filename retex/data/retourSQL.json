@@ -1,0 +1,75 @@
+{
+  "slug": "retourSQL",
+  "titre": "Base de données",
+  "chapeau": "Création d'une base de données relationnelle, du cahier des charges au schéma entité-association, puis aux requêtes SQL de vérification.",
+  "infos": [
+    {
+      "label": "Nature",
+      "valeur": "Projet universitaire"
+    },
+    {
+      "label": "Équipe",
+      "valeur": "En binôme"
+    },
+    {
+      "label": "Technologies",
+      "valeur": [
+        "SQL",
+        "modèle entité-association"
+      ]
+    }
+  ],
+  "contexte": [
+    "Ce travail de groupe, mené en binôme dans le cadre d'un projet universitaire, consistait à créer une base de données à partir d'un cahier des charges."
+  ],
+  "objectifs": [
+    "Concevoir le schéma entité-association de la base à partir du cahier des charges.",
+    "Créer la base, puis la remplir avec des informations pertinentes.",
+    "Respecter les contraintes qui s'appliquent aux données.",
+    "Garantir des données cohérentes, complètes et précises."
+  ],
+  "demarche": [
+    "Analyse du cahier des charges",
+    "Conception du schéma entité-association",
+    "Mise en place des différentes contraintes",
+    "Requêtes SQL pour vérifier le travail"
+  ],
+  "resultat": "Une base de données complète, remplie d'informations pertinentes et conforme aux différentes contraintes qui s'y appliquent.",
+  "figures": [
+    {
+      "src": "../img/retourSQL-mcd.png",
+      "alt": "Schéma entité-association reliant les entités Festival, Concert, Artiste, Lieu, Client, Ville, Pays et Genre.",
+      "legende": "Schéma entité-association de la base : festivals, concerts, artistes, lieux, clients, villes, pays et genres."
+    }
+  ],
+  "difficultes": [
+    {
+      "difficulte": "Établir la cohésion d'équipe avec mon binôme.",
+      "solution": "Nous nous sommes réparti les tâches de manière efficace, pour optimiser notre temps de travail."
+    },
+    {
+      "difficulte": "Garantir la qualité des données : qu'elles soient cohérentes, complètes et précises.",
+      "solution": "Mise en place des contraintes sur la base, puis contrôle du travail par des requêtes SQL."
+    }
+  ],
+  "competences": {
+    "Techniques": [
+      "Langage SQL",
+      "Modélisation entité-association",
+      "Création et remplissage d'une base"
+    ],
+    "Savoir-faire": [
+      "Analyser",
+      "Traiter",
+      "Rédiger",
+      "Vérifier",
+      "Remplir",
+      "Travailler en équipe"
+    ]
+  },
+  "bilan": [
+    "Ce projet m'a permis d'approfondir mes connaissances et de maîtriser le langage SQL. Mes compétences en bases de données ont nettement progressé, en particulier pour créer et remplir une base, et pour élaborer un schéma entité-association.",
+    "Au-delà de l'esprit d'équipe, j'en retiens surtout l'exigence de qualité des données : c'est l'aspect le plus important de ce type de travail."
+  ],
+  "teinte": "#f7efe0"
+}

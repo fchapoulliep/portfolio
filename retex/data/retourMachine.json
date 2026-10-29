@@ -1,0 +1,66 @@
+{
+  "slug": "retourMachine",
+  "titre": "Machine virtuelle",
+  "teinte": "#e8f1ff",
+  "chapeau": "Installation et configuration d'une machine virtuelle sous Linux, comme poste de développement pour une équipe de développeurs.",
+  "infos": [
+    {
+      "label": "Équipe",
+      "valeur": "En équipe"
+    },
+    {
+      "label": "Technologies",
+      "valeur": [
+        "Linux",
+        "Bash",
+        "Git",
+        "Go"
+      ]
+    }
+  ],
+  "contexte": [
+    "Ce projet consistait à installer une machine virtuelle pour permettre à une équipe de développeurs de créer un nouveau jeu en Go."
+  ],
+  "objectifs": [
+    "Installer une machine avec un matériel adapté.",
+    "Configurer un compte administrateur et un compte développeur, chacun avec des droits propres à son statut.",
+    "Installer le langage Go, ainsi qu'un IDE pour l'utiliser.",
+    "Mettre en place Git, pour pouvoir effectuer un git clone.",
+    "Modifier le prompt Bash pour afficher l'état de Git depuis n'importe quel dossier."
+  ],
+  "demarche": [
+    "Compréhension de la demande de l'utilisateur",
+    "Utilisation de Bash",
+    "Usage du terminal Linux",
+    "Application des besoins du client",
+    "Explication orale de la démarche de réflexion"
+  ],
+  "resultat": "Une machine virtuelle fonctionnelle, qui répond aux attentes de l'équipe de développement.",
+  "figures": [
+    {
+      "src": "../img/retourMachine.png",
+      "alt": "Bureau de la machine virtuelle, avec les icônes Trash et Home.",
+      "legende": "Le bureau de la machine virtuelle installée."
+    }
+  ],
+  "competences": {
+    "Techniques": [
+      "Linux",
+      "Bash",
+      "Git",
+      "Installation d'un poste de développement",
+      "Comptes et droits"
+    ],
+    "Savoir-faire": [
+      "Comprendre",
+      "Retranscrire",
+      "Mettre en place",
+      "Visualiser",
+      "Expliquer à l'oral"
+    ]
+  },
+  "bilan": [
+    "Ce projet nous a permis, à mes camarades et moi, de maîtriser l'installation d'une machine selon des caractéristiques bien définies.",
+    "Il m'a aussi fait comprendre le fonctionnement d'un terminal de commande, et comment le modifier pour y afficher des informations utiles. J'en retiens une nette progression dans l'usage de Bash et du prompt."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "retourSWOT",
+  "titre": "Diagnostic SWOT",
+  "teinte": "#eff2e2",
+  "chapeau": "Le diagnostic externe d'une entreprise : présentation, analyse fonctionnelle, forces, faiblesses, opportunités et menaces.",
+  "infos": [
+    {
+      "label": "Équipe",
+      "valeur": "En équipe"
+    },
+    {
+      "label": "Méthodes",
+      "valeur": [
+        "analyse fonctionnelle",
+        "SWOT"
+      ]
+    }
+  ],
+  "contexte": [
+    "Ce projet, mené en collaboration avec mes camarades, consistait à réaliser le diagnostic externe d'une entreprise à partir d'un cahier des charges."
+  ],
+  "objectifs": [
+    "Présenter l'entreprise.",
+    "Réaliser son analyse fonctionnelle.",
+    "Identifier ses forces et ses faiblesses, ainsi que les opportunités et les menaces auxquelles elle est confrontée.",
+    "Fournir des informations vérifiées et pertinentes, pour mieux comprendre son environnement."
+  ],
+  "demarche": [
+    "Analyse du cahier des charges",
+    "Présentation de l'entreprise",
+    "Analyse fonctionnelle",
+    "Analyse des forces et faiblesses (SWOT)",
+    "Documentation et explication du travail réalisé"
+  ],
+  "resultat": "Une présentation approfondie de l'entreprise et des opportunités qui s'offrent à elle, mais aussi des faiblesses auxquelles elle est confrontée.",
+  "competences": {
+    "Méthodes": [
+      "Analyse fonctionnelle",
+      "Analyse SWOT",
+      "Outils de recherche"
+    ],
+    "Savoir-faire": [
+      "Planifier",
+      "Analyser",
+      "Interpréter",
+      "Rechercher",
+      "Présenter",
+      "Travailler en équipe"
+    ]
+  },
+  "bilan": [
+    "Ce projet m'a permis de mieux appréhender ma vision d'une entreprise.",
+    "J'en retiens la mise en place d'un planning optimisé pour travailler en équipe dans de bonnes conditions, et la maîtrise des outils de recherche : il était essentiel de fournir des informations vérifiées et pertinentes pour comprendre l'environnement de l'entreprise."
+  ]
+}

@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retour d'expérience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@400;600;700&display=block" rel="stylesheet">
+<!--
+  Gabarit unique des retours d'expérience de Florian.
+  Usage : retex.html?d=<slug>, qui lit ../data/<slug>.json.
+  Le squelette (ordre et titres des sections) est fixé ici ; une section sans contenu disparaît.
+  Thème clair du design system florian-design : encre #171717, texte secondaire #666666, aucune couleur d'accent.
+-->
+<style>
+  :root {
+    --background: #fafafa;
+    --foreground: #171717;
+    --card: #ffffff;
+    --muted: #f0f0f0;
+    --muted-foreground: #666666;
+    --border: #e6e6e6;
+    --border-strong: #d4d4d4;
+    --radius: 12px;
+    --font-display: "Comfortaa", ui-rounded, system-ui, sans-serif;
+    --font-sans: "Nunito", ui-rounded, system-ui, sans-serif;
+
+    /* Grille de la page A4 */
+    --page-w: 210mm;
+    --page-h: 297mm;
+    --margin-x: 22mm;
+    --margin-top: 20mm;
+    --footer-h: 22mm;
+    --rail: 36mm;
+    --gutter: 8mm;
+
+    /* Densité : la mise en pages repasse en compact si la dernière page est presque vide */
+    --sec-pad: 6mm;
+    --fig-max: 105mm;
+    --head-gap: 13mm;
+  }
+  body.compact { --sec-pad: 4.5mm; --fig-max: 82mm; --head-gap: 10mm; }
+  body.serre { --sec-pad: 3.5mm; --fig-max: 64mm; --head-gap: 8mm; }
+
+  /* Variante teintée : fond doux propre à chaque retex (exception assumée à la règle monochrome, réservée à ces documents).
+     Encre et gris inchangés, contraste AA vérifié sur chaque teinte ; les encarts restent plus clairs pour se détacher. */
+  body.teinte { --border: rgb(23 23 23 / 0.10); --border-strong: rgb(23 23 23 / 0.20); }
+  body.teinte .page { background: var(--tint); }
+  body.teinte .result, body.teinte .panel { background: rgb(255 255 255 / 0.62); border: 1px solid rgb(23 23 23 / 0.06); }
+  body.teinte .panel { border-radius: var(--radius); padding: 4mm 5mm 1mm; }
+  body.teinte .pill { background: rgb(255 255 255 / 0.45); }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--card);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 10.5pt;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-variant-numeric: tabular-nums;
+  }
+  @media screen {
+    body { background: #e6e6e6; padding: 24px 0; }
+    .page { margin: 0 auto 24px; box-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.06); }
+  }
+
+  /* ---------- Page ---------- */
+  .page {
+    width: var(--page-w);
+    height: var(--page-h);
+    padding: var(--margin-top) var(--margin-x) 0;
+    background: var(--card);
+    position: relative;
+    overflow: hidden;
+    break-after: page;
+  }
+  .page:last-child { break-after: auto; }
+  .page-body {
+    height: calc(var(--page-h) - var(--margin-top) - var(--footer-h));
+    overflow: hidden;
+  }
+  .page-footer {
+    position: absolute;
+    left: var(--margin-x);
+    right: var(--margin-x);
+    bottom: 11mm;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6mm;
+    padding-top: 3mm;
+    border-top: 1px solid var(--border);
+    font-size: 8pt;
+    line-height: 1.4;
+    color: var(--muted-foreground);
+  }
+  .page-footer .who { font-weight: 600; color: var(--foreground); }
+  .page-footer .num { font-weight: 600; color: var(--foreground); }
+
+  /* ---------- En-tête (page 1) ---------- */
+  .masthead { padding-bottom: var(--sec-pad); }
+  .letterhead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* viewBox élargi de 6 unités autour du tracé (trait de 7, bouts ronds) et overflow visible : rien n'est rogné. */
+  .letterhead svg { height: 11mm; width: 10.75mm; color: var(--foreground); display: block; overflow: visible; flex: none; }
+  .letterhead .name { text-align: right; font-size: 9pt; line-height: 1.4; }
+  .letterhead .name strong { font-weight: 600; display: block; }
+  .letterhead .name span { color: var(--muted-foreground); }
+
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 5mm;
+    margin-top: var(--head-gap);
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    line-height: 1.4;
+  }
+  .kicker::before, .kicker::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-strong);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 30pt;
+    line-height: 1.1;
+    text-align: center;
+    margin: 6mm 0 0;
+  }
+  .chapeau {
+    max-width: 128mm;
+    margin: 4mm auto 0;
+    text-align: center;
+    font-size: 11.5pt;
+    line-height: 1.55;
+    color: var(--muted-foreground);
+  }
+  .infos {
+    display: flex;
+    justify-content: center;
+    margin: 8mm 0 0;
+    padding: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .infos div {
+    flex: 1 1 auto;
+    padding: 3.5mm 4mm;
+    text-align: center;
+  }
+  .infos div + div { border-left: 1px solid var(--border); }
+  .infos dt {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    line-height: 1.4;
+  }
+  .infos dd { margin: 1mm 0 0; font-size: 10pt; font-weight: 600; line-height: 1.4; }
+  .nowrap { white-space: nowrap; }
+
+  /* ---------- Sections : rail de titres et colonne de texte ---------- */
+  .row {
+    display: grid;
+    grid-template-columns: var(--rail) 1fr;
+    column-gap: var(--gutter);
+    padding-top: 3mm;
+  }
+  .row.first { border-top: 1px solid var(--border); padding-top: var(--sec-pad); }
+  .row.end { padding-bottom: var(--sec-pad); }
+  /* Le bandeau d'informations ferme déjà l'en-tête : pas de second filet juste dessous. */
+  .masthead + .row.first { border-top: 0; }
+  .row h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-size: 11.5pt;
+    line-height: 1.3;
+    margin: 0.6mm 0 0;
+  }
+  .row .body > :first-child { margin-top: 0; }
+  .row .body > :last-child { margin-bottom: 0; }
+  .row.full { grid-template-columns: 1fr; }
+  p { margin: 0 0 2.5mm; }
+
+  ul.dots { list-style: none; margin: 0; padding: 0; }
+  ul.dots li { position: relative; padding-left: 5mm; margin: 0 0 1.5mm; }
+  ul.dots li::before {
+    content: "";
+    position: absolute;
+    left: 0.6mm;
+    top: 0.62em;
+    width: 1.5mm;
+    height: 1.5mm;
+    border-radius: 999px;
+    background: var(--foreground);
+  }
+
+  /* Démarche : pastilles numérotées reliées par un filet (motif de la frise du portfolio) */
+  ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+  ol.steps li {
+    counter-increment: step;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 4mm;
+    padding-bottom: 2.6mm;
+  }
+  ol.steps li::before {
+    content: counter(step);
+    flex: none;
+    width: 6mm;
+    height: 6mm;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: var(--card);
+    display: grid;
+    place-items: center;
+    font-size: 8pt;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+  }
+  ol.steps li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 3mm;
+    top: 6mm;
+    bottom: 0;
+    width: 1px;
+    background: var(--border-strong);
+  }
+  ol.steps li:last-child { padding-bottom: 0; }
+  ol.steps li span { padding-top: 0.2mm; line-height: 1.45; }
+
+  .result {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4mm 5mm;
+  }
+
+  figure { margin: 2mm 0 0; }
+  figure .frame {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 4mm;
+    background: var(--card);
+  }
+  figure img { display: block; width: 100%; height: auto; max-height: var(--fig-max); object-fit: contain; }
+  figcaption {
+    margin-top: 2.5mm;
+    font-size: 8.5pt;
+    line-height: 1.45;
+    color: var(--muted-foreground);
+    text-align: center;
+  }
+  figcaption b { color: var(--foreground); font-weight: 600; }
+
+  /* Difficultés et solutions */
+  table.pairs { width: 100%; border-collapse: collapse; }
+  table.pairs th {
+    text-align: left;
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    padding: 0 0 1.5mm;
+    width: 50%;
+  }
+  table.pairs th + th, table.pairs td + td { padding-left: 6mm; }
+  table.pairs td { vertical-align: top; padding: 2.5mm 0; border-top: 1px solid var(--border); line-height: 1.5; }
+  table.pairs td:first-child { font-weight: 600; }
+
+  /* Compétences */
+  .skills { display: grid; grid-template-columns: 24mm 1fr; row-gap: 3mm; column-gap: 4mm; align-items: baseline; }
+  .skills dt {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+    line-height: 1.4;
+    padding-top: 1.2mm;
+  }
+  .skills dd { margin: 0; display: flex; flex-wrap: wrap; gap: 1.8mm; }
+  .pill {
+    display: inline-block;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    padding: 0.7mm 3mm 0.9mm;
+    font-size: 9pt;
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div id="pages"></div>
+
+<script>
+(async () => {
+  // Squelette commun : ordre et titres des sections. Une clé absente ou vide supprime la section.
+  const SECTIONS = [
+    { key: 'contexte', titre: 'Contexte' },
+    { key: 'objectifs', titre: 'Objectifs' },
+    { key: 'demarche', titre: 'Démarche' },
+    { key: 'resultat', titre: 'Résultat' },
+    { key: 'difficultes', titre: 'Difficultés et solutions' },
+    { key: 'competences', titre: 'Compétences mobilisées' },
+    { key: 'bilan', titre: 'Bilan' },
+  ];
+  const AUTEUR = 'Florian Chapoullié-Pino';
+  const MONOGRAM = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 118 120" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="FC"><path d="M 102.30 31.86 A 50 50 0 1 0 102.30 96.14 M 50 50 V 92 M 50 50 H 112 M 50 70 H 84"/></svg>';
+
+  const params = new URLSearchParams(location.search);
+  const slug = params.get('d') || 'retourSQL';
+  const variant = params.get('v') === 'teinte' ? 'teinte' : 'neutre';
+  const data = await (await fetch('../data/' + slug + '.json', { cache: 'no-store' })).json();
+  document.title = 'Retour d\'expérience : ' + data.titre;
+  if (variant === 'teinte' && data.teinte) { document.body.classList.add('teinte'); document.body.style.setProperty('--tint', data.teinte); }
+
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const el = (html) => { const d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstElementChild; };
+  const has = (v) => v != null && !(Array.isArray(v) && v.length === 0) && !(typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length === 0) && v !== '';
+
+  // ---------- Blocs : chacun est insécable ; une section = une ligne titre + premier bloc, puis des lignes de suite ----------
+  const blocks = [];
+
+  const infos = (data.infos || []).filter((i) => has(i.valeur));
+  blocks.push(el(`
+    <header class="masthead">
+      <div class="letterhead">${MONOGRAM}<div class="name"><strong>${AUTEUR}</strong><span>Portfolio</span></div></div>
+      <div class="kicker">Retour d'expérience</div>
+      <h1>${esc(data.titre)}</h1>
+      ${has(data.chapeau) ? `<p class="chapeau">${esc(data.chapeau)}</p>` : ''}
+      ${infos.length ? `<dl class="infos">${infos.map((i) => `<div><dt>${esc(i.label)}</dt><dd>${Array.isArray(i.valeur) ? i.valeur.map((x) => `<span class="nowrap">${esc(x)}</span>`).join(', ') : esc(i.valeur)}</dd></div>`).join('')}</dl>` : ''}
+    </header>`));
+
+  const parts = {
+    contexte: (v) => v.map((p) => `<p>${esc(p)}</p>`),
+    objectifs: (v) => [`<ul class="dots">${v.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>`],
+    demarche: (v) => [`<ol class="steps">${v.map((x) => `<li><span>${esc(x)}</span></li>`).join('')}</ol>`],
+    resultat: (v) => [`<div class="result">${esc(v)}</div>`],
+    difficultes: (v) => [`<div class="panel"><table class="pairs"><thead><tr><th>Difficulté</th><th>Solution</th></tr></thead><tbody>${v.map((x) => `<tr><td>${esc(x.difficulte)}</td><td>${esc(x.solution)}</td></tr>`).join('')}</tbody></table></div>`],
+    competences: (v) => [`<dl class="skills">${Object.entries(v).filter(([, l]) => l && l.length).map(([k, l]) => `<dt>${esc(k)}</dt><dd>${l.map((s) => `<span class="pill">${esc(s)}</span>`).join('')}</dd>`).join('')}</dl>`],
+    bilan: (v) => v.map((p) => `<p>${esc(p)}</p>`),
+  };
+
+  let figNo = 0;
+  const figureRow = (f) => {
+    figNo++;
+    return el(`<div class="row full"><figure><div class="frame"><img src="${esc(f.src)}" alt="${esc(f.alt || f.legende || '')}"></div>${has(f.legende) ? `<figcaption><b>Figure ${figNo}.</b> ${esc(f.legende)}</figcaption>` : ''}</figure></div>`);
+  };
+
+  for (const s of SECTIONS) {
+    const v = data[s.key];
+    if (!has(v)) continue;
+    const titre = (data.titres && data.titres[s.key]) || s.titre;
+    const items = parts[s.key](v);
+    blocks.push(el(`<section class="row first"><div><h2>${esc(titre)}</h2></div><div class="body">${items.join('')}</div></section>`));
+    // Les figures suivent le résultat, qu'elles illustrent.
+    if (s.key === 'resultat') (data.figures || []).forEach((f) => blocks.push(figureRow(f)));
+  }
+  if (!has(data.resultat)) (data.figures || []).forEach((f) => blocks.push(figureRow(f)));
+  // Espace sous le dernier bloc de chaque section, avant le filet suivant.
+  blocks.forEach((b, i) => { const n = blocks[i + 1]; if (b.classList.contains('row') && (!n || n.classList.contains('first'))) b.classList.add('end'); });
+
+  // ---------- Attente des polices et des images avant de mesurer ----------
+  await document.fonts.ready;
+  await Promise.all([document.fonts.load('700 16px Comfortaa'), document.fonts.load('400 14px Nunito'), document.fonts.load('600 14px Nunito'), document.fonts.load('700 14px Nunito')]);
+  await Promise.all(blocks.flatMap((b) => [...b.querySelectorAll('img')]).map((img) => img.decode().catch(() => {})));
+
+  // ---------- Mise en pages ----------
+  const root = document.getElementById('pages');
+  let pages = [];
+  const newPage = () => {
+    const page = el(`<div class="page"><div class="page-body"></div><footer class="page-footer"><span class="who">${AUTEUR}</span><span class="what">Retour d'expérience : ${esc(data.titreCourt || data.titre)}</span><span class="num"></span></footer></div>`);
+    root.appendChild(page);
+    pages.push(page);
+    return page.querySelector('.page-body');
+  };
+  const fillOf = (p) => {
+    const b = p.querySelector('.page-body');
+    const last = b.lastElementChild;
+    const used = last ? last.getBoundingClientRect().bottom - b.getBoundingClientRect().top : 0;
+    return Math.round((used / b.clientHeight) * 100);
+  };
+  const layout = () => {
+    root.innerHTML = '';
+    pages = [];
+    blocks.forEach((b) => b.removeAttribute('style'));
+    let body = newPage();
+    for (const b of blocks) {
+      body.appendChild(b);
+      if (body.scrollHeight > body.clientHeight + 1 && body.children.length > 1) {
+        body.removeChild(b);
+        body = newPage();
+        body.appendChild(b);
+      }
+      // En haut de page, une section ne porte ni filet ni marge.
+      if (body.firstElementChild === b && b.classList.contains('row')) { b.style.borderTop = '0'; b.style.paddingTop = '0'; }
+    }
+    pages.forEach((p, i) => { p.querySelector('.num').textContent = `${i + 1} / ${pages.length}`; });
+    return { pages: pages.length, last: fillOf(pages[pages.length - 1]) };
+  };
+
+  // Dernière page presque vide : on resserre, et on garde le compact seulement s'il économise une page.
+  let res = layout();
+  let density = 'normal';
+  if (res.pages > 1 && res.last < 40) {
+    for (const level of ['compact', 'serre']) {
+      document.body.classList.add(level);
+      const t = layout();
+      document.body.classList.remove(level);
+      if (t.pages < res.pages) { density = level; break; }
+    }
+    if (density !== 'normal') document.body.classList.add(density);
+    res = layout();
+  }
+
+  // ---------- Rapport pour le script de génération ----------
+  window.__layout = {
+    slug,
+    pages: pages.length,
+    density,
+    variant,
+    fill: pages.map(fillOf),
+    images: [...document.images].map((i) => i.complete && i.naturalWidth > 0),
+    overflow: pages.some((p) => { const b = p.querySelector('.page-body'); return b.scrollHeight > b.clientHeight + 1; }),
+    fonts: {
+      comfortaa: document.fonts.check('700 16px Comfortaa'),
+      nunito: document.fonts.check('400 14px Nunito'),
+    },
+  };
+  window.__ready = true;
+})();
+</script>
+</body>
+</html>

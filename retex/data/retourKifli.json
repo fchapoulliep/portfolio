@@ -1,0 +1,56 @@
+{
+  "slug": "retourKifli",
+  "titre": "Chiffrement de Kifli",
+  "teinte": "#e1f4fb",
+  "chapeau": "Comprendre, implémenter en Python et optimiser l'algorithme de chiffrement de Kifli.",
+  "infos": [
+    {
+      "label": "Technologies",
+      "valeur": [
+        "Python"
+      ]
+    }
+  ],
+  "contexte": [
+    "Ce projet consistait à comprendre le fonctionnement de l'algorithme de chiffrement de Kifli, puis à l'implémenter en Python à partir d'un cahier des charges."
+  ],
+  "objectifs": [
+    "Comprendre le fonctionnement de l'algorithme de chiffrement de Kifli.",
+    "L'implémenter en Python.",
+    "Optimiser l'implémentation à l'aide de benchmarks."
+  ],
+  "demarche": [
+    "Analyse du cahier des charges",
+    "Compréhension de l'algorithme",
+    "Implémentation",
+    "Tests",
+    "Benchmarks pour optimiser"
+  ],
+  "resultat": "Un algorithme de chiffrement optimisé et sécurisé.",
+  "difficultes": [
+    {
+      "difficulte": "Comprendre le fonctionnement de l'algorithme de Kifli, puis l'implémenter en Python.",
+      "solution": "Une démarche par étapes : compréhension de l'algorithme, implémentation, tests, puis benchmarks pour optimiser."
+    }
+  ],
+  "competences": {
+    "Techniques": [
+      "Python",
+      "Chiffrement",
+      "Chaînes de caractères",
+      "Gestion des fichiers",
+      "Benchmark"
+    ],
+    "Savoir-faire": [
+      "Planifier",
+      "Analyser",
+      "Interpréter",
+      "Rechercher",
+      "Comparer"
+    ]
+  },
+  "bilan": [
+    "Ce projet m'a permis de développer mes compétences en Python et de comprendre le fonctionnement du chiffrement de Kifli.",
+    "Mes compétences en Python ont nettement progressé, notamment pour la manipulation des chaînes de caractères et la gestion des fichiers."
+  ]
+}

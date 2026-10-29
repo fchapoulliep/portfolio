@@ -1,0 +1,62 @@
+{
+  "slug": "retourSymfony",
+  "titre": "Application full-stack",
+  "teinte": "#f2edfd",
+  "chapeau": "Le développement d'une application full-stack avec le framework Symfony, en méthode Scrum.",
+  "infos": [
+    {
+      "label": "Équipe",
+      "valeur": "Équipe Scrum"
+    },
+    {
+      "label": "Technologies",
+      "valeur": [
+        "Symfony"
+      ]
+    },
+    {
+      "label": "Méthode",
+      "valeur": "Scrum"
+    }
+  ],
+  "contexte": [
+    "Ce projet consistait à développer une application full-stack dans un cadre Scrum. L'application devait répondre aux attentes du Product Owner."
+  ],
+  "objectifs": [
+    "Développer une application full-stack fonctionnelle.",
+    "Répondre aux attentes du Product Owner.",
+    "Appliquer la méthode Scrum : estimation, répartition des tâches, critères d'acceptation et rétrospective."
+  ],
+  "demarche": [
+    "Mise en place du cadre Scrum",
+    "Estimation du travail",
+    "Répartition des tâches",
+    "Élaboration des critères d'acceptation",
+    "Présentation orale du travail lors d'une rétrospective"
+  ],
+  "resultat": "Une application full-stack fonctionnelle, qui répond aux attentes du Product Owner.",
+  "figures": [
+    {
+      "src": "../img/retourSymfony.png",
+      "alt": "Écran de l'application, avec une barre de recherche et des filtres, les séries suivies et un catalogue d'affiches.",
+      "legende": "Un écran de l'application : recherche, séries suivies et catalogue."
+    }
+  ],
+  "competences": {
+    "Techniques": [
+      "Symfony",
+      "Développement full-stack",
+      "Méthode Scrum"
+    ],
+    "Savoir-faire": [
+      "Comprendre",
+      "Retranscrire",
+      "S'organiser",
+      "Visualiser",
+      "Expliquer à l'oral"
+    ]
+  },
+  "bilan": [
+    "Ce projet m'a fait progresser dans la méthodologie agile et dans l'usage du framework Symfony."
+  ]
+}
