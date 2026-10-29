@@ -252,13 +252,13 @@ const ContactPage: React.FC = () => {
           onSubmit={handleMailSending}
           noValidate
           aria-labelledby="contact-form-title"
-          className="animate-rise rounded-lg border border-border bg-card p-6 shadow-card md:p-8"
+          className="animate-rise rounded-lg border border-border bg-card p-5 shadow-card md:p-8"
         >
-          <h2 id="contact-form-title" className="text-xl md:text-2xl">
+          <h2 id="contact-form-title" className="text-lg md:text-2xl">
             Envoyez un message ici
           </h2>
 
-          <div className="mt-6 space-y-5">
+          <div className="mt-5 space-y-4 md:mt-6 md:space-y-5">
             <div>
               <label htmlFor="name" className="text-sm font-semibold">
                 Nom
@@ -312,12 +312,12 @@ const ContactPage: React.FC = () => {
                 id="message"
                 name="message"
                 required
-                rows={5}
+                rows={4}
                 maxLength={MESSAGE_MAX_LENGTH}
                 placeholder="Votre message"
                 value={values.message}
                 onChange={update("message")}
-                className={cn(fieldClasses, "mt-1.5 block min-h-32 resize-y py-2.5")}
+                className={cn(fieldClasses, "mt-1.5 block min-h-28 resize-y py-2.5 md:min-h-32")}
                 {...errorProps("message")}
               />
               {fieldError("message")}
