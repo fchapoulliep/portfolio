@@ -451,6 +451,14 @@ footer {
     overflow: hidden;
   }
 
+  /* Each title rule spans the text column, not the whole screen */
+  .portfolio-experiences .portfolio-experiences-divider {
+    box-sizing: border-box;
+    width: calc(100% - 2 * var(--page-gutter));
+    max-width: 640px;
+    min-width: 0;
+  }
+
   /* The experiences follow each other with the scroll alone: the steps bar
      took 69 px more under the top bar for nine dots and one title */
   .portfolio-experiences-steps,
