@@ -26,7 +26,12 @@
  */
 .portfolio-welcome h1 {
   font-size: var(--title-display);
+  line-height: 1.2;
   margin: 0;
+}
+
+.portfolio-welcome h1 .nowrap {
+  white-space: nowrap;
 }
 
 .portfolio-welcome p {
@@ -379,14 +384,34 @@ footer {
  * Media query styles for screens with a maximum width of 768px.
  */
 @media (max-width: 768px) {
+  /* The whole first screen, between the two bars and the side margins:
+     no experience title peeks half hidden under the bottom bar */
   .portfolio-welcome {
+    position: relative;
+    box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
-    height: 80vh;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: var(--nav-height) var(--page-gutter) var(--bottom-bar-space);
+  }
+
+  .portfolio-welcome-text {
+    max-width: 100%;
+    margin-bottom: 0;
   }
 
   .arrow-experiences {
-    bottom: 10%;
+    bottom: calc(var(--bottom-bar-space) + 8px);
+  }
+
+  .arrow-experiences .arrow-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
   }
 
   /* The about panel spans the page between the side margins */
@@ -395,6 +420,14 @@ footer {
     right: var(--page-gutter);
     padding: 20px;
     transform: translateY(-50%);
+    text-align: left;
+  }
+
+  .portfolio-welcome-about p {
+    margin: 0;
+    font-size: var(--text-md);
+    font-style: normal;
+    line-height: var(--leading-body);
   }
 
   .portfolio-welcome-about.visible {
@@ -403,7 +436,7 @@ footer {
   }
 
   .arrow-experiences img {
-    margin-top: 20px;
+    margin-top: 0;
     height: 30px;
     width: 30px;
   }

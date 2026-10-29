@@ -417,7 +417,10 @@ const PortfolioPage: React.FC = () => {
           </p>
         </div>
         <div className="portfolio-welcome-text">
-          <h1>Florian Chapoullié-Pino</h1>
+          {/* On a narrow phone the name breaks after the first name, never at the hyphen */}
+          <h1>
+            Florian <span className="nowrap">Chapoullié-Pino</span>
+          </h1>
           <p>Développeur Full-Stack</p>
           <button
             className="portfolio-welcome-button"
