@@ -36,7 +36,7 @@
   color: #ffffff;
   justify-content: space-around;
   align-items: center;
-  height: 100px;
+  height: var(--nav-height);
   position: fixed;
   z-index: 100;
   /* Fades in and out with the page scroll */
@@ -223,7 +223,7 @@
 /* Everything under the bar, bottom bar included; a click on it closes the menu */
 .mobile-menu-backdrop {
   position: fixed;
-  inset: 100px 0 0 0;
+  inset: var(--nav-height) 0 0 0;
   z-index: 1100;
   background: rgba(0, 0, 0, 0.6);
 }

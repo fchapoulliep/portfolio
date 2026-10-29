@@ -6,7 +6,7 @@
  * Styles for the welcome section of the portfolio page.
  */
 .portfolio-welcome {
-  height: calc(100vh - 100px);
+  height: calc(100vh - var(--nav-height));
   min-height: 200px;
   background-color: #171717;
   background-image: url("../images/monogram-watermark.svg");
@@ -18,7 +18,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
-  padding-top: 100px;
+  padding-top: var(--nav-height);
 }
 
 /**
@@ -193,7 +193,7 @@
 .portfolio-experiences-steps {
   display: none;
   position: fixed;
-  top: 100px;
+  top: var(--nav-height);
   align-items: center;
   justify-content: center;
   width: 100%;

@@ -19,6 +19,9 @@
 
   --leading-body: 1.5;
 
+  /* Height of the fixed top bar, which every page leaves free at its top */
+  --nav-height: 100px;
+
   /* Side margin of the page content on phones */
   --page-gutter: 20px;
 
@@ -29,6 +32,8 @@
 @media (max-width: 768px) {
   :root {
     --bottom-bar-space: calc(56px + env(safe-area-inset-bottom));
+    /* A slimmer bar on phones, so the text gets most of the screen */
+    --nav-height: 64px;
   }
 }
 
