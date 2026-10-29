@@ -1,0 +1,109 @@
+<!--
+  This is the main HTML file for the portfolio website.
+  It contains the structure and content of the web page.
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Meta tags -->
+    <meta charset="utf-8" />
+    <link rel="icon" href="/portfolio/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#fafafa"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#121212"
+    />
+
+    <!-- Theme set before the first paint: the visitor's choice, or else the system's -->
+    <script>
+      (function () {
+        var dark;
+        try {
+          var stored = localStorage.getItem("theme");
+          dark = stored
+            ? stored === "dark"
+            : matchMedia("(prefers-color-scheme: dark)").matches;
+        } catch (e) {
+          dark = true;
+        }
+        document.documentElement.classList.toggle("dark", dark);
+      })();
+    </script>
+
+    <!-- Fonts of the design system: Comfortaa for the titles, Nunito for the text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@400;600;700&display=swap"
+    />
+    <meta
+      name="description"
+      content="Explorez le portfolio de Florian Chapoullié-Pino, un développeur full-stack en devenir étudiant à l'Université de La Rochelle. Découvrez des projets, des compétences et bien plus encore&nbsp;!"
+    />
+
+    <!-- SEO tags -->
+    <meta
+      name="keywords"
+      content="Florian Chapoullié-Pino, portfolio, développeur, full-stack, web, informatique, La Rochelle, étudiant, projets, compétences"
+    />
+    <meta name="author" content="Florian Chapoullié-Pino" />
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Portfolio de Florian Chapoullié-Pino" />
+    <meta
+      property="og:description"
+      content="Explorez le portfolio de Florian Chapoullié-Pino, un développeur full-stack en devenir étudiant à l'Université de La Rochelle. Découvrez des projets, des compétences et bien plus encore&nbsp;!"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://fchapoulliep.github.io/portfolio/"
+    />
+    <meta
+      property="og:image"
+      content="https://fchapoulliep.github.io/portfolio/og.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:site_name"
+      content="Portfolio de Florian Chapoullié-Pino"
+    />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Canonical link -->
+    <link rel="canonical" href="https://fchapoulliep.github.io/portfolio/" />
+
+    <!-- Apple touch icon -->
+    <link
+      rel="apple-touch-icon"
+      href="/portfolio/apple-icon.png"
+    />
+
+    <!-- Manifest file -->
+    <link rel="manifest" href="/portfolio/manifest.json" />
+
+    <!-- Page title -->
+    <title>Portfolio de Florian Chapoullié-Pino</title>
+    <script type="module" crossorigin src="/portfolio/assets/index-B7R7O_z9.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-DQfcHkBJ.css">
+  </head>
+  <body>
+    <!-- JavaScript fallback message -->
+    <noscript>Activez JavaScript pour afficher ce portfolio.</noscript>
+
+    <!-- Root element -->
+    <div id="root"></div>
+  </body>
+</html>
