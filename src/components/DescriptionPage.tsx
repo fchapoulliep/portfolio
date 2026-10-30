@@ -5,7 +5,9 @@
  */
 
 import React from "react";
+import { ArrowUpRight } from "lucide-react";
 
+import { buttonClasses } from "./ui/button";
 import Watermark from "./brand/Watermark";
 import SectionTitle from "./brand/SectionTitle";
 import ZoomableImage from "./ZoomableImage";
@@ -26,6 +28,8 @@ interface PersonalProject {
   description: string;
   image: string;
   alt: string;
+  /** The live sites, when the project has one to show */
+  links?: { label: string; href: string }[];
 }
 
 const personalProjects: PersonalProject[] = [
@@ -49,6 +53,12 @@ const personalProjects: PersonalProject[] = [
       "Pokédex 3D des 151 Pokémon originaux, réalisé avec React et Three.js, avec des modèles interactifs rendus avec Blender.",
     image: pokedex3d,
     alt: "Capture du 3D Pokédex : modèle 3D de Venusaur dans une forêt",
+    links: [
+      {
+        label: "Ouvrir le 3D Pokédex",
+        href: "https://fchapoulliep.github.io/3dpokedex/",
+      },
+    ],
   },
   {
     title: "DragonDex, NarutoDex, MarioDex et BleachDex 3D",
@@ -56,6 +66,12 @@ const personalProjects: PersonalProject[] = [
       "Encyclopédies 3D de personnages des univers Dragon Ball, Naruto, Super Mario et Bleach, sur la même base React et Three.js, avec des modèles interactifs rendus avec Blender.",
     image: dex3dMosaic,
     alt: "Captures des encyclopédies 3D Dragon Ball, Naruto, Super Mario et Bleach",
+    links: [
+      { label: "DragonDex", href: "https://fchapoulliep.github.io/dragondex3d/" },
+      { label: "NarutoDex", href: "https://fchapoulliep.github.io/narutodex3d/" },
+      { label: "MarioDex", href: "https://fchapoulliep.github.io/mariodex3d/" },
+      { label: "BleachDex", href: "https://fchapoulliep.github.io/bleachdex3d/" },
+    ],
   },
 ];
 
@@ -91,18 +107,42 @@ const DescriptionPage: React.FC = () => (
         {personalProjects.map((project) => (
           <li
             key={project.title}
-            className="overflow-hidden rounded-lg border border-border bg-card shadow-card transition-[border-color,transform] duration-200 ease-soft hover:-translate-y-0.5 hover:border-border-strong"
+            className="flex flex-col overflow-hidden rounded-lg border border-border bg-card shadow-card transition-[border-color,transform] duration-200 ease-soft hover:-translate-y-0.5 hover:border-border-strong"
           >
             <ZoomableImage
               src={project.image}
               alt={project.alt}
               className="aspect-[1200/572] border-b border-border"
             />
-            <div className="p-5 md:p-6">
+            <div className="flex flex-1 flex-col p-5 md:p-6">
               <h3 className="text-lg md:text-xl">{project.title}</h3>
               <p className="mt-2 leading-relaxed text-muted-foreground">
                 {project.description}
               </p>
+              {/* At the bottom of the card, so that buttons line up from one card to the next;
+                  several sites share a two-column grid, which never leaves one button alone on a row */}
+              {project.links && (
+                <div
+                  className={
+                    project.links.length > 1
+                      ? "mt-auto grid grid-cols-2 gap-2 pt-6"
+                      : "mt-auto flex pt-6"
+                  }
+                >
+                  {project.links.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={buttonClasses({ variant: "outline" })}
+                    >
+                      {link.label}
+                      <ArrowUpRight strokeWidth={1.75} />
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </li>
         ))}
