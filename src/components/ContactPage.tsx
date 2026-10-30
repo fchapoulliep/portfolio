@@ -317,7 +317,7 @@ const ContactPage: React.FC = () => {
                 placeholder="Votre message"
                 value={values.message}
                 onChange={update("message")}
-                className={cn(fieldClasses, "mt-1.5 block min-h-28 resize-y py-2.5")}
+                className={cn(fieldClasses, "mt-1.5 block min-h-28 max-h-56 resize-y py-2.5")}
                 {...errorProps("message")}
               />
               {fieldError("message")}
