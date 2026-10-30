@@ -5,7 +5,7 @@
  * @see {@link https://reactrouter.com/}
  */
 
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import {
   BrowserRouter as Router,
   Navigate,
@@ -20,6 +20,7 @@ import SiteFooter from "./SiteFooter";
 import PortfolioPage from "./PortfolioPage";
 import DescriptionPage from "./DescriptionPage";
 import ContactPage from "./ContactPage";
+import { PAGES } from "../pageMeta";
 
 /**
  * A new page opens at its top, at once
@@ -28,6 +29,18 @@ const ScrollToTopOnNavigate: React.FC = () => {
   const { pathname } = useLocation();
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
+/**
+ * The tab title follows navigation; the built HTML of each page already has it
+ */
+const PageTitle: React.FC = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const path = pathname.replace(/^\/|\/$/g, "");
+    document.title = (PAGES.find((page) => page.path === path) ?? PAGES[0]).title;
   }, [pathname]);
   return null;
 };
@@ -42,6 +55,7 @@ const App: React.FC = () => (
     future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
   >
     <ScrollToTopOnNavigate />
+    <PageTitle />
     <Cursor />
     <div className="flex min-h-svh flex-col">
       <NavigationBar />
